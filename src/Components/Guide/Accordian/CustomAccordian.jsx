@@ -1,0 +1,97 @@
+import React, { useState } from "react";
+//
+import { Accordion, AccordionHeader, AccordionBody } from "@material-tailwind/react";
+import { HiOutlineLockClosed } from "react-icons/hi2";
+//
+const CUSTOM_ANIMATION = {
+   mount: { scale: 1 },
+   unmount: { scale: 0.9 },
+};
+
+function Icon({ openAcc }) {
+   return (
+      <div>
+         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className={`${openAcc ? "rotate-180" : ""} h-10 w-10 transition-transform`}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+         </svg>
+      </div>
+   );
+}
+//
+
+export default function CustomAccordian({ id, title, des, icon, iconColor, iconBgColor, bgColor, state, fontTitle, pe, isRightsideIcon, stylePageAccor, isOpenAcc, episode, ex, marginTit }) {
+   const [openAcc, setOpenAcc] = useState(isOpenAcc);
+   const handleOpenAcc = () => setOpenAcc((cur) => !cur);
+
+   //
+   return (
+      <div className={`  ${bgColor}   ${stylePageAccor} text-dir`}>
+         {isRightsideIcon ? (
+            <div
+               className={`flex lg:col-span-1 xl:my-auto mx-auto mt-[20px]  justify-center md:justify-end items-center w-[94px] h-[55px] lg:w-[51px] lg:h-[94px]  lg:mb-0   rounded-full relative   ${iconBgColor}`}
+            >
+               <div style={{ transform: "scaleX(-1) " }} className={`${iconColor} -translate-y-1/2 lg:translate-y-0 absolute right-[28px] top-10 md:top-auto `}>
+                  {icon}
+               </div>
+            </div>
+         ) : (
+            ""
+         )}
+
+         <div className={` md:mt-3 mt-9 lg:${pe} lg:col-span-6  xl:ms-0 my-auto `}>
+            <Accordion
+               open={openAcc}
+               icon={
+                  <div className=" flex gap-x-5 ">
+                     <span className=" !font-thin !text-[13px] !my-auto text-gray-color ">{state}</span>
+                     <div className={` my-auto `}>
+                        <Icon openAcc={openAcc}></Icon>
+                     </div>
+                  </div>
+               }
+               animate={CUSTOM_ANIMATION}
+               className={` block ${ex} `}
+               onClick={handleOpenAcc}
+            >
+               <div>
+                  <AccordionHeader
+                     className={`border-0 flex transition-colors !text-white danaBold ${fontTitle}  text-[17px] font-extrabold !lg:ms-[5px] mx-auto  rounded-t-2xl 
+                     ${!isRightsideIcon ? (openAcc ? "bg-limon-color !text-gray-color " : "") : ""}`}
+                  >
+                     <p className={`${marginTit} `}>{title}</p>
+                  </AccordionHeader>
+               </div>
+               {isRightsideIcon ? (
+                  <div>
+                     <AccordionBody className={` transition-colors  lg:!text-[15px] text-gray-color danaBold  md:font-extrabold lg:ms-[4px]   `}>{des}</AccordionBody>
+                  </div>
+               ) : (
+                  ""
+               )}
+               {!isRightsideIcon ? (
+                  <div>
+                     {episode.map((item) => (
+                        <AccordionBody className={` borderAccordItems transition-colors  lg:!text-[15px] text-white danaMedium `}>
+                           <div className=" flex justify-between cursor-pointer hover:text-limon-color ">
+                              <div className=" flex gap-x-6 ms-6 py-[4px] ">
+                                 <div className=" w-[32px] h-[28px] flex rounded-lg " style={{ backgroundColor: "#ffffff1a" }}>
+                                    <span className=" !m-auto">{item.id}</span>
+                                 </div>
+                                 <span className=" my-auto "> {item.title}</span>
+                              </div>
+                              <div className=" flex gap-x-3">
+                                 <span className=" mt-3">06:25</span>
+                                 <HiOutlineLockClosed className=" my-auto me-6" style={{ fontSize: 28 }} />
+                              </div>
+                           </div>
+                        </AccordionBody>
+                     ))}
+                  </div>
+               ) : (
+                  ""
+               )}
+            </Accordion>
+         </div>
+      </div>
+   );
+}

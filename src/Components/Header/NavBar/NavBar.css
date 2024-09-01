@@ -1,0 +1,36 @@
+.bg-white {
+   background-color: rgb(36, 42, 56) !important;
+   box-sizing: border-box !important;
+   border-color: #fbfb73 !important;
+   border-left-width: 0 !important;
+   border-right-width: 0 !important;
+   border-top-width: 1px !important;
+   border-bottom-width: 1px !important;
+}
+a :hover {
+   /* color: rgb(34 197 94) !important; */
+   transition: 0.1s !important;
+}
+.leading-tight {
+   background-color: unset !important;
+}
+.grid-cols-3 {
+   display: block !important;
+}
+.text-start:hover {
+   background-color: #fbfb73 !important;
+   color: rgb(36, 42, 56) !important;
+}
+.text-start {
+   padding: 0px !important;
+   color: white !important;
+   background-color: unset !important;
+}
+.active {
+   background-color: #fbfb73;
+   border-radius: 5px;
+   color: rgb(36, 42, 56) !important;
+}
+.darki:hover {
+   color: rgb(36, 42, 56) !important;
+}

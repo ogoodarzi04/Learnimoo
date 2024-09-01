@@ -1,0 +1,13 @@
+.btnHover {
+   background-color: unset;
+}
+.btnHover a {
+   color: #fbfb73;
+}
+.btnHover:hover a {
+   color: #c2c2c2;
+}
+.btnHover:hover {
+   background-color: #fbfb73;
+   /* color: rgb(60, 153, 252); */
+}
