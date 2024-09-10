@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDom from "react-dom";
 import { Drawer, Button, Typography, IconButton, List, ListItem, ListItemPrefix, ListItemSuffix, Chip } from "@material-tailwind/react";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
@@ -11,6 +11,22 @@ import "./SideBar.css";
 import { NavLink } from "react-router-dom";
 export function SideBar(props) {
    const [open, setOpen] = useState(true);
+   //
+   const [theme, setTheme] = useState(() => {
+      const initialTheme = localStorage.getItem("theme");
+      return initialTheme ? initialTheme : "w";
+   });
+   function toggleTheme() {
+      setTheme((prevTheme) => {
+         const newTheme = prevTheme === "w" ? "dark" : "w";
+         localStorage.setItem("theme", newTheme);
+         return newTheme;
+      });
+   }
+   useEffect(() => {
+      document.querySelector("body").className = ` ${theme}`;
+   }, [theme]);
+   //
    return ReactDom.createPortal(
       <>
          <Drawer open={open} placement="right" className="px-[17px] dark:bg-white bg-header-color">
@@ -26,7 +42,7 @@ export function SideBar(props) {
                   <button
                      className=" lefSide-icons2 bg-icon-color text-white flex dark:bg-light-theme-color dark:!text-text-gray-color"
                      onClick={() => {
-                        document.querySelector("body").classList.toggle("dark");
+                        toggleTheme();
                      }}
                   >
                      <LightModeOutlinedIcon style={{ fontSize: 23 }} />
