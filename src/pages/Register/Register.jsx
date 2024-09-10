@@ -49,10 +49,10 @@ export default function Register() {
 
    return (
       <>
-         <div className="   h-screen py-40 bg-transparent">
-            {/* <div className="hidden lg:block absolute top-0 left-0 w-[300px] h-[300px] bg-sabz-color opacity-30 blur-[120px] rounded-full"></div> */}
-            <div className="Register text-white ">
-               <div className="logo-footer flex gap-x-7 mx-auto w-max mb-12 text-white">
+         <div className="   h-screen py-40 bg-transparent ">
+            <div className="hidden lg:block absolute top-0 left-0 w-[300px] h-[300px] bg-sabz-color opacity-30 blur-[120px] rounded-full"></div>
+            <div className="Register text-white dark:!text-black  ">
+               <div className="logo-footer flex gap-x-7 mx-auto w-max mb-12 text-white dark:!text-black ">
                   <div className="logo-img my-auto ">
                      <img src="/img/slazzer-edit-image (2)_prev_ui.png" alt="" className=" md:h-[75px] md:w-[105px] h-[40px] w-[60px] mt-3 " />
                   </div>
@@ -61,8 +61,8 @@ export default function Register() {
                      <i className=" text-[19px]">learnimoo.ir</i>
                   </div>
                </div>
-               <Card className="mx-auto w-full max-w-[335px] px-3 py-1.5 h-[468px]   shadow-none rounded-[12px]">
-                  <CardBody className="flex flex-col gap-8 text-white ">
+               <Card className="mx-auto w-full max-w-[335px] px-3 py-1.5 h-[468px]  shadow-none rounded-[12px] dark:!bg-white">
+                  <CardBody className="flex flex-col gap-8 text-white dark:!text-gray-800">
                      <Typography className=" text-[20px] danaBold text-center">عضویت</Typography>
                      <Typography className=" danaDemiBold text-[16.5px] flex mx-auto" variant="paragraph">
                         قبلا ثبت نام کرده اید؟
@@ -77,7 +77,7 @@ export default function Register() {
                            element="input"
                            id="username"
                            autoFocus={true}
-                           className="withColor  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full"
+                           className="withColor  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full dark:!bg-light-theme-color"
                            type="text"
                            value={inputs?.username.value}
                            placeholder="نام کاربری "
@@ -91,7 +91,7 @@ export default function Register() {
                            <Input
                               element="input"
                               id="phoneNumber"
-                              className="withColor  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full"
+                              className="withColor  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full dark:!bg-light-theme-color"
                               type="text"
                               value={inputs?.phoneNumber.value}
                               placeholder="شماره موبایل"
@@ -107,7 +107,7 @@ export default function Register() {
                               // value={}
                               id="email"
                               element="input"
-                              className="withColor  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full"
+                              className="withColor  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full dark:!bg-light-theme-color"
                               type="text"
                               value={inputs?.email.value}
                               placeholder="آدرس ایمیل"
@@ -122,7 +122,7 @@ export default function Register() {
                            <Input
                               id="password"
                               element="input"
-                              className="withColor  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full"
+                              className="withColor  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full dark:!bg-light-theme-color"
                               type="password"
                               placeholder="رمز عبور"
                               value={inputs?.password.value}
@@ -140,16 +140,17 @@ export default function Register() {
                      </Button> */}
                   </CardBody>
                   <CardFooter className="pt-11 flex">
-                     <p className=" text-white text-center text-[16.5px]">
+                     <p className=" text-white dark:!text-gray-800 text-center text-[16.5px]">
                         با عضویت در سایت، تمامی قوانین و شرایط استفاده از خدمات{" "}
                         <a href="http://localhost:5173">
-                           <strong className=" text-limon-color  danaBold">لرنیمو</strong>{" "}
+                           <strong className=" text-limon-color dark:text-yellow-600  danaBold">لرنیمو</strong>{" "}
                         </a>
                         را پذیرفته اید.
                      </p>
                   </CardFooter>
                </Card>
             </div>
+            <div className="hidden lg:block absolute bottom-0 right-0 w-[300px] h-[300px] bg-limon-color opacity-30 blur-[120px] rounded-full"></div>
          </div>
          {showErrorToast && <Notification errorText={textErrorToast} isSuccessToast={successToast} succTxt={"عضویت"} />}
       </>

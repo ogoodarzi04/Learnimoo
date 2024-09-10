@@ -10,12 +10,13 @@ export default function ArticleSec() {
          <div className="WeblagCard-Wrapper mt-80">
             <div className="TitleSec">
                <TitleSection
+                  isLeftSideShadow={true}
                   title="وبلاگ آموزشی سبزلرن"
                   des="مقالات بروز برنامه نویسی"
                   color="bg-limon-color"
                   btnHref={"/blog"}
                   leftBtnText={
-                     <div className="md:hover:bg-limon-color  md:hover:text-gray-color rounded-full transition-colors gap-x-2 md:px-4 md:py-3.5">
+                     <div className="md:hover:bg-limon-color dark:hover:bg-yellow-600 dark:hover:text-white  md:hover:text-gray-color rounded-full transition-colors gap-x-2 md:px-4 md:py-3.5">
                         <span>
                            مشاهده همه مقالات
                            <KeyboardBackspaceIcon style={{ fontSize: 30 }} className=" me-3 " />

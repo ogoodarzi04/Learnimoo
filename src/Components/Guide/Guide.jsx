@@ -19,7 +19,7 @@ export default function Guide() {
                return (
                   <CustomAccordian
                      {...item}
-                     bgColor={"bg-header-color"}
+                     bgColor={"bg-header-color dark:bg-white"}
                      pe={"pe-[34px] ms-9"}
                      fontTitle={"w-max  lg:w-full"}
                      isRightsideIcon={true}

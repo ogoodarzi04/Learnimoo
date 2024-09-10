@@ -89,7 +89,7 @@ export default function CourseCategory() {
             })}
             <div className=" mt-[43px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-11 ">
                <div className=" lg:col-span-1 col-span-4">
-                  <div className="search-box !mt-0  bg-header-color rounded-2xl  flex  py-3.5 ">
+                  <div className="search-box !mt-0  bg-header-color dark:bg-white dark:text-gray-600 rounded-2xl  flex  py-3.5 ">
                      <input
                         className=" flex"
                         type="text"
@@ -103,17 +103,17 @@ export default function CourseCategory() {
                   <div className=" overflow-hidden col-span-4 lg:col-span-1 space-y-9 hidden md:block mt-[24px]">
                      {switchBox.map((item) => {
                         return (
-                           <div className=" w-full bg-header-color rounded-2xl py-[20px] px-[20px] justify-between flex  ">
+                           <div className=" w-full bg-header-color dark:bg-white dark:text-black rounded-2xl py-[20px] px-[20px] justify-between flex  ">
                               <p>{item.title}</p>
                               <Switch
-                                 id="custom-switch-component"
+                                 id="custom-switch-component "
                                  ripple={false}
-                                 className="h-full w-full checked:bg-[#2ec946] "
+                                 className="h-full w-full  checked:bg-[#2ec946] "
                                  containerProps={{
-                                    className: "w-[46px] h-[24px]",
+                                    className: "w-[46px] h-[24px] ",
                                  }}
                                  circleProps={{
-                                    className: "before:hidden left-0.5 border-[1px] w-[21px] h-[21px]",
+                                    className: "before:hidden left-0.5 border-[1px] dark:!bg-white w-[21px] h-[21px]",
                                  }}
                               />
                            </div>
@@ -138,7 +138,7 @@ export default function CourseCategory() {
                </div>
                {/* hidden*/}
                <div className="CardsSec col-span-4  lg:col-span-2 xl:col-span-3   gap-11 ">
-                  <div className=" overflow-hidden bg-header-color md:flex gap-x-12 cursor-pointer py-4 rounded-2xl hidden mt-9 lg:mt-0">
+                  <div className=" overflow-hidden bg-header-color dark:bg-white dark:!text-gray-800 md:flex gap-x-12 cursor-pointer py-4 rounded-2xl hidden mt-9 lg:mt-0">
                      <div className=" flex  ">
                         <HiArrowsUpDown style={{ fontSize: 30 }} className=" ms-3 " />
                         <span className=" text-[16.5px] flex my-auto " style={{ fontFamily: "danaMedium" }}>
@@ -147,7 +147,7 @@ export default function CourseCategory() {
                      </div>
                      {tabArr.map((item) => {
                         return (
-                           <NavLink to={`/course-category/${categoryName}/${item.path}`} className={`  flex  px-3 gap-x-2 `} style={{ color: "white" }}>
+                           <NavLink to={`/course-category/${categoryName}/${item.path}`} className={`  flex  px-3 gap-x-2  dark:!text-gray-800`} style={{ color: "white" }}>
                               <span className=" text-[15px]  my-auto" style={{ fontFamily: "danaMedium" }}>
                                  {item.title}
                               </span>

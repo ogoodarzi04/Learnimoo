@@ -44,10 +44,10 @@ export default function Login() {
    //
    return (
       <>
-         <div className="   h-screen py-72 bg-transparent">
+         <div className="   h-screen py-72 bg-transparent ">
             <div className="hidden lg:block absolute top-0 left-0 w-[300px] h-[300px] bg-sabz-color opacity-30 blur-[120px] rounded-full"></div>
-            <div className="Login text-white ">
-               <div className="logo-footer flex gap-x-7 mx-auto w-max mb-12 text-white">
+            <div className="Login text-white dark:!text-black ">
+               <div className="logo-footer flex gap-x-7 mx-auto w-max mb-12 text-white dark:!text-black">
                   <div className="logo-img my-auto ">
                      <img src="/img/slazzer-edit-image (2)_prev_ui.png" alt="" className=" md:h-[75px] md:w-[105px] h-[40px] w-[60px] mt-3 " />
                   </div>
@@ -56,8 +56,8 @@ export default function Login() {
                      <i className=" text-[19px]">learnimoo.ir</i>
                   </div>
                </div>
-               <Card className="mx-auto w-full max-w-[335px] px-3 py-1.5 h-[296px]   shadow-none rounded-[12px]">
-                  <CardBody className="flex flex-col gap-8 text-white ">
+               <Card className="mx-auto w-full max-w-[335px] px-3 py-1.5 h-[296px]  dark:!bg-white shadow-none rounded-[12px]">
+                  <CardBody className="flex flex-col gap-8 text-white dark:!text-gray-800">
                      <Typography className=" text-[20px] danaBold text-center">ورود با موبایل</Typography>
                      <Typography className=" danaDemiBold text-[16.5px] flex mx-auto" variant="paragraph">
                         حساب کاربری ندارید؟
@@ -72,7 +72,7 @@ export default function Login() {
                         <Input
                            autoFocus={true}
                            element="input"
-                           className="withColor  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full"
+                           className="withColor  rounded-xl flex py-[12.5px] ps-6  headlinecourse dark:!bg-light-theme-color size-full"
                            type="text"
                            placeholder="شماره موبایل"
                            id="phoneNumber"
@@ -99,10 +99,10 @@ export default function Login() {
                      </div>
                   </CardBody>
                   <CardFooter className="pt-11 flex">
-                     <p className=" text-white text-center text-[16.5px]">
+                     <p className=" text-white dark:!text-gray-800 text-center text-[16.5px]">
                         با عضویت در سایت، تمامی قوانین و شرایط استفاده از خدمات{" "}
                         <a href="http://localhost:5173">
-                           <strong className=" text-limon-color  danaBold">لرنیمو</strong>{" "}
+                           <strong className=" text-yellow-600  danaBold">لرنیمو</strong>{" "}
                         </a>
                         را پذیرفته اید.
                      </p>

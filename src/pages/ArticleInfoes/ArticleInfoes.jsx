@@ -58,8 +58,8 @@ export default function ArticleInfoes() {
                   </div>
 
                   <div className="col-span-full lg:col-span-4 xl:col-span-3 space-y-8">
-                     <div className="hidden lg:block bg-white dark:bg-darker rounded-2xl p-[20px] text-center">
-                        <div className=" flex justify-between pb-8" style={{ borderBottom: "1px solid #ffffff1a" }}>
+                     <div className="hidden lg:block bg-header-color dark:bg-white dark:bg-darker rounded-2xl p-[20px] text-center dark:!text-black">
+                        <div className=" flex justify-between pb-8 dark:!border-gray-200" style={{ borderBottom: "1px solid #ffffff1a" }}>
                            <div className="flex gap-x-3 ">
                               <IoShareSocialOutline style={{ fontSize: 30 }} />
                               <span className=" danaDemiBold  my-auto">اشتراک گذاری مطلب</span>

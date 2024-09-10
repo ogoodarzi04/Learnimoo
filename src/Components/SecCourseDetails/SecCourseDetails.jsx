@@ -4,15 +4,15 @@ import { HiOutlineAcademicCap } from "react-icons/hi2";
 //
 export default function SecCourseDetails() {
    return (
-      <div className=" SecCourseDetails p-7 lg:p-0 rounded-2xl lg:rounded-none bg-header-color lg:bg-theme-color flex flex-col-reverse lg:grid lg:grid-cols-2 mt-[42px] gap-x-12">
-         <div className="Explain-Course overflow-hidden danaDemiBold">
+      <div className=" SecCourseDetails p-7 lg:p-0 rounded-2xl lg:rounded-none lg:dark:bg-light-theme-color bg-header-color lg:bg-theme-color flex flex-col-reverse lg:grid lg:grid-cols-2 mt-[42px] gap-x-12">
+         <div className="Explain-Course dark:text-gray-900 overflow-hidden danaDemiBold ">
             <p className=" title-course text-[26px] mt-8 lg:mt-0">آموزش Next.js بصورت پروژه محور</p>
             <p className=" des-course mt-7 text-[18px]">
                نکست یه فریمورک مبتنی بر ری‌اکت هست که امروزه تو بازار کار یکی از مهم‌ترین تکنولوژی‌ها برای توسعه دهنده های ری‌اکت به حساب میاد. نکست رو میشه مکمل ری‌اکت دونست. یعنی هر چی که ری‌اکت
                داره نکست هم داره، بعلاوه چند قابلیت مهم و نکست یه فریمورک مبتنی بر ری‌اکت هست که امروزه تو بازار کار یکی از مهم‌ترین تکنولوژی‌ها برای توسعه دهنده های ری‌اکت به حساب میاد. نکست رو میشه
                مکمل ری‌اکت دونست. یعنی هر چی که ری‌اکت داره نکست هم داره، بعلاوه چند قابلیت مهم و
             </p>
-            <div className=" flex flex-col-reverse sm:flex-row  sm:justify-between mt-32  relative">
+            <div className=" flex flex-col-reverse sm:flex-row sm:justify-between mt-32  relative">
                <div>
                   <button className=" h-[52px] bg-limon-color hover:opacity-75 px-7 w-full" style={{ borderRadius: " 30px" }}>
                      <a href=" ">

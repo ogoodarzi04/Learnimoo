@@ -25,6 +25,8 @@ module.exports = withMT({
             "sabz-color": "#3CA117",
             "gray-color": "#c2c2c2",
             "border-color": "#ffffff1a",
+            "light-theme-color": "rgb(243, 244, 246)",
+            "text-gray-color": "rgb(100 116 139)",
          },
       },
    },

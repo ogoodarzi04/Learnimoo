@@ -13,8 +13,8 @@ export function SideBar(props) {
    const [open, setOpen] = useState(true);
    return ReactDom.createPortal(
       <>
-         <Drawer open={open} placement="right" className="px-[17px]">
-            <div className="mb-2 flex items-center justify-between py-[20px] " style={{ borderBottom: "0.5px solid #ffffff1a" }}>
+         <Drawer open={open} placement="right" className="px-[17px] dark:bg-white bg-header-color">
+            <div className="mb-2 flex items-center justify-between py-[20px] dark:!border-gray-300" style={{ borderBottom: "0.5px solid #ffffff1a" }}>
                <Typography>
                   <div className="logo-img  mt-2.5  ">
                      <a href={"http://localhost:5173/"}>
@@ -23,18 +23,23 @@ export function SideBar(props) {
                   </div>
                </Typography>
                <div className=" flex gap-x-5">
-                  <button className=" lefSide-icons2 bg-icon-color text-white flex">
+                  <button
+                     className=" lefSide-icons2 bg-icon-color text-white flex dark:bg-light-theme-color dark:!text-text-gray-color"
+                     onClick={() => {
+                        document.querySelector("body").classList.toggle("dark");
+                     }}
+                  >
                      <LightModeOutlinedIcon style={{ fontSize: 23 }} />
                   </button>{" "}
-                  <button className=" lefSide-icons2 bg-icon-color text-white flex" onClick={() => props.setShowSideBar(false)}>
+                  <button className=" lefSide-icons2 bg-icon-color text-white flex dark:bg-light-theme-color dark:!text-text-gray-color" onClick={() => props.setShowSideBar(false)}>
                      <CloseIcon style={{ fontSize: 23 }} />
                   </button>
                </div>
             </div>
             <div>
-               <div className="search-box2 bg-icon-color rounded-full  text-white flex">
+               <div className="search-box2 bg-icon-color rounded-full dark:bg-light-theme-color dark:!text-text-gray-color text-white flex">
                   <input type="text" placeholder="جست جو کنید... " />
-                  <button className="  h-full flex">
+                  <button className="  h-full flex ">
                      <SearchRoundedIcon style={{ fontSize: 26 }} />
                   </button>
                </div>

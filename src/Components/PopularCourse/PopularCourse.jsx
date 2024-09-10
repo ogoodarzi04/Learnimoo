@@ -17,16 +17,23 @@ export default function PopularCourse(props) {
       <div className="PopularCourse-Wrapper mt-64 overflow-hidden relative">
          <div className="TitleSec">
             <TitleSection
+               isLeftSideShadow={false}
                title={props.title}
                des={props.des}
                color={props.color}
                btnHref={"/AllCourses"}
                leftBtnText={
                   <div className=" gap-x-6 flex  ">
-                     <div className="prev cursor-pointer rounded-full py-[12px] px-4 md:hover:bg-limon-color  md:hover:text-gray-color transition-all" style={{ border: "1px solid #fbfb73" }}>
+                     <div
+                        className="prev cursor-pointer rounded-full py-[12px] px-4 md:hover:bg-limon-color dark:md:hover:!bg-yellow-600 dark:hover:text-white md:hover:text-gray-color transition-all dark:!border-yellow-600"
+                        style={{ border: "1px solid #fbfb73" }}
+                     >
                         <ArrowForwardIosIcon style={{ fontSize: 21 }} />
                      </div>
-                     <div className="next  cursor-pointer rounded-full py-[12px] px-4 md:hover:bg-limon-color  md:hover:text-gray-color transition-all" style={{ border: "1px solid #fbfb73" }}>
+                     <div
+                        className="next  cursor-pointer rounded-full py-[12px] px-4 md:hover:bg-limon-color dark:md:hover:!bg-yellow-600 dark:hover:text-white md:hover:text-gray-color transition-all dark:!border-yellow-600"
+                        style={{ border: "1px solid #fbfb73" }}
+                     >
                         <ArrowBackIosNewIcon style={{ fontSize: 21 }} />
                      </div>
                   </div>

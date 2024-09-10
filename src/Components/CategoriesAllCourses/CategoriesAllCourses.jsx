@@ -9,8 +9,8 @@ export default function CategoriesAllCourses() {
    const [showcategoryCheckbox, setShowcategoryCheckbox] = useState(true);
    return (
       <div className="CategoriesAllCourses">
-         <div className="bg-white dark:bg-darker rounded-xl p-4 hidden md:block overflow-hidden " id="category-collapse">
-            <div className="flex items-center justify-between mb-4 pb-[19px] " style={{ borderBottom: "1px solid #ffffff1a" }}>
+         <div className="bg-header-color dark:bg-white dark:text-gray-900 rounded-xl p-4 hidden md:block overflow-hidden " id="category-collapse">
+            <div className="flex items-center justify-between mb-4 pb-[19px] dark:text-black dark:!border-b-gray-200" style={{ borderBottom: "1px solid #ffffff1a" }}>
                <div className="flex items-center gap-x-3.5 danaDemiBold">
                   <BsFolder2Open style={{ fontSize: 26 }} />
                   <span className=" mt-2.5 flex">دسته بندی دوره ها</span>
@@ -25,10 +25,10 @@ export default function CategoriesAllCourses() {
                      <ListItemPrefix className=" flex gap-x-3.5">
                         <Checkbox
                            value="yes"
-                           color="blue"
+                           // color="blue"
                            id="vertical-list-react"
                            ripple={false}
-                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] "
+                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] dark:bg-[rgb(229,231,235)]  checked:!bg-blue-500 "
                            containerProps={{
                               className: "p-0 headlinecourse ",
                            }}
@@ -43,7 +43,7 @@ export default function CategoriesAllCourses() {
                            color="blue"
                            id="vertical-list-react"
                            ripple={false}
-                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] "
+                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] dark:bg-[rgb(229,231,235)] checked:!bg-blue-500 "
                            containerProps={{
                               className: "p-0 headlinecourse ",
                            }}
@@ -58,7 +58,7 @@ export default function CategoriesAllCourses() {
                            color="blue"
                            id="vertical-list-react"
                            ripple={false}
-                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] "
+                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] dark:bg-[rgb(229,231,235)] checked:!bg-blue-500 "
                            containerProps={{
                               className: "p-0 headlinecourse ",
                            }}
@@ -73,7 +73,7 @@ export default function CategoriesAllCourses() {
                            color="blue"
                            id="vertical-list-react"
                            ripple={false}
-                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] "
+                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] dark:bg-[rgb(229,231,235)] checked:!bg-blue-500 "
                            containerProps={{
                               className: "p-0 headlinecourse ",
                            }}
@@ -88,7 +88,7 @@ export default function CategoriesAllCourses() {
                            color="blue"
                            id="vertical-list-react"
                            ripple={false}
-                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] "
+                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] dark:bg-[rgb(229,231,235)] checked:!bg-blue-500 "
                            containerProps={{
                               className: "p-0 headlinecourse ",
                            }}
@@ -103,7 +103,7 @@ export default function CategoriesAllCourses() {
                            color="blue"
                            id="vertical-list-react"
                            ripple={false}
-                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] "
+                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] dark:bg-[rgb(229,231,235)] checked:!bg-blue-500 "
                            containerProps={{
                               className: "p-0 headlinecourse ",
                            }}
@@ -112,13 +112,13 @@ export default function CategoriesAllCourses() {
                      </ListItemPrefix>
                   </label>
                   <label className="checkbox ">
-                     <ListItemPrefix className=" flex gap-x-3.5">
+                     <ListItemPrefix className=" flex gap-x-3.5 ">
                         <Checkbox
                            value="yes"
                            color="blue"
                            id="vertical-list-react"
                            ripple={false}
-                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] "
+                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] dark:bg-[rgb(229,231,235)] checked:!bg-blue-500 "
                            containerProps={{
                               className: "p-0 headlinecourse ",
                            }}
@@ -133,7 +133,7 @@ export default function CategoriesAllCourses() {
                            color="blue"
                            id="vertical-list-react"
                            ripple={false}
-                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] "
+                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px]  dark:bg-[rgb(229,231,235)] checked:!bg-blue-500"
                            containerProps={{
                               className: "p-0 headlinecourse ",
                            }}

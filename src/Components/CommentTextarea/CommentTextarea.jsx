@@ -12,7 +12,7 @@ export default function CommentTextarea() {
    const [changeComment, setChangeComment] = useState(false);
    //
    return (
-      <div className="CommentTextarea bg-header-color rounded-2xl p-4 sm:p-5  mt-8 text-white " id="course-comments">
+      <div className="CommentTextarea bg-header-color dark:bg-white rounded-2xl p-4 sm:p-5  mt-8 text-white dark:!text-black " id="course-comments">
          <div className="flex items-center justify-between mb-6 sm:mb-7 mt-2">
             <div className="flex items-center gap-x-3 relative">
                <span className="absolute -right-6 sm:-right-[22px] block w-2.5 h-[34px] md:h-9.5 bg-red-500 rounded-r-sm "></span>
@@ -32,18 +32,18 @@ export default function CommentTextarea() {
             </button>
          </div>
          {!showTextArea ? (
-            <div id="comment-alert" className=" text-limon-color bg-amber-600/15  p-4 !md:p-5 rounded-lg  md:danaDemiBold mb-6 text-[14px] mt-12">
+            <div id="comment-alert" className=" text-limon-color dark:text-yellow-700 bg-amber-600/15 dark:bg-yellow-50  p-4 !md:p-5 rounded-lg  md:danaDemiBold mb-6 text-[14px] mt-12">
                دانشجوی عزیز؛ سوالات مرتبط به پشتیبانی دوره در قسمت نظرات تایید نخواهد شد، لطفا در بخش مشاهده آنلاین هر ویدیو سوالات خود را مطرح کنید.
             </div>
          ) : (
             ""
          )}
 
-         <div id="comment-form" className="active2">
+         <div id="comment-form" className="active2 ">
             {showTextArea ? (
                <div className="flex gap-x-6 mb-4 sm:mb-5 mt-11 transition-all ">
-                  <div className="flex-center rounded-full my-auto p-[1px] bg-gray-400">
-                     <div className="flex-center  rounded-full m-auto" style={{ color: "rgb(51 60 76)" }}>
+                  <div className="flex-center rounded-full my-auto p-[1px] bg-gray-400 dark:bg-text-gray-color">
+                     <div className="flex-center  rounded-full m-auto dark:!text-light-theme-color" style={{ color: "rgb(51 60 76)" }}>
                         <FaCircleUser style={{ fontSize: 47 }} className=" " />
                      </div>
                   </div>
@@ -73,7 +73,7 @@ export default function CommentTextarea() {
                   <textarea
                      rows="6"
                      id="comment-textarea"
-                     className="w-full transition-all headlinecourse  block p-4 md:p-4 mt-[13px]  danaMedium text-sm rounded-xl mb-10"
+                     className="  transition-all headlinecourse w-full dark:bg-light-theme-color  block p-4 md:p-4 mt-[13px]  danaMedium text-sm rounded-xl mb-10"
                      placeholder="نظر خود را بنویسید ..."
                   ></textarea>
                   <div className="flex gap-x-6 md:gap-x-4 justify-end mt-4">

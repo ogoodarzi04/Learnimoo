@@ -7,7 +7,7 @@ export default function CourseDetails() {
    const [changeArt, setChangeArt] = useState(false);
    //
    return (
-      <div className="CourseDetails bg-white dark:bg-darker rounded-2xl p-4 sm:p-5  text-white ">
+      <div className="CourseDetails dark:bg-white bg-header-color dark:bg-darker rounded-2xl p-4 sm:p-5  dark:ext-white dark:!text-gray-900 text-white">
          <div className="flex items-center gap-x-2 mb-5 sm:mb-6 relative">
             <span className="absolute -right-6 sm:-right-[21px] block w-[6px] h-[34px] md:h-[36px] bg-amber-400 rounded-r-sm "></span>
             <HiDocumentText className=" hidden md:inline-block text-amber-400" style={{ fontSize: 38 }} />
@@ -54,7 +54,7 @@ export default function CourseDetails() {
             </div>
             <div
                className={` course-content-shadow absolute  bottom-0 right-0 left-0 h-[160px] bg-gradient-to-t ${
-                  !changeArt ? "from-header-color dark:from-black from-0% via-white/0%] dark:via-black/[55%] via-70% to-white/0 dark:to-black/0 to-100%" : ""
+                  !changeArt ? "from-header-color  dark:from-white from-0% via-white/0%] dark:via-white/[55%] via-70% to-white/0 dark:to-black/0 to-100%" : ""
                }`}
             ></div>
          </div>

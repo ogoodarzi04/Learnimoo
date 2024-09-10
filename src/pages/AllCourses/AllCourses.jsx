@@ -64,7 +64,7 @@ export default function AllCourses() {
             </div>
             <div className=" mt-[43px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-11 ">
                <div className=" lg:col-span-1 col-span-4">
-                  <div className="search-box !mt-0  bg-header-color rounded-2xl  flex  py-3.5 ">
+                  <div className="search-box !mt-0  bg-header-color dark:bg-white dark:text-gray-600 rounded-2xl  flex  py-3.5 ">
                      <input
                         className=" flex"
                         type="text"
@@ -78,17 +78,17 @@ export default function AllCourses() {
                   <div className=" overflow-hidden col-span-4 lg:col-span-1 space-y-9 hidden md:block mt-[24px]">
                      {switchBox.map((item) => {
                         return (
-                           <div className=" w-full bg-header-color rounded-2xl py-[20px] px-[20px] justify-between flex  ">
+                           <div className=" w-full bg-header-color dark:bg-white dark:text-black rounded-2xl py-[20px] px-[20px] justify-between flex  ">
                               <p>{item.title}</p>
                               <Switch
                                  id="custom-switch-component"
                                  ripple={false}
-                                 className="h-full w-full checked:bg-[#2ec946] "
+                                 className="h-full w-full dark:bg-[rgb(229,231,235)] bg-text-gray-color checked:!bg-[#2ec946] "
                                  containerProps={{
                                     className: "w-[46px] h-[24px]",
                                  }}
                                  circleProps={{
-                                    className: "before:hidden left-0.5 border-[1px] w-[21px] h-[21px]",
+                                    className: "before:hidden left-0.5 border-[1px] w-[21px] h-[21px] dark:!bg-white",
                                  }}
                               />
                            </div>
@@ -99,13 +99,13 @@ export default function AllCourses() {
                </div>
                {/* hidden*/}
                <div className="  gap-x-9 col-span-4 grid grid-cols-2 mt-[18px] md:hidden ">
-                  <div className=" bg-header-color flex rounded-[30px] py-[13px]">
+                  <div className=" bg-header-color dark:bg-white  flex rounded-[30px] py-[13px]">
                      <div className=" mx-auto flex gap-x-4">
                         <BiFilterAlt className=" my-auto" style={{ fontSize: 25 }} />
                         <span>فیلتر</span>
                      </div>
                   </div>
-                  <div className=" bg-header-color flex rounded-[30px] py-[13px]">
+                  <div className=" bg-header-color dark:bg-white flex rounded-[30px] py-[13px]">
                      <div className=" mx-auto flex gap-x-4">
                         <HiArrowsUpDown className=" my-auto " style={{ fontSize: 25 }} />
                         <span>همه دوره ها</span>
@@ -114,7 +114,7 @@ export default function AllCourses() {
                </div>
                {/* hidden*/}
                <div className="CardsSec col-span-4  lg:col-span-2 xl:col-span-3   gap-11 ">
-                  <div className=" overflow-hidden bg-header-color md:flex gap-x-12 cursor-pointer py-4 rounded-2xl hidden mt-9 lg:mt-0">
+                  <div className=" overflow-hidden bg-header-color dark:bg-white dark:text-black md:flex gap-x-12 cursor-pointer py-4 rounded-2xl hidden mt-9 lg:mt-0">
                      <div className=" flex  ">
                         <HiArrowsUpDown style={{ fontSize: 30 }} className=" ms-3 " />
                         <span className=" text-[16.5px] flex my-auto " style={{ fontFamily: "danaMedium" }}>
@@ -123,7 +123,7 @@ export default function AllCourses() {
                      </div>
                      {tabArr.map((item) => {
                         return (
-                           <Link to={`/AllCourses?q=${item.path}`} className={`  flex  px-3 gap-x-2 ${filterParam === item.path ? "active " : ""}`} style={{ color: "white" }}>
+                           <Link to={`/AllCourses?q=${item.path}`} className={` dark:!text-gray-800  flex  px-3 gap-x-2 ${filterParam === item.path ? "active " : ""}`} style={{ color: "white" }}>
                               <span className=" text-[15px]  my-auto" style={{ fontFamily: "danaMedium" }}>
                                  {item.title}
                               </span>

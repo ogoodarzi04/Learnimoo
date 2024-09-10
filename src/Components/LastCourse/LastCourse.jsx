@@ -10,12 +10,13 @@ export default function LastCourse(props) {
          <div className="LastCourse-Wrapper mt-80">
             <div className="TitleSec">
                <TitleSection
+                  isLeftSideShadow={true}
                   title={props.title}
                   des={props.des}
                   color={props.color}
                   btnHref={"/AllCourses"}
                   leftBtnText={
-                     <div className="md:hover:bg-limon-color  md:hover:text-gray-color rounded-full transition-colors gap-x-2 md:px-4 md:py-3.5">
+                     <div className="md:hover:bg-limon-color dark:hover:bg-yellow-600 dark:hover:text-white  md:hover:text-gray-color rounded-full transition-colors gap-x-2 md:px-4 md:py-3.5">
                         <span>
                            مشاهده همه دوره ها
                            <KeyboardBackspaceIcon style={{ fontSize: 30 }} className=" me-3 " />

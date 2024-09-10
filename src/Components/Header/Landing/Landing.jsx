@@ -8,11 +8,11 @@ export default function Landing() {
    return (
       <div className="  w-full ">
          <div className="flex flex-col-reverse lg:grid  lg:grid-cols-2    gap-y-[70px]">
-            <div className=" limo-text relative  xl:mt-64 mt-20 text-white   ">
+            <div className=" limo-text relative  xl:mt-64 mt-20 text-white dark:!text-theme-color ">
                <div className="hidden lg:block absolute top-0 right-0 w-[230px] h-[230px] bg-limon-color opacity-35 blur-[120px] rounded-full"></div>
                <div className="hidden lg:block absolute bottom-0 left-52 w-[230px] h-[230px] bg-sabz-color opacity-35 blur-[120px] rounded-full"></div>
                <div className=" text-dir">
-                  <h1 className=" danaBold text-white px-4 sm:danaBold font-bold text-7xl  xl:text-[5.625rem]/[70px] 3xl:text-5xl/normal ">
+                  <h1 className=" danaBold text-white dark:!text-theme-color px-4 sm:danaBold font-bold text-7xl  xl:text-[5.625rem]/[70px] 3xl:text-5xl/normal ">
                      آکادمی آموزش
                      <br />
                      برنامه نویسی لرنیمو
@@ -57,7 +57,7 @@ export default function Landing() {
                      <CButton className=" bg-limon-color rounded-full p-2 ms-4">
                         <PlayArrowOutlinedIcon className=" text-sabz-color" style={{ fontSize: 40 }} />
                      </CButton>
-                     <span className="hidden sm:inline text-white">دوره های رایگان</span>
+                     <span className="hidden sm:inline text-white dark:!text-theme-color">دوره های رایگان</span>
                   </a>
                </div>
             </div>

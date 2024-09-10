@@ -267,7 +267,7 @@ let tabItemsArt = [
 let switchBox = [
    { title: "فقط دوره های رایگان", path: "", id: 1 },
    { title: "در حال پیش فروش", path: "", id: 2 },
-   { title: "دوره ها خریداری شده", path: "", id: 3 },
+   // { title: "دوره ها خریداری شده", path: "", id: 3 },   
 ];
 
 let boxDetails = [

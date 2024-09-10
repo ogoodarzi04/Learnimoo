@@ -60,7 +60,7 @@ export default function Articles() {
             </div>
             <div className=" mt-[43px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-11 ">
                <div className=" lg:col-span-1 col-span-4">
-                  <div className="search-box !mt-0  bg-header-color rounded-2xl  flex  py-3.5 ">
+                  <div className="search-box !mt-0  bg-header-color dark:bg-white dark:text-text-gray-color rounded-2xl  flex  py-3.5 ">
                      <input
                         className=" flex"
                         type="text"
@@ -89,7 +89,7 @@ export default function Articles() {
                </div>
                {/* hidden*/}
                <div className="CardsSec col-span-4  lg:col-span-2 xl:col-span-3   gap-11 ">
-                  <div className=" overflow-hidden bg-header-color md:flex gap-x-12 cursor-pointer py-4 rounded-2xl hidden mt-9 lg:mt-0">
+                  <div className=" overflow-hidden bg-header-color dark:bg-white dark:!text-black md:flex gap-x-12 cursor-pointer py-4 rounded-2xl hidden mt-9 lg:mt-0">
                      <div className=" flex  ">
                         <HiArrowsUpDown style={{ fontSize: 30 }} className=" ms-3 " />
                         <span className=" text-[16.5px] flex my-auto " style={{ fontFamily: "danaMedium" }}>
@@ -99,7 +99,7 @@ export default function Articles() {
                      {tabArr.map((item) => {
                         return (
                            //
-                           <Link to={`/blog?q=${item.path}`} className={`  flex  px-3 gap-x-2 ${filterParam === item.path ? "active " : ""}`} style={{ color: "white" }}>
+                           <Link to={`/blog?q=${item.path}`} className={` dark:!text-gray-900 flex  px-3 gap-x-2 ${filterParam === item.path ? "active " : ""}`} style={{ color: "white" }}>
                               <span className=" text-[15px]  my-auto" style={{ fontFamily: "danaMedium" }}>
                                  {item.title}
                               </span>
@@ -107,10 +107,10 @@ export default function Articles() {
                         );
                      })}
                   </div>
-                  <div className="  grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-11 mt-[24px]">
+                  <div className="  grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-11 mt-[24px] ">
                      {articleTab.length > 0
                         ? articleTab.map((item) => (
-                             <div className=" col-span-1">
+                             <div className=" col-span-1 ">
                                 {/* {console.log(`/blog/${item.title}`)} */}
                                 <Link to={`/blog/${item.title}`}>
                                    <Article />
