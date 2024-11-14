@@ -16,6 +16,7 @@ import { Context } from "../../contexts/Context";
 import useFetch from "../../Hooks/useFetch";
 import UserBasket from "../UserBasket/UserBasket";
 import { Badge, Button, Tooltip } from "@material-tailwind/react";
+import { HiOutlineArrowRightStartOnRectangle } from "react-icons/hi2";
 //
 //
 export default function Header() {
@@ -168,11 +169,12 @@ export default function Header() {
                      />
                   ) : (
                      <Link to={"/login"} className=" my-auto ">
-                        <Button className=" rounded-[27px] bg-light-blue-500  text-white flex !size-max px-7 py-[13px] ">
-                           <span className=" my-auto flex gap-x-[9px] danaMedium text-[17px]">
+                        <Button className=" rounded-full  lefSide-icons  md:rounded-[27px] md:bg-light-blue-500 bg-icon-color  text-white flex md:!size-max md:px-7 py-[13px] ">
+                           <span className=" my-auto md:flex hidden gap-x-[9px] danaMedium text-[17px]">
                               <HiOutlineUser style={{ fontSize: 23 }} />
                               <span className=" my-auto font-thin">ورود | عضویت</span>
                            </span>
+                           <HiOutlineArrowRightStartOnRectangle className=" md:hidden flex" style={{ fontSize: 23 }} />
                         </Button>
                      </Link>
                   )}
