@@ -3,48 +3,70 @@ import React, { useEffect, useState } from "react";
 import { useParams, NavLink, useNavigate, Link, useLocation } from "react-router-dom";
 import TitleSection from "../../Components/TitleSection/TitleSection";
 import CourseCard from "../../Components/CourseCard/CourseCard";
-import { coursesData, switchBox, tabData, tabItems } from "../../datas";
+import { switchBox, tabItems } from "../../datas";
 import { HiArrowsUpDown } from "react-icons/hi2";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import { Switch } from "@material-tailwind/react";
+import { Alert, Switch } from "@material-tailwind/react";
 import { BiFilterAlt } from "react-icons/bi";
 import CategoriesAllCourses from "../../Components/CategoriesAllCourses/CategoriesAllCourses";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
+import useFetch from "../../Hooks/useFetch";
+import FilterCourseModal from "../../Components/FilterCourseModal/FilterCourseModal";
+import SortingCourseModal from "../../Components/SortingCourseModal/SortingCourseModal";
 // import LoadingButton from "@mui/lab/LoadingButton";
 // import SendIcon from "@mui/icons-material/Send";
 //
 export default function AllCourses() {
-   const [courseTab, setCourseTab] = useState([]);
+   const [changedFilter, setChangedFilter] = useState(false);
+   const [orderCourses, setOrderCourses] = useState([]);
+   const [searchInputCourse, setSearchInputCourse] = useState("");
+   // const [courses, setCourses] = useState([]);
    const [tabArr, setTabArr] = useState([]);
    let navigate = useNavigate();
    let location = useLocation();
-   let filterParam = location.search.split("=")[1] || "default";
+   let filterCategoryParam = location.search.split("=")[1] || "default";
+   let filterCourseCategoryParam = location.search.split("=")[1];
+   let filterSearchCourseParam = location.search.split("=")[1];
    //
-   //
-   const filterRouteItem = () => {
-      if (filterParam) {
-         if (filterParam === "default") {
-            setCourseTab(tabData);
-            // console.log(courseTab);
-         } else if (filterParam === "expensive") {
-            setCourseTab(tabData.sort((a, b) => a.price - b.price).reverse());
-            // console.log(courseTab);
-         } else if (filterParam === "cheapest") {
-            setCourseTab(tabData.sort((a, b) => a.price - b.price));
-            // console.log(courseTab);
-         } else if (filterParam === "popular") {
-            console.log("dddddddddddddddd");
-         } else {
-            navigate("/*");
-            return;
-         }
-      }
+   const { getAllDatas, post, isPending, err } = useFetch();
+   const fetchData = () => {
+      getAllDatas(`http://localhost:3000/v1/courses`, false);
    };
    useEffect(() => {
-      filterRouteItem();
+      fetchData();
+   }, [filterCategoryParam, filterCourseCategoryParam, filterSearchCourseParam]);
+   //
+   useEffect(() => {
+      if (filterCategoryParam) {
+         if (filterCategoryParam === "default") {
+            setOrderCourses(post);
+         } else if (filterCategoryParam === "expensive") {
+            setOrderCourses(post.sort((a, b) => a.price - b.price).reverse());
+         } else if (filterCategoryParam === "cheapest") {
+            setOrderCourses(post.sort((a, b) => a.price - b.price));
+         } else if (filterCategoryParam === "popular") {
+            setOrderCourses(post.sort((a, b) => a.courseAverageScore - b.courseAverageScore).reverse());
+         } else if (filterCourseCategoryParam === "&free_courses") {
+            setOrderCourses(post.filter((course) => course.price === 0));
+         } else if (filterCourseCategoryParam === "&presells_courses") {
+            setOrderCourses(post.filter((course) => course.price === 300000));
+         }
+      } else {
+         navigate("/");
+      }
+   }, [post]);
+   //
+   useEffect(() => {
       setTabArr(tabItems);
-   }, [filterParam]);
+   }, [filterCategoryParam]);
+   //
+   useEffect(() => {
+      if (filterSearchCourseParam) {
+         let mainSearch = orderCourses.filter((item) => item.name.toLowerCase().includes(searchInputCourse));
+         setOrderCourses(mainSearch);
+      }
+   }, [searchInputCourse, filterSearchCourseParam]);
    //
    return (
       <>
@@ -52,7 +74,7 @@ export default function AllCourses() {
          <div className="AllCourses grid  relative container  mt-20 text-white">
             <div className="TitleSec">
                <TitleSection
-                  title="همه دوره ها"
+                  title={filterSearchCourseParam ? `جستجو: ${searchInputCourse}` : "همه دوره ها "}
                   des=""
                   color="bg-orange-300"
                   leftBtnText={
@@ -66,10 +88,15 @@ export default function AllCourses() {
                <div className=" lg:col-span-1 col-span-4">
                   <div className="search-box !mt-0  bg-header-color dark:bg-white dark:text-gray-600 rounded-2xl  flex  py-3.5 ">
                      <input
+                        value={searchInputCourse}
                         className=" flex"
                         type="text"
                         placeholder="جستجو بین دوره ها
 "
+                        onInput={(e) => {
+                           setSearchInputCourse(e.target.value);
+                           navigate(`/AllCourses?q=${e.target.value}`);
+                        }}
                      />
                      <button className="  h-full flex">
                         <SearchRoundedIcon style={{ fontSize: 26 }} />
@@ -81,6 +108,14 @@ export default function AllCourses() {
                            <div className=" w-full bg-header-color dark:bg-white dark:text-black rounded-2xl py-[20px] px-[20px] justify-between flex  ">
                               <p>{item.title}</p>
                               <Switch
+                                 onChange={(e) => {
+                                    setChangedFilter((prev) => !prev);
+                                    if (!changedFilter) {
+                                       navigate(`/AllCourses?q=${item.path}`);
+                                    } else {
+                                       navigate(`/AllCourses`);
+                                    }
+                                 }}
                                  id="custom-switch-component"
                                  ripple={false}
                                  className="h-full w-full dark:bg-[rgb(229,231,235)] bg-text-gray-color checked:!bg-[#2ec946] "
@@ -94,23 +129,39 @@ export default function AllCourses() {
                            </div>
                         );
                      })}
-                     <CategoriesAllCourses />
+                     <CategoriesAllCourses filterCategoryParam={filterCategoryParam} />
                   </div>
                </div>
                {/* hidden*/}
                <div className="  gap-x-9 col-span-4 grid grid-cols-2 mt-[18px] md:hidden ">
-                  <div className=" bg-header-color dark:bg-white  flex rounded-[30px] py-[13px]">
-                     <div className=" mx-auto flex gap-x-4">
-                        <BiFilterAlt className=" my-auto" style={{ fontSize: 25 }} />
-                        <span>فیلتر</span>
+                  <FilterCourseModal changedFilter={changedFilter} setChangedFilter={setChangedFilter} categoryName={filterCourseCategoryParam}>
+                     {" "}
+                     <div className="  bg-header-color dark:bg-white dark:text-black flex rounded-[30px] py-[13px]">
+                        <div className=" mx-auto flex gap-x-4">
+                           <BiFilterAlt className=" my-auto" style={{ fontSize: 25 }} />
+                           <span>فیلتر</span>
+                        </div>
                      </div>
-                  </div>
-                  <div className=" bg-header-color dark:bg-white flex rounded-[30px] py-[13px]">
-                     <div className=" mx-auto flex gap-x-4">
-                        <HiArrowsUpDown className=" my-auto " style={{ fontSize: 25 }} />
-                        <span>همه دوره ها</span>
+                  </FilterCourseModal>
+                  <SortingCourseModal categoryName={filterCategoryParam} items={tabArr} filterCategoryParam={filterCategoryParam}>
+                     {" "}
+                     <div className=" bg-header-color dark:bg-white dark:text-black flex rounded-[30px] py-[13px]">
+                        <div className=" mx-auto flex gap-x-4">
+                           <HiArrowsUpDown className=" my-auto " style={{ fontSize: 25 }} />
+                           <span>
+                              {filterCategoryParam === "default"
+                                 ? "همه دوره ها"
+                                 : filterCategoryParam === "cheapest"
+                                 ? "ارزان ترین"
+                                 : filterCategoryParam === "expensive"
+                                 ? "گران ترین"
+                                 : filterCategoryParam === "popular"
+                                 ? "پر مخاطب"
+                                 : ""}
+                           </span>
+                        </div>
                      </div>
-                  </div>
+                  </SortingCourseModal>
                </div>
                {/* hidden*/}
                <div className="CardsSec col-span-4  lg:col-span-2 xl:col-span-3   gap-11 ">
@@ -123,7 +174,11 @@ export default function AllCourses() {
                      </div>
                      {tabArr.map((item) => {
                         return (
-                           <Link to={`/AllCourses?q=${item.path}`} className={` dark:!text-gray-800  flex  px-3 gap-x-2 ${filterParam === item.path ? "active " : ""}`} style={{ color: "white" }}>
+                           <Link
+                              to={`/AllCourses?q=${item.path}`}
+                              className={` dark:!text-gray-800  flex  px-3 gap-x-2 ${filterCategoryParam === item.path ? "active " : ""}`}
+                              style={{ color: "white" }}
+                           >
                               <span className=" text-[15px]  my-auto" style={{ fontFamily: "danaMedium" }}>
                                  {item.title}
                               </span>
@@ -132,15 +187,18 @@ export default function AllCourses() {
                      })}
                   </div>
                   <div className="  grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-11 mt-[24px]">
-                     {courseTab.length > 0
-                        ? courseTab.map((item) => (
-                             <div className=" col-span-1">
-                                <Link to={`/course/${item.title}/`}>
-                                   <CourseCard />
-                                </Link>
-                             </div>
-                          ))
-                        : ""}
+                     {orderCourses.length > 0 ? (
+                        orderCourses.map((item) => {
+                           // console.log(item);
+                           return <CourseCard {...item} />;
+                        })
+                     ) : (
+                        <div className=" col-span-3">
+                           <Alert color="amber" className=" text-2xl w-full">
+                              هنوز هیچ دوره ای برای با این اسم وجود ندارد
+                           </Alert>
+                        </div>
+                     )}
                   </div>
                </div>
             </div>
@@ -149,3 +207,4 @@ export default function AllCourses() {
       </>
    );
 }
+//

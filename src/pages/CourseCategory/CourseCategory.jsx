@@ -1,100 +1,131 @@
 //
 import React, { useEffect, useState } from "react";
-import { useParams, NavLink, useNavigate, Link } from "react-router-dom";
+import { useParams, NavLink, useNavigate, Link, useLocation } from "react-router-dom";
 import TitleSection from "../../Components/TitleSection/TitleSection";
 import CourseCard from "../../Components/CourseCard/CourseCard";
-import { coursesData, switchBox, tabData, tabItems } from "../../datas";
+import { switchBox, tabItems } from "../../datas";
 import { HiArrowsUpDown } from "react-icons/hi2";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import { Switch } from "@material-tailwind/react";
+import { Alert, Switch } from "@material-tailwind/react";
 import { BiFilterAlt } from "react-icons/bi";
 // import LoadingButton from "@mui/lab/LoadingButton";
 // import SendIcon from "@mui/icons-material/Send";
 import "./CourseCategory.css";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
+import useFetch from "../../Hooks/useFetch";
+import FilterCourseModal from "../../Components/FilterCourseModal/FilterCourseModal";
+import SortingCourseModal from "../../Components/SortingCourseModal/SortingCourseModal";
 //
 export default function CourseCategory() {
-   const [courses, setCourse] = useState([]);
-   const [courseTab, setCourseTab] = useState([]);
+   const [orderCourses, setOrderCourses] = useState([]);
+   const [searchInputCourse, setSearchInputCourse] = useState("");
+   const [changedFilter, setChangedFilter] = useState(false);
+   const [courses, setCourses] = useState([]);
    const [tabArr, setTabArr] = useState([]);
    let { categoryName } = useParams();
-   let { tabRoute = "default" } = useParams();
+   let location = useLocation();
+   let filterCategoryParam = location.search.split("=")[1] || "default";
+   let filterCourseCategoryParam = location.search.split("=")[1];
+   let filterSearchCourseParam = location.search.split("=")[1];
    let navigate = useNavigate();
    // //
-   const filterCourses = () => {
-      let mainCourse = coursesData.filter((course) => course.category.includes(categoryName));
-
-      if (mainCourse.length > 0) {
-         setCourse(mainCourse);
-         return;
-      }
-      navigate("/*");
+   const { getAllDatas, post, isPending, err } = useFetch();
+   const fetchData = () => {
+      getAllDatas(`http://localhost:3000/v1/courses/category/${categoryName}`, false);
    };
    useEffect(() => {
+      fetchData();
+   }, [categoryName, filterCategoryParam, filterCourseCategoryParam, filterSearchCourseParam]);
+   //
+   useEffect(() => {
+      if (filterCategoryParam) {
+         // console.log(post);
+         //
+         if (filterCategoryParam === "default") {
+            setOrderCourses(post);
+         } else if (filterCategoryParam === "expensive") {
+            setOrderCourses(
+               post
+                  .sort((a, b) => a.price - b.price)
+                  .slice()
+                  .reverse()
+            );
+         } else if (filterCategoryParam === "cheapest") {
+            setOrderCourses(post.sort((a, b) => a.price - b.price));
+         } else if (filterCategoryParam === "popular") {
+            setOrderCourses(
+               post
+                  .sort((a, b) => a.courseAverageScore - b.courseAverageScore)
+                  .slice()
+                  .reverse()
+            );
+         } else if (filterCourseCategoryParam === "&free_courses") {
+            setOrderCourses(post.filter((course) => course.price === 0));
+         } else if (filterCourseCategoryParam === "&presells_courses") {
+            setOrderCourses(post.filter((course) => course.price === 300000));
+         }
+      } else {
+         navigate("/");
+      }
+   }, [post]);
+   const filterCourses = () => {
+      if (post.length > 0) {
+         let mainCourse = post.filter((category) => category.name.includes(categoryName));
+         setCourses(mainCourse);
+      }
+   };
+
+   useEffect(() => {
+      filterCourses();
       if (categoryName !== "blog") {
-         filterCourses();
+         setCourses(courses);
       } else {
          navigate("/blog");
       }
    }, [categoryName]);
    //
 
-   const filterRouteItem = () => {
-      if (tabRoute) {
-         if (tabRoute === "default") {
-            setCourseTab(tabData);
-            // console.log(courseTab);
-         } else if (tabRoute === "expensive") {
-            setCourseTab(tabData.sort((a, b) => a.price - b.price).reverse());
-            // console.log(courseTab);
-         } else if (tabRoute === "cheapest") {
-            setCourseTab(tabData.sort((a, b) => a.price - b.price));
-            // console.log(courseTab);
-         } else if (tabRoute === "popular") {
-            console.log("dddddddddddddddd");
-         } else {
-            navigate("/*");
-            return;
-         }
-      } else {
-         navigate("/");
-      }
-   };
    useEffect(() => {
-      filterRouteItem();
       setTabArr(tabItems);
-   }, [tabRoute]);
+   }, [filterCategoryParam]);
    //
-
+   useEffect(() => {
+      if (filterSearchCourseParam) {
+         let mainSearch = orderCourses.filter((item) => item.name.toLowerCase().includes(searchInputCourse));
+         setOrderCourses(mainSearch);
+      }
+   }, [searchInputCourse, filterSearchCourseParam]);
    return (
       <>
          <Header />
          <div className="CourseCategory grid  relative container  mt-20 text-white">
-            {courses.map((data) => {
-               return (
-                  <div className="TitleSec">
-                     <TitleSection
-                        title={data.title}
-                        des=""
-                        color="bg-orange-300"
-                        leftBtnText={
-                           <span className=" text-[19px] font-extrabold" style={{ color: "rgb(100 116 139)", fontWeight: 590 }}>
-                              {data.leftSideTitle}
-                           </span>
-                        }
-                     />
-                  </div>
-               );
-            })}
+            <div className="TitleSec">
+               <TitleSection
+                  title={`${filterSearchCourseParam ? `جستجو: ${searchInputCourse}` : categoryName}`}
+                  des=""
+                  color="bg-orange-300"
+                  leftBtnText={
+                     <span className=" text-[19px] font-extrabold" style={{ color: "rgb(100 116 139)", fontWeight: 590 }}>
+                        {/* {data.leftSideTitle} */}
+                     </span>
+                  }
+               />
+            </div>
+
             <div className=" mt-[43px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-11 ">
                <div className=" lg:col-span-1 col-span-4">
                   <div className="search-box !mt-0  bg-header-color dark:bg-white dark:text-gray-600 rounded-2xl  flex  py-3.5 ">
                      <input
+                        value={searchInputCourse}
                         className=" flex"
                         type="text"
                         placeholder="جستجو بین دوره ها
 "
+                        onInput={(e) => {
+                           setSearchInputCourse(e.target.value);
+                           navigate(`/category-info/${categoryName}?q=${e.target.value}`);
+                        }}
                      />
                      <button className="  h-full flex">
                         <SearchRoundedIcon style={{ fontSize: 26 }} />
@@ -105,17 +136,28 @@ export default function CourseCategory() {
                         return (
                            <div className=" w-full bg-header-color dark:bg-white dark:text-black rounded-2xl py-[20px] px-[20px] justify-between flex  ">
                               <p>{item.title}</p>
-                              <Switch
-                                 id="custom-switch-component "
-                                 ripple={false}
-                                 className="h-full w-full  checked:bg-[#2ec946] "
-                                 containerProps={{
-                                    className: "w-[46px] h-[24px] ",
-                                 }}
-                                 circleProps={{
-                                    className: "before:hidden left-0.5 border-[1px] dark:!bg-white w-[21px] h-[21px]",
-                                 }}
-                              />
+                              <div>
+                                 {" "}
+                                 <Switch
+                                    onChange={(e) => {
+                                       setChangedFilter((prev) => !prev);
+                                       if (!changedFilter) {
+                                          navigate(`/category-info/${categoryName}?q=${item.path}`);
+                                       } else {
+                                          navigate(`/category-info/${categoryName}`);
+                                       }
+                                    }}
+                                    id="custom-switch-component "
+                                    ripple={false}
+                                    className={`h-full w-full  checked:bg-[#2ec946]  `}
+                                    containerProps={{
+                                       className: "w-[46px] h-[24px] ",
+                                    }}
+                                    circleProps={{
+                                       className: "before:hidden left-0.5 border-[1px] dark:!bg-white w-[21px] h-[21px]",
+                                    }}
+                                 />
+                              </div>
                            </div>
                         );
                      })}
@@ -123,18 +165,34 @@ export default function CourseCategory() {
                </div>
                {/* hidden*/}
                <div className="  gap-x-9 col-span-4 grid grid-cols-2 mt-[18px] md:hidden ">
-                  <div className=" bg-header-color flex rounded-[30px] py-[13px]">
-                     <div className=" mx-auto flex gap-x-4">
-                        <BiFilterAlt className=" my-auto" style={{ fontSize: 25 }} />
-                        <span>فیلتر</span>
+                  <FilterCourseModal changedFilter={changedFilter} setChangedFilter={setChangedFilter} categoryName={categoryName}>
+                     {" "}
+                     <div className="  bg-header-color dark:bg-white dark:text-black flex rounded-[30px] py-[13px]">
+                        <div className=" mx-auto flex gap-x-4">
+                           <BiFilterAlt className=" my-auto" style={{ fontSize: 25 }} />
+                           <span>فیلتر</span>
+                        </div>
                      </div>
-                  </div>
-                  <div className=" bg-header-color flex rounded-[30px] py-[13px]">
-                     <div className=" mx-auto flex gap-x-4">
-                        <HiArrowsUpDown className=" my-auto " style={{ fontSize: 25 }} />
-                        <span>همه دوره ها</span>
+                  </FilterCourseModal>
+                  <SortingCourseModal categoryName={categoryName} items={tabArr} filterCategoryParam={filterCategoryParam}>
+                     {" "}
+                     <div className=" bg-header-color dark:bg-white dark:text-black flex rounded-[30px] py-[13px]">
+                        <div className=" mx-auto flex gap-x-4">
+                           <HiArrowsUpDown className=" my-auto " style={{ fontSize: 25 }} />
+                           <span>
+                              {filterCategoryParam === "default"
+                                 ? "همه دوره ها"
+                                 : filterCategoryParam === "cheapest"
+                                 ? "ارزان ترین"
+                                 : filterCategoryParam === "expensive"
+                                 ? "گران ترین"
+                                 : filterCategoryParam === "popular"
+                                 ? "پر مخاطب"
+                                 : ""}
+                           </span>
+                        </div>
                      </div>
-                  </div>
+                  </SortingCourseModal>
                </div>
                {/* hidden*/}
                <div className="CardsSec col-span-4  lg:col-span-2 xl:col-span-3   gap-11 ">
@@ -147,24 +205,30 @@ export default function CourseCategory() {
                      </div>
                      {tabArr.map((item) => {
                         return (
-                           <NavLink to={`/course-category/${categoryName}/${item.path}`} className={`  flex  px-3 gap-x-2  dark:!text-gray-800`} style={{ color: "white" }}>
+                           <Link
+                              to={`/category-info/${categoryName}?q=${item.path}`}
+                              className={`  flex  px-3 gap-x-2  dark:!text-gray-800 ${filterCategoryParam === item.path ? "active " : ""}`}
+                              style={{ color: "white" }}
+                           >
                               <span className=" text-[15px]  my-auto" style={{ fontFamily: "danaMedium" }}>
                                  {item.title}
                               </span>
-                           </NavLink>
+                           </Link>
                         );
                      })}
                   </div>
                   <div className="  grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-11 mt-[24px]">
-                     {courseTab.length > 0
-                        ? courseTab.map((item) => (
-                             <div className=" col-span-1">
-                                <Link to={`/course/${item.title}/`}>
-                                   <CourseCard />
-                                </Link>
-                             </div>
-                          ))
-                        : ""}
+                     {orderCourses.length > 0 ? (
+                        orderCourses.map((item) => {
+                           return <CourseCard {...item} />;
+                        })
+                     ) : (
+                        <div className=" col-span-3">
+                           <Alert color="amber" className=" text-2xl w-full">
+                              هنوز هیچ دوره ای برای این کتگوری وجود ندارد
+                           </Alert>
+                        </div>
+                     )}
                   </div>
                </div>
             </div>

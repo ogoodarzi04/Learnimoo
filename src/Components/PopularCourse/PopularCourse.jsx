@@ -11,11 +11,19 @@ import "swiper/css";
 import "swiper/css/navigation";
 // import required modules
 import { Navigation, Autoplay } from "swiper/modules";
+import useFetch from "../../Hooks/useFetch";
 
 export default function PopularCourse(props) {
+   const { getAllDatas, post, isPending, err } = useFetch();
+   const fetchData = () => {
+      getAllDatas(`http://localhost:3000/v1/courses/popular`, false);
+   };
+   useEffect(() => {
+      fetchData();
+   }, []);
    return (
-      <div className="PopularCourse-Wrapper mt-64 overflow-hidden relative">
-         <div className="TitleSec">
+      <div className={`PopularCourse-Wrapper mt-64 ${props.topStyle} overflow-hidden relative`}>
+         <div className={`TitleSec ${props.navColor}`}>
             <TitleSection
                isLeftSideShadow={false}
                title={props.title}
@@ -23,31 +31,31 @@ export default function PopularCourse(props) {
                color={props.color}
                btnHref={"/AllCourses"}
                leftBtnText={
-                  <div className=" gap-x-6 flex  ">
+                  <div className={` gap-x-6 flex ${props.msArrow}`}>
                      <div
-                        className="prev cursor-pointer rounded-full py-[12px] px-4 md:hover:bg-limon-color dark:md:hover:!bg-yellow-600 dark:hover:text-white md:hover:text-gray-color transition-all dark:!border-yellow-600"
-                        style={{ border: "1px solid #fbfb73" }}
+                        className={` ${props.roundedColor} prev cursor-pointer rounded-full py-[12px] px-4 md:hover:bg-limon-color dark:md:hover:!bg-yellow-600 dark:hover:text-white md:hover:text-gray-color transition-all dark:!border-yellow-600`}
+                        style={{ border: "1px solid rgb(255,235,59)" }}
                      >
-                        <ArrowForwardIosIcon style={{ fontSize: 21 }} />
+                        <ArrowForwardIosIcon style={{ fontSize: 21 }} className={`${props.arrowStyle}`} />
                      </div>
                      <div
-                        className="next  cursor-pointer rounded-full py-[12px] px-4 md:hover:bg-limon-color dark:md:hover:!bg-yellow-600 dark:hover:text-white md:hover:text-gray-color transition-all dark:!border-yellow-600"
-                        style={{ border: "1px solid #fbfb73" }}
+                        className={` ${props.roundedColor} next cursor-pointer rounded-full py-[12px] px-4 md:hover:bg-limon-color dark:md:hover:!bg-yellow-600 dark:hover:text-white md:hover:text-gray-color  transition-all dark:!border-yellow-600`}
+                        style={{ border: "1px solid rgb(255,235,59)" }}
                      >
-                        <ArrowBackIosNewIcon style={{ fontSize: 21 }} />
+                        <ArrowBackIosNewIcon style={{ fontSize: 21 }} className={`${props.arrowStyle}`} />
                      </div>
                   </div>
                }
             />
          </div>
-         <div className="CardsSec mt-[43px]  ">
+         <div className={`CardsSec mt-[43px] ${props.pxCard}`}>
             <Swiper
                navigation={{
                   prevEl: ".prev",
                   nextEl: ".next",
                }}
                slidesPerView={1}
-               spaceBetween={10}
+               spaceBetween={props.gapX}
                loop={true}
                autoplay={{
                   delay: 2500,
@@ -75,21 +83,15 @@ export default function PopularCourse(props) {
                modules={[Navigation, Autoplay]}
                className="mySwiper"
             >
-               <SwiperSlide className=" rounded-3xl">
-                  <CourseCard />
-               </SwiperSlide>
-               <SwiperSlide className=" rounded-3xl">
-                  <CourseCard />
-               </SwiperSlide>
-               <SwiperSlide className=" rounded-3xl">
-                  <CourseCard />
-               </SwiperSlide>
-               <SwiperSlide className=" rounded-3xl">
-                  <CourseCard />
-               </SwiperSlide>
-               <SwiperSlide className=" rounded-3xl">
-                  <CourseCard />
-               </SwiperSlide>
+               {post.map((item) => {
+                  return (
+                     <div className=" ">
+                        <SwiperSlide className=" rounded-3xl ">
+                           <CourseCard {...item} isSlide={true} cardStyle={props.cardStyle} />
+                        </SwiperSlide>
+                     </div>
+                  );
+               })}
             </Swiper>
          </div>
       </div>

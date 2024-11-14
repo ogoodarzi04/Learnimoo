@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { tabDataArt } from "../../datas";
+import React, { useContext, useEffect, useState } from "react";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import Breadcrumb from "../../Components/Breadcrumb/Breadcrumb";
 import CourseDetails from "../../Components/CourseDetails/CourseDetails";
 import { HiOutlineClipboardDocument } from "react-icons/hi2";
@@ -11,30 +10,51 @@ import CommentTextarea from "../../Components/CommentTextarea/CommentTextarea";
 import SuggestionArt from "../../Components/SuggestionArt/SuggestionArt";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
+import { Context } from "../../contexts/Context";
+import useFetch from "../../Hooks/useFetch";
+import DOMPurify from "dompurify";
 //
+
 export default function ArticleInfoes() {
    const [showClipboard, setShowClipboard] = useState(true);
    //
-   const [mainarticle, setMainarticle] = useState();
    let { articleName } = useParams();
    let navigate = useNavigate();
-
-   const mainArticles = () => {
-      let mainArticle = tabDataArt.filter((article) => article.title.includes(articleName));
-      if (mainArticle.length > 0) {
-         setMainarticle(mainArticle);
-         return;
-      }
-      navigate("/*");
+   const userDatas = useContext(Context);
+   //
+   //
+   const [articles, setArticles] = useState([1]);
+   const { getAllDatas, post, isPending, err } = useFetch();
+   const fetchData = () => {
+      getAllDatas(`http://localhost:3000/v1/articles`, false);
    };
    useEffect(() => {
-      mainArticles();
+      fetchData();
    }, [articleName]);
-   //
+
+   const mainArticles = () => {
+      if (post.length > 0) {
+         let mainArticle = post.filter((article) => article.shortName.includes(articleName));
+         setArticles(mainArticle);
+      }
+   };
+   useEffect(() => {
+      if (articles.length < 1) {
+         navigate("/*");
+      }
+   }, [articles]);
+
+   useEffect(() => {
+      mainArticles();
+   }, [post]);
+
    return (
       <>
          <Header />
-         <div className="grid  relative container ">
+         <div
+            className="grid  relative container "
+            // dangerouslySetInnerHTML={{__html:DOMPurify.sanitize()}}
+         >
             <div className="FirstSec mt-16">
                <Breadcrumb
                   Links={[
@@ -47,14 +67,12 @@ export default function ArticleInfoes() {
                <div className=" grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 mt-8 md:mt-16 ">
                   <div className="col-span-full lg:col-span-8 xl:col-span-9">
                      <div className="introduction">
-                        <ArticleDetails />
+                        <ArticleDetails datas={articles} />
                      </div>
                      <div className="SuggestionArt">
                         <SuggestionArt />
                      </div>
-                     <div className="Comments mt-[35px]">
-                        <CommentTextarea />
-                     </div>
+                     <div className="Comments mt-[35px]">{/* <CommentTextarea comments={comments} courseName={articleName} /> */}</div>
                   </div>
 
                   <div className="col-span-full lg:col-span-4 xl:col-span-3 space-y-8">

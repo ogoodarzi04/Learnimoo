@@ -5,18 +5,17 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 //
 export default function Notification(props) {
-   // console.log(props.productTitle)
    //
    useEffect(() => {
       {
          !props.isSuccessToast
             ? props.errorText &&
-              toast.error(`${props.errorText}  `, {
+              toast.error(`${props.errorText}`, {
                  position: "top-left",
                  theme: "dark",
                  rtl: true,
               })
-            : toast.success(`${props.succTxt} با موفقیت انجام شد  `, {
+            : toast.success(`${props.succTxt}`, {
                  position: "top-left",
                  theme: "dark",
                  rtl: true,

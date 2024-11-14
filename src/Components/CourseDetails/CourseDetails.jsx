@@ -3,7 +3,7 @@ import { HiDocumentText } from "react-icons/hi2";
 import { IoIosArrowDown } from "react-icons/io";
 
 //
-export default function CourseDetails() {
+export default function CourseDetails({ courseDetails }) {
    const [changeArt, setChangeArt] = useState(false);
    //
    return (
@@ -20,11 +20,11 @@ export default function CourseDetails() {
                      decoding="async"
                      loading="lazy"
                      className="alignnone wp-image-4534 rounded-2xl mb-[21px]"
-                     src="https://sabzlearn.ir/wp-content/uploads/2024/05/webpack2-300x169.webp"
+                     src={`http://localhost:3000/courses/covers/${courseDetails.cover}`}
                      alt=""
                      width="1143"
                      height="644"
-                     srcset="https://sabzlearn.ir/wp-content/uploads/2024/05/webpack2-300x169.webp 300w, https://sabzlearn.ir/wp-content/uploads/2024/05/webpack2-1024x576.webp 1024w, https://sabzlearn.ir/wp-content/uploads/2024/05/webpack2-768x432.webp 768w, https://sabzlearn.ir/wp-content/uploads/2024/05/webpack2-1536x864.webp 1536w, https://sabzlearn.ir/wp-content/uploads/2024/05/webpack2.webp 1920w"
+                     // srcset="https://sabzlearn.ir/wp-content/uploads/2024/05/webpack2-300x169.webp 300w, https://sabzlearn.ir/wp-content/uploads/2024/05/webpack2-1024x576.webp 1024w, https://sabzlearn.ir/wp-content/uploads/2024/05/webpack2-768x432.webp 768w, https://sabzlearn.ir/wp-content/uploads/2024/05/webpack2-1536x864.webp 1536w, https://sabzlearn.ir/wp-content/uploads/2024/05/webpack2.webp 1920w"
                      sizes="(max-width: 1143px) 100vw, 1143px"
                   />
                </p>

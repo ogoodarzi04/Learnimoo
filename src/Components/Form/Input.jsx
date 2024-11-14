@@ -1,10 +1,11 @@
 import React from "react";
 import "./Input.css";
-
+//
 export default function Input(props) {
    const element =
       props.element === "input" ? (
          <input
+            disabled={props.disabled}
             id={props.id}
             value={props.value}
             autoFocus={props.autoFocus}

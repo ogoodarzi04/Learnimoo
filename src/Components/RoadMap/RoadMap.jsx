@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./RoadMap.css";
 import TitleSection from "../TitleSection/TitleSection";
 import { roadmapBoxes } from "../../datas";
-
+import useFetch from "../../Hooks/useFetch";
 //
 export default function RoadMap() {
+   //
+   const userDatas = JSON.parse(localStorage.getItem("user"));
+   const { getAllDatas, post, isPending, err } = useFetch();
+   const fetchData = () => {
+      getAllDatas("http://localhost:3000/v1/courses", userDatas);
+   };
+   useEffect(() => {
+      fetchData();
+   }, []);
+   //
+   useEffect(() => {
+      roadmapBoxes[0].count = post.filter((item) => item?.categoryID?.title === "برنامه نویسی فرانت اند").length;
+      roadmapBoxes[1].count = post.filter((item) => item?.categoryID?.title === "برنامه نویسی بک‌اند").length;
+      roadmapBoxes[2].count = post.filter((item) => item?.categoryID?.title === "پایتون").length;
+      roadmapBoxes[3].count = 0;
+   }, [post]);
+   //
    return (
       <>
          <div className="RoadMap-Wrapper mt-64 ">

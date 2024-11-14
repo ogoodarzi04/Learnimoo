@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsFolder2Open } from "react-icons/bs";
 import { IoIosArrowUp } from "react-icons/io";
 import "./CategoriesAllCourses.css";
 import { Checkbox, ListItemPrefix } from "@material-tailwind/react";
+import { checkBoxes } from "../../datas";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 //
-export default function CategoriesAllCourses() {
+export default function CategoriesAllCourses(props) {
+   // console.log(props.filterCategoryParam);
    const [showcategoryCheckbox, setShowcategoryCheckbox] = useState(true);
+   const [isChekedBox, setIsChekedBox] = useState(true);
+   let location = useLocation();
+   let filterCheckedCourseParam = location.search.split("=")[1];
+   let navigate = useNavigate();
+   //
    return (
       <div className="CategoriesAllCourses">
          <div className="bg-header-color dark:bg-white dark:text-gray-900 rounded-xl p-4 hidden md:block overflow-hidden " id="category-collapse">
@@ -21,126 +29,33 @@ export default function CategoriesAllCourses() {
             </div>
             {showcategoryCheckbox ? (
                <div className="space-y-7">
-                  <label className="checkbox ">
-                     <ListItemPrefix className=" flex gap-x-3.5">
-                        <Checkbox
-                           value="yes"
-                           // color="blue"
-                           id="vertical-list-react"
-                           ripple={false}
-                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] dark:bg-[rgb(229,231,235)]  checked:!bg-blue-500 "
-                           containerProps={{
-                              className: "p-0 headlinecourse ",
-                           }}
-                        />
-                        <span className="text-sm danaMedium select-none mt-1.5">فرانت اند</span>
-                     </ListItemPrefix>
-                  </label>
-                  <label className="checkbox ">
-                     <ListItemPrefix className=" flex gap-x-3.5">
-                        <Checkbox
-                           value="yes"
-                           color="blue"
-                           id="vertical-list-react"
-                           ripple={false}
-                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] dark:bg-[rgb(229,231,235)] checked:!bg-blue-500 "
-                           containerProps={{
-                              className: "p-0 headlinecourse ",
-                           }}
-                        />
-                        <span className="text-sm danaMedium select-none mt-1.5">ارتقای مهارت ها</span>
-                     </ListItemPrefix>
-                  </label>
-                  <label className="checkbox ">
-                     <ListItemPrefix className=" flex gap-x-3.5">
-                        <Checkbox
-                           value="yes"
-                           color="blue"
-                           id="vertical-list-react"
-                           ripple={false}
-                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] dark:bg-[rgb(229,231,235)] checked:!bg-blue-500 "
-                           containerProps={{
-                              className: "p-0 headlinecourse ",
-                           }}
-                        />
-                        <span className="text-sm danaMedium select-none mt-1.5">بک اند</span>
-                     </ListItemPrefix>
-                  </label>
-                  <label className="checkbox ">
-                     <ListItemPrefix className=" flex gap-x-3.5">
-                        <Checkbox
-                           value="yes"
-                           color="blue"
-                           id="vertical-list-react"
-                           ripple={false}
-                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] dark:bg-[rgb(229,231,235)] checked:!bg-blue-500 "
-                           containerProps={{
-                              className: "p-0 headlinecourse ",
-                           }}
-                        />
-                        <span className="text-sm danaMedium select-none mt-1.5">امنیت</span>
-                     </ListItemPrefix>
-                  </label>
-                  <label className="checkbox ">
-                     <ListItemPrefix className=" flex gap-x-3.5">
-                        <Checkbox
-                           value="yes"
-                           color="blue"
-                           id="vertical-list-react"
-                           ripple={false}
-                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] dark:bg-[rgb(229,231,235)] checked:!bg-blue-500 "
-                           containerProps={{
-                              className: "p-0 headlinecourse ",
-                           }}
-                        />
-                        <span className="text-sm danaMedium select-none mt-1.5">پایتون</span>
-                     </ListItemPrefix>
-                  </label>
-                  <label className="checkbox ">
-                     <ListItemPrefix className=" flex gap-x-3.5">
-                        <Checkbox
-                           value="yes"
-                           color="blue"
-                           id="vertical-list-react"
-                           ripple={false}
-                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] dark:bg-[rgb(229,231,235)] checked:!bg-blue-500 "
-                           containerProps={{
-                              className: "p-0 headlinecourse ",
-                           }}
-                        />
-                        <span className="text-sm danaMedium select-none mt-1.5">مهارت های نرم</span>
-                     </ListItemPrefix>
-                  </label>
-                  <label className="checkbox ">
-                     <ListItemPrefix className=" flex gap-x-3.5 ">
-                        <Checkbox
-                           value="yes"
-                           color="blue"
-                           id="vertical-list-react"
-                           ripple={false}
-                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] dark:bg-[rgb(229,231,235)] checked:!bg-blue-500 "
-                           containerProps={{
-                              className: "p-0 headlinecourse ",
-                           }}
-                        />
-                        <span className="text-sm danaMedium select-none mt-1.5">پی اچ پی</span>
-                     </ListItemPrefix>
-                  </label>
-                  <label className="checkbox ">
-                     <ListItemPrefix className=" flex gap-x-3.5">
-                        <Checkbox
-                           value="yes"
-                           color="blue"
-                           id="vertical-list-react"
-                           ripple={false}
-                           className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px]  dark:bg-[rgb(229,231,235)] checked:!bg-blue-500"
-                           containerProps={{
-                              className: "p-0 headlinecourse ",
-                           }}
-                        />
-                        <span className="text-sm danaMedium select-none mt-1.5">هوش مصنوعی</span>
-                     </ListItemPrefix>
-                  </label>
+                  {checkBoxes.map((item) => {
+                     return (
+                        <label className="checkbox ">
+                           <ListItemPrefix className=" flex gap-x-3.5">
+                              <Checkbox
+                                 onChange={(e) => {
+                                    setIsChekedBox((prev) => !prev);
+                                    if (isChekedBox) {
+                                       navigate(``);
+                                    } else {
+                                       navigate(`/AllCourses`);
+                                    }
+                                 }}
+                                 value="yes"
+                                 // color="blue"
+                                 id="vertical-list-react"
+                                 ripple={false}
+                                 className="hover:before:opacity-0 rounded-sm w-[16px] h-[16px] dark:bg-[rgb(229,231,235)]  checked:!bg-blue-500 "
+                                 containerProps={{
+                                    className: "p-0 headlinecourse ",
+                                 }}
+                              />
+                              <span className="text-sm danaMedium select-none mt-1.5">{item.title}</span>
+                           </ListItemPrefix>
+                        </label>
+                     );
+                  })}
                </div>
             ) : (
                ""

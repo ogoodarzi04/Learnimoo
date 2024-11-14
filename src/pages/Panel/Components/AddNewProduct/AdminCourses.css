@@ -1,0 +1,9 @@
+input:focus {
+   outline: none;
+  
+}
+
+.search-btnd {
+   border-radius: 11px;
+   background-image: linear-gradient(to right, #92fe9d, #00c9ff);
+}

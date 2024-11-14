@@ -4,10 +4,10 @@ import { Card, CardBody, CardFooter, CardHeader } from "@material-tailwind/react
 //
 export default function SkeletonLoader() {
    return (
-      <div className="SkeletonLoader">
-         <Card className="mt-6 w-96 animate-pulse">
-            <CardHeader shadow={false} floated={false} className="relative grid h-56 place-items-center bg-gray-300">
-               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-12 w-12 text-gray-500">
+      <div className="SkeletonLoader ">
+         <Card className=" h-[400px] md:w-full w-[95%] mx-auto animate-pulse dark:!bg-white ">
+            <CardHeader shadow={false} floated={false} className="relative grid h-[50%] md:h-56 place-items-center opacity-[0.5] bg-gray-500">
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-12 w-12 text-header-color">
                   <path
                      strokeLinecap="round"
                      strokeLinejoin="round"
@@ -16,24 +16,24 @@ export default function SkeletonLoader() {
                </svg>
             </CardHeader>
             <CardBody>
-               <Typography as="div" variant="h1" className="mb-4 h-3 w-56 rounded-full bg-gray-300">
+               <Typography as="div" variant="h1" className="mb-4 h-3 w-56 rounded-full opacity-[0.5] bg-gray-500">
                   &nbsp;
                </Typography>
-               <Typography as="div" variant="paragraph" className="mb-2 h-2 w-full rounded-full bg-gray-300">
+               <Typography as="div" variant="paragraph" className="mb-2 h-2 w-full rounded-full opacity-[0.5] bg-gray-500">
                   &nbsp;
                </Typography>
-               <Typography as="div" variant="paragraph" className="mb-2 h-2 w-full rounded-full bg-gray-300">
+               <Typography as="div" variant="paragraph" className="mb-2 h-2 w-full rounded-full opacity-[0.5] bg-gray-500">
                   &nbsp;
                </Typography>
-               <Typography as="div" variant="paragraph" className="mb-2 h-2 w-full rounded-full bg-gray-300">
+               <Typography as="div" variant="paragraph" className="mb-2 h-2 w-full rounded-full opacity-[0.5] bg-gray-500">
                   &nbsp;
                </Typography>
-               <Typography as="div" variant="paragraph" className="mb-2 h-2 w-full rounded-full bg-gray-300">
+               <Typography as="div" variant="paragraph" className="mb-2 h-2 w-full rounded-full opacity-[0.5] bg-gray-500">
                   &nbsp;
                </Typography>
             </CardBody>
             <CardFooter className="pt-0">
-               <Button disabled tabIndex={-1} className="h-8 w-20 bg-gray-300 shadow-none hover:shadow-none">
+               <Button disabled tabIndex={-1} className="h-8 w-20 bg-gray-500 opacity-[0.5] shadow-none hover:shadow-none">
                   &nbsp;
                </Button>
             </CardFooter>

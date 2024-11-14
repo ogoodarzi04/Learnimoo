@@ -7,5 +7,5 @@
    transition: 0.1s;
 }
 .userTag:hover a {
-   color: #fbfb73;
+   color: rgb(255, 235, 59);
 }

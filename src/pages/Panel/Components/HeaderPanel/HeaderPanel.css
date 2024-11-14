@@ -1,0 +1,42 @@
+.lefSide-icons-p {
+   margin-top: 5px;
+   padding: 10px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 12px;
+   width: 51px;
+   height: 51px;
+}
+/* .search-box-p {
+   background-color: white;
+   border-radius: 15px;
+   width: 400px;
+   height: 50px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 0 0 0 6px;
+   box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+} */
+
+/* .search-box-p input {
+   color: black;
+   outline: none;
+   border: none;
+   background: unset;
+   width: 100%;
+   font-size: 1.1rem;
+   padding: 10px 20px 10px 10px;
+} */
+
+/* .search-box-p button {
+   display: flex;
+   align-items: center;
+   font-size: 1.1rem;
+   width: 135px;
+   height: 32px;
+   border-radius: 11px;
+   background-color: rgb(20, 8, 96);
+   padding: 3px 20px;
+} */

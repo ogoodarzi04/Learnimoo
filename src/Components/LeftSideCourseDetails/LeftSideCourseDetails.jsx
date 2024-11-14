@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 //
 import { FaUsers } from "react-icons/fa";
 import { HiMiniStar } from "react-icons/hi2";
 import { Progress } from "@material-tailwind/react";
 import { HiOutlineClipboardDocument } from "react-icons/hi2";
-export default function LeftSideCourseDetails() {
+export default function LeftSideCourseDetails(props) {
    return (
       <aside className=" LeftSideCourseDetails space-y-12 text-white dark:!text-black lg:block hidden">
          {/* <!-- Students & Rating & Progress --> */}
@@ -16,7 +16,7 @@ export default function LeftSideCourseDetails() {
                >
                   <FaUsers className=" text-limon-color ms-3.5" style={{ fontSize: 45 }} />
                   <div>
-                     <span className="block font-bold text-sm md:text-base">1612</span>
+                     <span className="block font-bold text-sm md:text-base">{props.courseDetails.courseStudentsCount}</span>
                      <span className="block text-sm opacity-70">دانشجو</span>
                   </div>
                </div>
@@ -49,12 +49,13 @@ export default function LeftSideCourseDetails() {
                src="https://secure.gravatar.com/avatar/50db59beddbfed36a1646dae99ca7b2d?s=96&amp;d=mm&amp;r=g"
                alt="محمدامین سعیدی راد"
             />
-            <span className=" danaDemiBold text-3xl mb-2 ">محمدامین سعیدی راد | مدرس دوره</span>
-            <p className="mt-2.5 dark:text-gray-800">برنامه نویس ارشد فرانت</p>
+            <span className=" danaDemiBold text-3xl mb-2 ">
+               {props.courseDetails.creator?.name} | {props.courseDetails.creator?.role === "ADMIN" && "مدرس دوره"}
+            </span>
             <div className="flex items-center cursor-pointer dark:text-yellow-600 text-limon-color mx-auto w-max mt-7 ">
                <div
                   className="md:hover:bg-limon-color md:dark:hover:bg-yellow-600 md:hover:text-gray-color md:dark:hover:text-white rounded-full transition-colors gap-x-2 md:px-7 md:py-3.5"
-                  style={{ border: "1px solid #fbfb73" }}
+                  style={{ border: "1px solid rgb(255,235,59)" }}
                >
                   <span className=" my-auto">مشاهده پروفایل من</span>
                </div>

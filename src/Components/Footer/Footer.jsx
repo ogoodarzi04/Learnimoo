@@ -3,24 +3,37 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import LocalPhoneRoundedIcon from "@mui/icons-material/LocalPhoneRounded";
+import { Link } from "react-router-dom";
 const SITEMAP = [
    {
       widtht: "400",
       title: "درباره لرنیمو",
       links: [
-         "شروع هرچیزی سخته، ولی وقتی مسیر درستی رو انتخاب کنی،با خیال راحت و بدون استرس میتونی از مسیر لذت ببری. ما در لرنیمو، توی سفر به دنیای برنامه نویسی کارت هستیم تا باهم رشد کنیم و از نتیجه زحمات مون لذت ببریم.",
+         {
+            path: "/",
+            name: "شروع هرچیزی سخته، ولی وقتی مسیر درستی رو انتخاب کنی،با خیال راحت و بدون استرس میتونی از مسیر لذت ببری. ما در لرنیمو، توی سفر به دنیای برنامه نویسی کارت هستیم تا باهم رشد کنیم و از نتیجه زحمات مون لذت ببریم.",
+         },
       ],
    },
 
    {
       widtht: "176",
       title: "دوره های پرطرفدار",
-      links: ["آموزش پایتون", "آموزش جاوااسکریپت", "آموزش Html", "آموزش Css"],
+      links: [
+         { name: "آموزش ویو ", path: "/course-info/vuejs" },
+         { name: "آموزش جاوااسکریپت", path: "/course-info/js-20-lib" },
+         { name: "آموزش Html", path: "/course-info/html" },
+         { name: "آموزش Canvas", path: "/course-info/canvas" },
+      ],
    },
    {
       widtht: "150",
       title: "دسترسی سریع",
-      links: ["قوانین و مقررات", "ارسال تیکت", "همه دوره ها"],
+      links: [
+         { name: "قوانین و مقررات", path: "/conditions" },
+         { name: "ارسال تیکت", path: "/course-info/canvas" },
+         { name: "همه دوره ها", path: "/AllCourses" },
+      ],
    },
 
    ,
@@ -34,10 +47,10 @@ export default function Footer() {
             <div className=" flex justify-between lg:pt-20 py-14 lg:py-0">
                <div className="logo-footer flex gap-x-7">
                   <div className="logo-img my-auto ">
-                     <img src="/img/slazzer-edit-image (2)_prev_ui.png" alt="" className=" md:h-[55px] md:w-[85px] h-[40px] w-[60px] mt-3 " />
+                     <img src="/images/slazzer-edit-image (2)_prev_ui.png" alt="" className=" md:h-[55px] md:w-[85px] h-[40px] w-[60px] mt-3 " />
                   </div>
                   <div className=" pt-2.5">
-                     <p className="font-danaBold font-bold md:text-[35px] dark:!text-blue-gray-900">لرنیمو</p>
+                     <p className="danaBold font-bold md:text-[35px] dark:!text-blue-gray-900">لرنیمو</p>
                      <i>learnimoo.ir</i>
                   </div>
                </div>
@@ -77,9 +90,9 @@ export default function Footer() {
                      <ul className="space-y-1">
                         {links.map((link, key) => (
                            <p key={key} as="li" className="font-normal">
-                              <a href="#" className="inline-block py-1 pr-2 transition-transform hover:scale-105 text-white/65 dark:text-blue-gray-800 ">
-                                 {link}
-                              </a>
+                              <Link to={`${link.path}`} className="inline-block py-1 pr-2 transition-transform hover:scale-105 text-white/65 dark:text-blue-gray-800 ">
+                                 {link.name}
+                              </Link>
                            </p>
                         ))}
                      </ul>
@@ -87,7 +100,7 @@ export default function Footer() {
                ))}
                <a href="">
                   <div className=" cursor-pointer">
-                     <img src="/img/enamad.png" alt="" />
+                     <img src="/images/enamad.png" alt="" />
                   </div>
                </a>
             </div>

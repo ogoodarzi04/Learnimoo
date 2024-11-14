@@ -15,13 +15,15 @@ module.exports = withMT({
          md: "768px",
          lg: "1024px",
          xl: "1278px",
+         xxl: "1399px",
       },
       extend: {
          colors: {
             "header-color": "rgb(36,42,56)",
             "theme-color": "rgb(17,24,39)",
             "icon-color": "#ffffff0d",
-            "limon-color": "#fbfb73",
+            "limon-color": "rgb(255,235,59)",
+            // "rgb(255,235,59)"
             "sabz-color": "#3CA117",
             "gray-color": "#c2c2c2",
             "border-color": "#ffffff1a",

@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CourseCard from "../CourseCard/CourseCard";
 import TitleSection from "../TitleSection/TitleSection";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { Link } from "react-router-dom";
+import useFetch from "../../Hooks/useFetch";
 //
 export default function LastCourse(props) {
+   const { getAllDatas, post, isPending, err } = useFetch();
+   const fetchData = () => {
+      getAllDatas("http://localhost:3000/v1/courses", false);
+   };
+   useEffect(() => {
+      fetchData();
+   }, []);
    return (
       <>
-         <div className="LastCourse-Wrapper mt-80">
+         <div className="LastCourse-Wrapper md:mt-48 mt-40">
             <div className="TitleSec">
                <TitleSection
                   isLeftSideShadow={true}
@@ -26,18 +34,10 @@ export default function LastCourse(props) {
                />
             </div>
             <div className="CardsSec mt-[43px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-11 ">
-               <CourseCard />
-               <CourseCard />
-               <CourseCard />
-               <CourseCard />
-               <CourseCard />
-               <CourseCard />
-               <CourseCard />
-               <CourseCard />
-               <CourseCard />
-               <CourseCard />
-               <CourseCard />
-               <CourseCard />
+               {post.map((item) => {
+                  // console.log(item);
+                  return <CourseCard {...item} />;
+               })}
             </div>
          </div>
       </>

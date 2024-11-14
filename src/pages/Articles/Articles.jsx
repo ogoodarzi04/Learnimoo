@@ -1,49 +1,64 @@
 //
 import React, { useEffect, useState } from "react";
-import { tabDataArt, tabItemsArt } from "../../datas";
+import { tabItemsArt } from "../../datas";
 import { useParams, NavLink, useNavigate, Link, useLocation } from "react-router-dom";
 import TitleSection from "../../Components/TitleSection/TitleSection";
 import { HiArrowsUpDown } from "react-icons/hi2";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { BiFilterAlt } from "react-icons/bi";
-import Article from "../../Components/Article/Article";
+import Article from "../../Components/LastArticles/Article";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
+import useFetch from "../../Hooks/useFetch";
+import { Alert } from "@material-tailwind/react";
+import SortingCourseModal from "../../Components/SortingCourseModal/SortingCourseModal";
 //
 export default function Articles() {
-   const [articleTab, setArticleTab] = useState([]);
+   const [orderArticles, setOrderArticles] = useState([]);
+   const [searchInputArticle, setSearchInputArticle] = useState("");
    const [tabArr, setTabArr] = useState([]);
    let navigate = useNavigate();
    let location = useLocation();
    let filterParam = location.search.split("=")[1] || "usual";
+   let filterSearchArticleParam = location.search.split("=")[1];
    //
-   const filterRouteItem = () => {
+   const { getAllDatas, post, isPending, err } = useFetch();
+   const fetchData = () => {
+      getAllDatas("http://localhost:3000/v1/articles", false);
+   };
+
+   useEffect(() => {
+      fetchData();
+   }, [filterParam]);
+
+   useEffect(() => {
       if (filterParam) {
          if (filterParam === "usual") {
-            setArticleTab(tabDataArt);
-            // console.log(courseTab);
+            setOrderArticles(post);
          } else if (filterParam === "newest") {
-            setArticleTab(tabDataArt);
-            // console.log(courseTab);
+            setOrderArticles(post.sort((a, b) => a.updatedAt - b.updatedAt));
          } else if (filterParam === "oldest") {
-            setArticleTab(tabDataArt);
-            // console.log(courseTab);
+            setOrderArticles(post.sort((a, b) => a.updatedAt - b.updatedAt).reverse());
          } else if (filterParam === "opinionated") {
-            setArticleTab(tabDataArt);
-         } else {
-            navigate("/*");
-            return;
+            setOrderArticles(post);
          }
+      } else {
+         navigate("/");
       }
-   };
+   }, [post]);
    useEffect(() => {
-      filterRouteItem();
       setTabArr(tabItemsArt);
    }, [filterParam]);
    //
+   useEffect(() => {
+      if (filterSearchArticleParam) {
+         let mainSearch = orderArticles.filter((item) => item.title.toLowerCase().includes(searchInputArticle));
+         setOrderArticles(mainSearch);
+      }
+   }, [searchInputArticle, filterSearchArticleParam]);
+
    return (
       <>
-         {" "}
          <Header />
          <div className="Articles grid  relative container  mt-20 text-white">
             <div className="TitleSec">
@@ -62,6 +77,11 @@ export default function Articles() {
                <div className=" lg:col-span-1 col-span-4">
                   <div className="search-box !mt-0  bg-header-color dark:bg-white dark:text-text-gray-color rounded-2xl  flex  py-3.5 ">
                      <input
+                        value={searchInputArticle}
+                        onInput={(e) => {
+                           setSearchInputArticle(e.target.value);
+                           navigate(`/blog?q=${e.target.value}`);
+                        }}
                         className=" flex"
                         type="text"
                         placeholder="جستجو بین مقاله ها
@@ -73,19 +93,18 @@ export default function Articles() {
                   </div>
                </div>
                {/* hidden*/}
-               <div className="  gap-x-9 col-span-4 grid grid-cols-2 mt-[18px] md:hidden ">
-                  <div className=" bg-header-color flex rounded-[30px] py-[13px]">
-                     <div className=" mx-auto flex gap-x-4">
-                        <BiFilterAlt className=" my-auto" style={{ fontSize: 25 }} />
-                        <span>فیلتر</span>
+               <div className="  gap-x-9 col-span-4 grid mt-[18px] md:hidden ">
+                  <SortingCourseModal categoryName={filterParam} items={tabArr} filterCategoryParam={filterParam}>
+                     {" "}
+                     <div className=" bg-header-color dark:bg-white dark:text-black flex rounded-[30px] py-[13px]">
+                        <div className=" mx-auto flex gap-x-4">
+                           <HiArrowsUpDown className=" my-auto " style={{ fontSize: 25 }} />
+                           <span>
+                              {filterParam === "usual" ? "عادی" : filterParam === "newest" ? "جدید ترین" : filterParam === "oldest" ? "قدیمی ترین" : filterParam === "opinionated" ? "پرنظرها" : ""}
+                           </span>
+                        </div>
                      </div>
-                  </div>
-                  <div className=" bg-header-color flex rounded-[30px] py-[13px]">
-                     <div className=" mx-auto flex gap-x-4">
-                        <HiArrowsUpDown className=" my-auto " style={{ fontSize: 25 }} />
-                        <span>همه مقاله ها</span>
-                     </div>
-                  </div>
+                  </SortingCourseModal>
                </div>
                {/* hidden*/}
                <div className="CardsSec col-span-4  lg:col-span-2 xl:col-span-3   gap-11 ">
@@ -108,16 +127,21 @@ export default function Articles() {
                      })}
                   </div>
                   <div className="  grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-11 mt-[24px] ">
-                     {articleTab.length > 0
-                        ? articleTab.map((item) => (
-                             <div className=" col-span-1 ">
-                                {/* {console.log(`/blog/${item.title}`)} */}
-                                <Link to={`/blog/${item.title}`}>
-                                   <Article />
-                                </Link>
-                             </div>
-                          ))
-                        : ""}
+                     {orderArticles.length > 0 ? (
+                        orderArticles
+                           .filter((item) => item.publish === 1)
+                           .map((item) => (
+                              <div className=" col-span-1 ">
+                                 <Article {...item} />
+                              </div>
+                           ))
+                     ) : (
+                        <div className=" col-span-3">
+                           <Alert color="amber" className=" text-2xl w-full">
+                              هنوز هیچ دوره ای برای این کتگوری وجود ندارد
+                           </Alert>
+                        </div>
+                     )}
                   </div>
                </div>
             </div>

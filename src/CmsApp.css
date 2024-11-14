@@ -32,3 +32,8 @@ h1 {
       overflow: hidden;
    }
 }
+
+.SortingCourseModal .backdrop-blur-sm {
+   background-color: transparent !important;
+   filter: brightness(84%) !important;
+}

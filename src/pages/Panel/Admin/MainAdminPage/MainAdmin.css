@@ -1,0 +1,17 @@
+.Selection .relative {
+   min-width: 130px;
+}
+.relative nav {
+   min-width: 0px;
+}
+.whitespace-normal {
+   padding: 0px !important;
+}
+.edit-act:hover {
+   background-color: orange !important;
+   color: white !important;
+}
+.ban-act:hover {
+   background-color: rgb(156, 129, 81) !important;
+   color: white !important;
+}

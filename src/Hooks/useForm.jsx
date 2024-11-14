@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useCallback, useEffect, useReducer, useState } from "react";
 import regex from "../regex/regex";
 const formHandeler = (states, action) => {
    let valid = false;
@@ -33,11 +33,17 @@ export default function useForm(objs) {
    let [inputs, dispach] = useReducer(formHandeler, objs);
    //    console.log(inputs);
    // is Valid All Inputs
-
    const [allValid, setAllValid] = useState(false);
-
+   //
+   const ClearInputs = () => {
+      for (let input in inputs) {
+         inputs[input].value = "";
+         inputs[input].isValid = false;
+         setAllValid(false);
+         // return;
+      }
+   };
    // Change Current Valid all Inputs
-
    useEffect(() => {
       for (let input in inputs) {
          if (!inputs[input].isValid) {
@@ -45,18 +51,17 @@ export default function useForm(objs) {
             return;
          }
       }
-
       setAllValid(true);
    }, [inputs]);
 
    //    Input Handeler
 
-   const inputHandeler = (e, config) => {
+   const inputHandeler = useCallback((e, config) => {
       let { id, value } = e.target;
       dispach({ id, value, ...config });
-   };
+   }, []);
 
-   return [allValid, inputs, inputHandeler];
+   return [allValid, inputs, inputHandeler, ClearInputs];
 }
 
 // if (validator.value === requiredValue) {

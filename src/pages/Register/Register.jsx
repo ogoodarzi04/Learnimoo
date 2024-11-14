@@ -1,51 +1,83 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { HiOutlineUser } from "react-icons/hi2";
 import { HiOutlinePhone } from "react-icons/hi2";
 import { HiOutlineMail } from "react-icons/hi";
 import { HiOutlineLockClosed } from "react-icons/hi2";
 import "./Register.css";
 import { Card, CardBody, CardFooter, input, Typography } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../../Components/Form/Input";
 import CButton from "../../Components/Form/CButton";
 import useForm from "../../Hooks/useForm";
 import Notification from "../../Components/Notification/Notification";
+import usePost from "../../Hooks/usePost";
+import { Context } from "../../contexts/Context";
 export default function Register() {
    const [showErrorToast, setShowErrorToast] = useState(false);
    const [textErrorToast, setTextErrorToast] = useState("");
    const [successToast, setSuccessToast] = useState(false);
    //
-
    const [allValid, inputs, inputHandeler] = useForm({
       username: { value: "", isValid: false, error: "در نام کاربری فقط استفاده از حداقل  4 و حداکثر 18 کاراکتر حروف انگلیسی، اعداد و ـ (زیر خط) مجاز است." },
-      phoneNumber: { value: "", isValid: false, error: "لطفا شماره تلفن را به درستی وارد کنید" },
+      phone: { value: "", isValid: false, error: "لطفا شماره تلفن را به درستی وارد کنید" },
       email: { value: "", isValid: false, error: "لطفا ایمیل را به درستی وارد کنید" },
       password: { value: "", isValid: false, error: "رمز عبور باید حداقل 8 کاراکتر باشد" },
    });
-
+   //
+   let navigate = useNavigate();
+   const userDatas = useContext(Context);
+   const { postdata, postpost, setPostpost, errorrs } = usePost();
    const submitHandeler = () => {
-      if (allValid) {
-         // Fetch
-         //
-         setSuccessToast(true);
-         setShowErrorToast(true);
-         setTimeout(() => {
-            setSuccessToast(false);
-            setShowErrorToast(false);
-         }, 5000);
-         return;
-      }
-
-      for (let input in inputs) {
-         if (!inputs[input].isValid) {
-            setTextErrorToast(inputs[input].error);
+      // if (allValid) {
+      const newData = {
+         name: inputs?.username.value,
+         username: inputs?.username.value,
+         email: inputs?.email.value,
+         password: inputs?.password.value,
+         confirmPassword: inputs?.password.value,
+         phone: inputs?.phone.value,
+      };
+      postdata("http://localhost:3000/v1/auth/register", newData, false);
+      //
+      // }
+   };
+   useEffect(() => {
+      if (postpost && Object.keys(postpost)?.length > 0) {
+         if (postpost.message === "username or email is duplicate.") {
+            setTextErrorToast(`نام کاربری یا ایمیل تکراری است`);
             setShowErrorToast(true);
             setTimeout(() => {
                setShowErrorToast(false);
-            }, 5000);
+            }, 4000);
+         }
+         if (postpost.message === "this phone number banned!") {
+            setTextErrorToast(`کاربر با این شماره تماس مسدود شده است`);
+            setShowErrorToast(true);
+            setTimeout(() => {
+               setShowErrorToast(false);
+            }, 4000);
+         }
+         if (postpost.accessToken) {
+            userDatas.login(postpost.user, postpost.accessToken);
+            setSuccessToast(true);
+            setShowErrorToast(true);
+            setTimeout(() => {
+               setSuccessToast(false);
+               setShowErrorToast(false);
+               navigate("/");
+            }, 4000);
+         }
+         for (let input in inputs) {
+            if (!inputs[input].isValid) {
+               setTextErrorToast(inputs[input].error);
+               setShowErrorToast(true);
+               setTimeout(() => {
+                  setShowErrorToast(false);
+               }, 4000);
+            }
          }
       }
-   };
+   }, [postpost]);
 
    return (
       <>
@@ -54,7 +86,7 @@ export default function Register() {
             <div className="Register text-white dark:!text-black  ">
                <div className="logo-footer flex gap-x-7 mx-auto w-max mb-12 text-white dark:!text-black ">
                   <div className="logo-img my-auto ">
-                     <img src="/img/slazzer-edit-image (2)_prev_ui.png" alt="" className=" md:h-[75px] md:w-[105px] h-[40px] w-[60px] mt-3 " />
+                     <img src="/images/slazzer-edit-image (2)_prev_ui.png" alt="" className=" md:h-[75px] md:w-[105px] h-[40px] w-[60px] mt-3 " />
                   </div>
                   <div className=" pt-2.5">
                      <p className="font-danaBold font-bold md:text-[45px] ">لرنیمو</p>
@@ -77,7 +109,7 @@ export default function Register() {
                            element="input"
                            id="username"
                            autoFocus={true}
-                           className="withColor  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full dark:!bg-light-theme-color"
+                           className="withColor pe-16  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full dark:!bg-light-theme-color"
                            type="text"
                            value={inputs?.username.value}
                            placeholder="نام کاربری "
@@ -90,12 +122,12 @@ export default function Register() {
                         {
                            <Input
                               element="input"
-                              id="phoneNumber"
-                              className="withColor  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full dark:!bg-light-theme-color"
+                              id="phone"
+                              className="withColor pe-16  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full dark:!bg-light-theme-color"
                               type="text"
-                              value={inputs?.phoneNumber.value}
+                              value={inputs?.phone.value}
                               placeholder="شماره موبایل"
-                              config={{ phoneNumber: 11 }}
+                              config={{ phone: 11 }}
                               inputHandeler={inputHandeler}
                            />
                         }
@@ -107,7 +139,7 @@ export default function Register() {
                               // value={}
                               id="email"
                               element="input"
-                              className="withColor  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full dark:!bg-light-theme-color"
+                              className="withColor pe-16  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full dark:!bg-light-theme-color"
                               type="text"
                               value={inputs?.email.value}
                               placeholder="آدرس ایمیل"
@@ -122,11 +154,11 @@ export default function Register() {
                            <Input
                               id="password"
                               element="input"
-                              className="withColor  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full dark:!bg-light-theme-color"
+                              className="withColor pe-16  rounded-xl flex py-[12.5px] ps-6  headlinecourse  size-full dark:!bg-light-theme-color"
                               type="password"
                               placeholder="رمز عبور"
                               value={inputs?.password.value}
-                              config={{ min: 7 }}
+                              config={{ min: 7, max: 19 }}
                               inputHandeler={inputHandeler}
                            />
                         }
@@ -152,7 +184,7 @@ export default function Register() {
             </div>
             <div className="hidden lg:block absolute bottom-0 right-0 w-[300px] h-[300px] bg-limon-color opacity-30 blur-[120px] rounded-full"></div>
          </div>
-         {showErrorToast && <Notification errorText={textErrorToast} isSuccessToast={successToast} succTxt={"عضویت"} />}
+         {showErrorToast && <Notification errorText={textErrorToast} isSuccessToast={successToast} succTxt={"عضویت با موفقیت انجام شد "} />}
       </>
    );
 }

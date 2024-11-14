@@ -1,7 +1,7 @@
 .bg-white {
    background-color: rgb(36, 42, 56) !important;
    box-sizing: border-box !important;
-   border-color: #fbfb73 !important;
+   border-color: rgb(255, 235, 59) !important;
    border-left-width: 0 !important;
    border-right-width: 0 !important;
    border-top-width: 1px !important;
@@ -18,7 +18,7 @@ a :hover {
    display: block !important;
 }
 .text-start:hover {
-   background-color: #fbfb73 !important;
+   background-color: rgb(255, 235, 59) !important;
    color: rgb(36, 42, 56) !important;
 }
 .text-start {
@@ -27,10 +27,14 @@ a :hover {
    background-color: unset !important;
 }
 .active {
-   background-color: #fbfb73;
+   background-color: rgb(255, 235, 59);
    border-radius: 5px;
    color: rgb(36, 42, 56) !important;
 }
 .darki:hover {
    color: rgb(36, 42, 56) !important;
+}
+.logout-act:hover {
+   background-color: rgb(239 68 68) !important;
+   color: white !important;
 }

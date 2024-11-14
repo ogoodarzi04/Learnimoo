@@ -2,6 +2,8 @@ import React, { useState } from "react";
 //
 import { Accordion, AccordionHeader, AccordionBody } from "@material-tailwind/react";
 import { HiOutlineLockClosed } from "react-icons/hi2";
+import { HiOutlinePlay } from "react-icons/hi";
+import { Link, useParams } from "react-router-dom";
 //
 const CUSTOM_ANIMATION = {
    mount: { scale: 1 },
@@ -19,10 +21,27 @@ function Icon({ openAcc }) {
 }
 //
 
-export default function CustomAccordian({ id, title, des, icon, iconColor, iconBgColor, bgColor, state, fontTitle, pe, isRightsideIcon, stylePageAccor, isOpenAcc, episode, ex, marginTit }) {
+export default function CustomAccordian({
+   titlee,
+   icon,
+   iconColor,
+   iconBgColor,
+   updatedAt,
+   bgColor,
+   fontTitle,
+   pe,
+   isRightsideIcon,
+   stylePageAccor,
+   isOpenAcc,
+   des,
+   ex,
+   marginTit,
+   sessions,
+   courseDetails,
+}) {
    const [openAcc, setOpenAcc] = useState(isOpenAcc);
    const handleOpenAcc = () => setOpenAcc((cur) => !cur);
-
+   const { courseName } = useParams();
    //
    return (
       <div className={`  ${bgColor}   ${stylePageAccor} text-dir`}>
@@ -43,7 +62,7 @@ export default function CustomAccordian({ id, title, des, icon, iconColor, iconB
                open={openAcc}
                icon={
                   <div className=" flex gap-x-5 ">
-                     <span className=" !font-thin !text-[13px] !my-auto ">{state}</span>
+                     <span className=" !font-thin !text-[13px] !my-auto ">{""}</span>
                      <div className={` my-auto `}>
                         <Icon openAcc={openAcc}></Icon>
                      </div>
@@ -58,7 +77,7 @@ export default function CustomAccordian({ id, title, des, icon, iconColor, iconB
                      className={`border-0 flex transition-colors dark:!text-black text-white  danaBold ${fontTitle}  text-[17px] font-extrabold !lg:ms-[5px] mx-auto  rounded-t-2xl 
                      ${!isRightsideIcon ? (openAcc ? "dark:bg-[rgb(100,116,139)] bg-limon-color dark:!text-white text-gray-500" : "") : ""}`}
                   >
-                     <p className={`${marginTit} `}>{title}</p>
+                     <p className={`${marginTit} `}>{titlee}</p>
                   </AccordionHeader>
                </div>
                {isRightsideIcon ? (
@@ -70,22 +89,41 @@ export default function CustomAccordian({ id, title, des, icon, iconColor, iconB
                )}
                {!isRightsideIcon ? (
                   <div>
-                     {episode.map((item) => (
-                        <AccordionBody className={` borderAccordItems dark:!border-t-gray-300 transition-colors  lg:!text-[15px] text-white dark:!text-gray-900 danaMedium `}>
-                           <div className=" flex justify-between cursor-pointer hover:text-limon-color dark:hover:!text-yellow-600 ">
-                              <div className=" flex gap-x-6 ms-6 py-[4px] ">
-                                 <div className=" w-[32px] h-[28px] flex rounded-lg dark:!bg-white" style={{ backgroundColor: "#ffffff1a" }}>
-                                    <span className=" !m-auto ">{item.id}</span>
+                     {sessions.map((item, index) => {
+                        return (
+                           <AccordionBody className={` borderAccordItems dark:!border-t-gray-300 transition-colors  lg:!text-[15px] text-white dark:!text-gray-900 danaMedium `}>
+                              {item.free === 1 || courseDetails?.isUserRegisteredToThisCourse ? (
+                                 <Link className=" !text-white" to={`/lesson/${courseName}/${item._id}`}>
+                                    <div className=" flex justify-between cursor-pointer hover:text-limon-color dark:hover:!text-yellow-600 ">
+                                       <div className=" flex gap-x-6 ms-6 py-[4px] ">
+                                          <div className=" w-[32px] h-[28px] flex rounded-lg dark:!bg-white" style={{ backgroundColor: "#ffffff1a" }}>
+                                             <span className=" !m-auto ">{index + 1}</span>
+                                          </div>
+                                          <span className=" my-auto "> {item.title}</span>
+                                       </div>
+                                       <div className=" flex gap-x-3">
+                                          <span className=" mt-3">{item.time}</span>
+                                          <HiOutlinePlay className="  my-auto me-6 " style={{ fontSize: 28 }} />
+                                       </div>
+                                    </div>
+                                 </Link>
+                              ) : (
+                                 <div className=" flex justify-between cursor-pointer hover:text-limon-color dark:hover:!text-yellow-600 ">
+                                    <div className=" flex gap-x-6 ms-6 py-[4px] ">
+                                       <div className=" w-[32px] h-[28px] flex rounded-lg dark:!bg-white" style={{ backgroundColor: "#ffffff1a" }}>
+                                          <span className=" !m-auto ">{index + 1}</span>
+                                       </div>
+                                       <span className=" my-auto "> {item.title}</span>
+                                    </div>
+                                    <div className=" flex gap-x-3">
+                                       <span className=" mt-3">{item.time}</span>
+                                       <HiOutlineLockClosed className=" my-auto me-6 " style={{ fontSize: 28 }} />
+                                    </div>
                                  </div>
-                                 <span className=" my-auto "> {item.title}</span>
-                              </div>
-                              <div className=" flex gap-x-3">
-                                 <span className=" mt-3">06:25</span>
-                                 <HiOutlineLockClosed className=" my-auto me-6 " style={{ fontSize: 28 }} />
-                              </div>
-                           </div>
-                        </AccordionBody>
-                     ))}
+                              )}
+                           </AccordionBody>
+                        );
+                     })}
                   </div>
                ) : (
                   ""
