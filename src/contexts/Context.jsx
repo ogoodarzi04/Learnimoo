@@ -24,7 +24,7 @@ export const ContextProvider = ({ children }) => {
    // console.log(localStorageData);
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://localhost:3000/v1/auth/me", localStorageData);
+      getAllDatas("http://learnimoo.filedl.me:3000/auth/me", localStorageData);
    };
 
    useEffect(() => {
@@ -33,7 +33,7 @@ export const ContextProvider = ({ children }) => {
          // setIsLoggedIn(true);
          // setUserInfos(post);
          // console.log(userInfos);
-         fetch(`http://localhost:3000/v1/auth/me`, {
+         fetch(`http://learnimoo.filedl.me:3000/auth/me`, {
             headers: {
                Authorization: `Bearer ${localStorageData.token}`,
             },

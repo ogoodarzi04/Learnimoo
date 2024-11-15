@@ -31,7 +31,7 @@ export default function AllCourses() {
    //
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas(`http://localhost:3000/v1/courses`, false);
+      getAllDatas(`http://learnimoo.filedl.me:3000/courses`, false);
    };
    useEffect(() => {
       fetchData();

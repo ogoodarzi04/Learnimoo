@@ -39,7 +39,7 @@ export default function Edit() {
          password: inputs?.password?.value,
          phone: newPhone,
       };
-      editedata(`http://localhost:3000/v1/users`, userToken, updatedDatas);
+      editedata(`http://learnimoo.filedl.me:3000/users`, userToken, updatedDatas);
    };
    useEffect(() => {
       if (editepost)

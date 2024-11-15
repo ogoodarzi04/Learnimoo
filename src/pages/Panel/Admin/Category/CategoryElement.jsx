@@ -38,7 +38,7 @@ export default function CategoryElement({ isAddNewCmp }) {
    const userDatas = JSON.parse(localStorage.getItem("user"));
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://localhost:3000/v1/category", userDatas);
+      getAllDatas("http://learnimoo.filedl.me:3000/category", userDatas);
    };
 
    useEffect(() => {
@@ -55,7 +55,7 @@ export default function CategoryElement({ isAddNewCmp }) {
    //
    const { deletedata, deletepost, setDeletepost, error } = useDelete();
    function deleteModalSubmitAction() {
-      deletedata(`http://localhost:3000/v1/category/${userId}`, userDatas);
+      deletedata(`http://learnimoo.filedl.me:3000/category/${userId}`, userDatas);
       setIsdelete(false);
    }
    useEffect(() => {
@@ -68,7 +68,7 @@ export default function CategoryElement({ isAddNewCmp }) {
          name: newName,
       };
       // console.log("data in submit func -->", updatedDatas);
-      editedata(`http://localhost:3000/v1/category/${userId}`, userDatas, updatedDatas);
+      editedata(`http://learnimoo.filedl.me:3000/category/${userId}`, userDatas, updatedDatas);
       setIseditemodal(false);
    };
    //
@@ -95,7 +95,7 @@ export default function CategoryElement({ isAddNewCmp }) {
          name: inputs?.name.value,
       };
       //
-      postdata("http://localhost:3000/v1/category", newUserData, userDatas);
+      postdata("http://learnimoo.filedl.me:3000/category", newUserData, userDatas);
       if (allValid || !postpost?.message) {
          ClearInputs();
       }

@@ -21,7 +21,7 @@ export default function DisCounts() {
          discount: inputs?.discount?.value,
       };
       //
-      postdata(`http://localhost:3000/v1/offs/all`, updatedDatas, userDatas);
+      postdata(`http://learnimoo.filedl.me:3000/offs/all`, updatedDatas, userDatas);
    };
    useEffect(() => {
       if (postpost) {

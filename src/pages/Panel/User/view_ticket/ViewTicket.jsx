@@ -20,8 +20,8 @@ export default function ViewTicket() {
    const userDatas = JSON.parse(localStorage.getItem("user"));
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas(`http://localhost:3000/v1/tickets/answer/${filterUserParam}`, userDatas);
-      getAllDatas2(`http://localhost:3000/v1/tickets/user`, userDatas);
+      getAllDatas(`http://learnimoo.filedl.me:3000/tickets/answer/${filterUserParam}`, userDatas);
+      getAllDatas2(`http://learnimoo.filedl.me:3000/tickets/user`, userDatas);
    };
    useEffect(() => {
       fetchData();
@@ -60,7 +60,7 @@ export default function ViewTicket() {
          body: inputs.body.value,
          priority: mainDataTickets.priority,
       };
-      //   postdata("http://localhost:3000/v1/tickets", newUserData, userDatas);
+      //   postdata("http://learnimoo.filedl.me:3000/tickets", newUserData, userDatas);
    };
    //    useEffect(() => {
    //       if (postpost && Object.keys(postpost)?.length > 0) {

@@ -7,7 +7,7 @@ export default function TicketElement({ isLeftSideElem, isSlice, titleSec }) {
    const userDatas = JSON.parse(localStorage.getItem("user"));
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://localhost:3000/v1/tickets/user", userDatas);
+      getAllDatas("http://learnimoo.filedl.me:3000/tickets/user", userDatas);
    };
    useEffect(() => {
       fetchData();

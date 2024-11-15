@@ -15,7 +15,7 @@ export default function MainAdmin() {
    const userDatas = JSON.parse(localStorage.getItem("user"));
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas(`http://localhost:3000/v1/infos/p-admin`, userDatas);
+      getAllDatas(`http://learnimoo.filedl.me:3000/infos/p-admin`, userDatas);
    };
    useEffect(() => {
       fetchData();

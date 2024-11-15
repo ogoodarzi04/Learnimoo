@@ -27,7 +27,7 @@ export default function Addticket() {
          priority,
       };
       //
-      postdata("http://localhost:3000/v1/tickets", newUserData, userDatas);
+      postdata("http://learnimoo.filedl.me:3000/tickets", newUserData, userDatas);
    };
    useEffect(() => {
       if (postpost && Object.keys(postpost)?.length > 0) {
@@ -53,7 +53,7 @@ export default function Addticket() {
    const [departMentSub, setDepartMentSub] = useState([]);
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://localhost:3000/v1/tickets/departments", userDatas);
+      getAllDatas("http://learnimoo.filedl.me:3000/tickets/departments", userDatas);
    };
    useEffect(() => {
       fetchData();
@@ -64,7 +64,7 @@ export default function Addticket() {
    const [departmentID, setDepartmentID] = useState("-1");
    const { getAllDatas: getAllDatas2, post: post2, isPending: isPending2, err: err2 } = useFetch();
    const getDepartmentsSub = (Id) => {
-      getAllDatas2(`http://localhost:3000/v1/tickets/departments-subs/${Id}`, userDatas);
+      getAllDatas2(`http://learnimoo.filedl.me:3000/tickets/departments-subs/${Id}`, userDatas);
       setDepartmentID(Id);
    };
    useEffect(() => {

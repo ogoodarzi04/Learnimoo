@@ -25,7 +25,7 @@ export default function CourseInfoes() {
    const { getAllDatas, post, isPending, err } = useFetch();
    const [objs, setObjs] = useState([]);
    const fetchData = () => {
-      getAllDatas("http://localhost:3000/v1/menus", false);
+      getAllDatas("http://learnimoo.filedl.me:3000/menus", false);
    };
    useEffect(() => {
       fetchData();
@@ -33,7 +33,7 @@ export default function CourseInfoes() {
    //
 
    const mainCourses = () => {
-      fetch(`http://localhost:3000/v1/courses/${courseName}`, {})
+      fetch(`http://learnimoo.filedl.me:3000/courses/${courseName}`, {})
          .then((res) => res.json())
          .then((data) => {
             if (!data.message) {

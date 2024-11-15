@@ -48,7 +48,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
    //
    const { deletedata, deletepost, setDeletepost, error } = useDelete();
    function deleteModalSubmitAction() {
-      deletedata(`http://localhost:3000/v1/users/${userId}`, userDatas);
+      deletedata(`http://learnimoo.filedl.me:3000/users/${userId}`, userDatas);
       setIsdelete(false);
    }
    useEffect(() => {
@@ -57,7 +57,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
    const { editedata, editepost, setEditepost, errorr } = useEdit();
    const [banItems, setBanItems] = useState([]);
    function banModalSubmitAction() {
-      editedata(`http://localhost:3000/v1/users/ban/${userId}`, userDatas, false);
+      editedata(`http://learnimoo.filedl.me:3000/users/ban/${userId}`, userDatas, false);
       setIsBan(false);
       let mainBanItem = banItems.some((item) => item == userId);
       if (!mainBanItem) {
@@ -81,7 +81,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
          phone: newPhone,
       };
       // console.log("data in submit func -->", updatedDatas);
-      editedata(`http://localhost:3000/v1/users`, userDatas, updatedDatas);
+      editedata(`http://learnimoo.filedl.me:3000/users`, userDatas, updatedDatas);
       setIseditemodal(false);
       fetchData();
    };
@@ -112,7 +112,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
          phone: inputs?.phone.value,
       };
       //
-      postdata("http://localhost:3000/v1/auth/register", newUserData, false);
+      postdata("http://learnimoo.filedl.me:3000/auth/register", newUserData, false);
 
       if (allValid || !postpost?.message) {
          ClearInputs();
@@ -125,7 +125,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
          id: userId,
          role: userRole ? "USER" : "ADMIN",
       };
-      editedata("http://localhost:3000/v1/users/role", userDatas, newUserRole);
+      editedata("http://learnimoo.filedl.me:3000/users/role", userDatas, newUserRole);
       fetchData();
    };
    useEffect(() => {

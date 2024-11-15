@@ -21,7 +21,7 @@ export default function DiscountElement({ isAddNewCmp }) {
    const userDatas = JSON.parse(localStorage.getItem("user"));
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://localhost:3000/v1/offs", userDatas);
+      getAllDatas("http://learnimoo.filedl.me:3000/offs", userDatas);
    };
 
    useEffect(() => {
@@ -34,7 +34,7 @@ export default function DiscountElement({ isAddNewCmp }) {
 
    const { deletedata, deletepost, setDeletepost, error } = useDelete();
    function deleteModalSubmitAction() {
-      deletedata(`http://localhost:3000/v1/offs/${userId}`, userDatas);
+      deletedata(`http://learnimoo.filedl.me:3000/offs/${userId}`, userDatas);
       setIsdelete(false);
    }
    useEffect(() => {
@@ -62,7 +62,7 @@ export default function DiscountElement({ isAddNewCmp }) {
          course: offCourse,
       };
       //
-      postdata("http://localhost:3000/v1/offs", newUserData, userDatas);
+      postdata("http://learnimoo.filedl.me:3000/offs", newUserData, userDatas);
       if (allValid || !postpost?.message) {
          ClearInputs();
       }
@@ -73,7 +73,7 @@ export default function DiscountElement({ isAddNewCmp }) {
    useEffect(() => {
       fetchData();
       //
-      fetch("http://localhost:3000/v1/courses")
+      fetch("http://learnimoo.filedl.me:3000/courses")
          .then((res) => res.json())
          .then((allCat) => {
             setCourses(allCat);

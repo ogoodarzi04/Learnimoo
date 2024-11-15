@@ -34,7 +34,7 @@ export default function CoursesElement({ isAddNewCmp }) {
    const userDatas = JSON.parse(localStorage.getItem("user"));
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://localhost:3000/v1/courses", userDatas);
+      getAllDatas("http://learnimoo.filedl.me:3000/courses", userDatas);
    };
    useEffect(() => {
       fetchData();
@@ -46,7 +46,7 @@ export default function CoursesElement({ isAddNewCmp }) {
    useEffect(() => {
       fetchData();
       //
-      fetch("http://localhost:3000/v1/category")
+      fetch("http://learnimoo.filedl.me:3000/category")
          .then((res) => res.json())
          .then((allCat) => {
             setCategories(allCat);
@@ -62,7 +62,7 @@ export default function CoursesElement({ isAddNewCmp }) {
    //
    const { deletedata, deletepost, setDeletepost, error } = useDelete();
    function deleteModalSubmitAction() {
-      deletedata(`http://localhost:3000/v1/courses/${userId}`, userDatas);
+      deletedata(`http://learnimoo.filedl.me:3000/courses/${userId}`, userDatas);
       setIsdelete(false);
    }
    useEffect(() => {
@@ -84,7 +84,7 @@ export default function CoursesElement({ isAddNewCmp }) {
       formData.append("status", "start");
       formData.append("categoryID", courseCat);
       // console.log("data in submit func -->", updatedDatas);
-      fetch(`http://localhost:3000/v1/courses/${userId}`, {
+      fetch(`http://learnimoo.filedl.me:3000/courses/${userId}`, {
          method: "PUT",
          headers: {
             Authorization: `Bearer ${userDatas.token}`,
@@ -121,7 +121,7 @@ export default function CoursesElement({ isAddNewCmp }) {
       formData.append("status", "start");
       formData.append("categoryID", courseCat);
       //
-      fetch(`http://localhost:3000/v1/courses`, {
+      fetch(`http://learnimoo.filedl.me:3000/courses`, {
          method: "POST",
          headers: {
             Authorization: `Bearer ${userDatas.token}`,

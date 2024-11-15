@@ -37,7 +37,7 @@ export default function Register() {
          confirmPassword: inputs?.password.value,
          phone: inputs?.phone.value,
       };
-      postdata("http://localhost:3000/v1/auth/register", newData, false);
+      postdata("http://learnimoo.filedl.me:3000/auth/register", newData, false);
       //
       // }
    };
