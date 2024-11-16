@@ -29,12 +29,11 @@ import { BsBagCheck, BsCurrencyDollar } from "react-icons/bs";
 import useForm from "../../../../Hooks/useForm";
 //
 // import "./Users.css";
-
 export default function CoursesElement({ isAddNewCmp }) {
    const userDatas = JSON.parse(localStorage.getItem("user"));
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://learnimoo.filedl.me:3000/courses", userDatas);
+      getAllDatas(`${DOMAIN}courses`, userDatas);
    };
    useEffect(() => {
       fetchData();
@@ -46,7 +45,7 @@ export default function CoursesElement({ isAddNewCmp }) {
    useEffect(() => {
       fetchData();
       //
-      fetch("http://learnimoo.filedl.me:3000/category")
+      fetch(`${DOMAIN}category`)
          .then((res) => res.json())
          .then((allCat) => {
             setCategories(allCat);
@@ -62,7 +61,7 @@ export default function CoursesElement({ isAddNewCmp }) {
    //
    const { deletedata, deletepost, setDeletepost, error } = useDelete();
    function deleteModalSubmitAction() {
-      deletedata(`http://learnimoo.filedl.me:3000/courses/${userId}`, userDatas);
+      deletedata(`${DOMAIN}courses/${userId}`, userDatas);
       setIsdelete(false);
    }
    useEffect(() => {
@@ -84,7 +83,7 @@ export default function CoursesElement({ isAddNewCmp }) {
       formData.append("status", "start");
       formData.append("categoryID", courseCat);
       // console.log("data in submit func -->", updatedDatas);
-      fetch(`http://learnimoo.filedl.me:3000/courses/${userId}`, {
+      fetch(`${DOMAIN}courses/${userId}`, {
          method: "PUT",
          headers: {
             Authorization: `Bearer ${userDatas.token}`,
@@ -121,7 +120,8 @@ export default function CoursesElement({ isAddNewCmp }) {
       formData.append("status", "start");
       formData.append("categoryID", courseCat);
       //
-      fetch(`http://learnimoo.filedl.me:3000/courses`, {
+
+      fetch(`${DOMAIN}courses`, {
          method: "POST",
          headers: {
             Authorization: `Bearer ${userDatas.token}`,
@@ -141,7 +141,7 @@ export default function CoursesElement({ isAddNewCmp }) {
    //
    return (
       <>
-         <div className=" grid grid-cols-3  px-20 pb-24">
+         <div className=" grid grid-cols-3  md:px-20 pb-24">
             {isAddNewCmp && (
                <AddNewProduct title={"افزودن دوره جدید"}>
                   <div className=" grid md:grid-cols-2 p-4 gap-x-20 cursor-pointer !text-gray-400">

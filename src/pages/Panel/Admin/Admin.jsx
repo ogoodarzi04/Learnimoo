@@ -18,15 +18,15 @@ export default function Admin() {
             style={{
                background: "rgba(17,18,25,1)",
             }}
-            className=" grid md:grid-cols-6   relative"
+            className=" md:grid md:grid-cols-6   relative "
             dir="rtl"
          >
             <div className=" col-span-1 flex sticky top-0">
                <SideBar />
             </div>
-            <div className="col-span-5">
-               {routeName ? <Header height={"90.315"} mb={"mb-[53px]"} /> : <Header height={"170.315"} mb={"mb-[0px]"} />}
-               <div className=" routers">
+            <div className="md:col-span-5 ">
+               {routeName ? <Header height={"90.315"} mb={" mb-[53px]"} /> : <Header height={"170.315"} mb={"mb-[0px]"} />}
+               <div className=" routers px-10">
                   <Outlet />
                </div>
             </div>

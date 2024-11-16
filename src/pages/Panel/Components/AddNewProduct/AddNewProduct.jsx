@@ -5,7 +5,7 @@ import useFetch from "../../../../Hooks/useFetch";
 export default function AddNewProduct(props) {
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://learnimoo.filedl.me:3000/courses", false);
+      getAllDatas(`${DOMAIN}courses`, false);
    };
    useEffect(() => {
       fetchData();

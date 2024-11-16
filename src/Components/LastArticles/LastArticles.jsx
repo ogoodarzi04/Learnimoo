@@ -8,7 +8,7 @@ import useFetch from "../../Hooks/useFetch";
 export default function LastArticles() {
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas(`http://learnimoo.filedl.me:3000/articles`, false);
+      getAllDatas(`${DOMAIN}articles`, false);
    };
    useEffect(() => {
       fetchData();

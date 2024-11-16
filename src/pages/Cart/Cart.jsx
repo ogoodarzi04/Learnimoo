@@ -63,7 +63,7 @@ export default function Cart() {
       const newUserData = {
          course: courseId,
       };
-      postdata(`http://learnimoo.filedl.me:3000/offs/${inputOffCode}`, newUserData, userDatasCourse);
+      postdata(`${DOMAIN}offs/${inputOffCode}`, newUserData, userDatasCourse);
    };
    //
    useEffect(() => {
@@ -93,9 +93,9 @@ export default function Cart() {
             const newUserDataRegister = {
                price: mainPriceCourse?.price - (mainPriceCourse?.price * 51) / 100,
             };
-            // postdata(`http://learnimoo.filedl.me:3000/courses/${courseId}/register`, newUserDataRegister, userDatasCourse);
+            // postdata(`${DOMAIN}courses/${courseId}/register`, newUserDataRegister, userDatasCourse);
             //
-            fetch(`http://learnimoo.filedl.me:3000/courses/${courseId}/register`, {
+            fetch(`${DOMAIN}courses/${courseId}/register`, {
                method: "POST",
                headers: {
                   "Content-Type": "application/json",

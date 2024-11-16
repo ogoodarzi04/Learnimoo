@@ -135,7 +135,7 @@ export default function CommentTextarea(props) {
                                  courseShortName: courseName,
                                  score: commentScore,
                               };
-                              postdata("http://learnimoo.filedl.me:3000/comments", updatedDatas, token);
+                              postdata(`${DOMAIN}comments`, updatedDatas, token);
                               setCommentText("");
                               if (commentText) {
                                  setShowErrorToast(true);

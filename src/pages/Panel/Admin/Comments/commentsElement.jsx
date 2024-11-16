@@ -36,7 +36,7 @@ export default function commentElement({ isAddNewCmp }) {
    const localStorageBanId = JSON.parse(localStorage.getItem("banItemID"));
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://learnimoo.filedl.me:3000/comments", userDatas);
+      getAllDatas(`${DOMAIN}comments`, userDatas);
    };
    useEffect(() => {
       fetchData();
@@ -47,7 +47,7 @@ export default function commentElement({ isAddNewCmp }) {
    //
    const { deletedata, deletepost, setDeletepost, error } = useDelete();
    function deleteModalSubmitAction() {
-      deletedata(` http://learnimoo.filedl.me:3000/comments/${userId}`, userDatas);
+      deletedata(` ${DOMAIN}comments/${userId}`, userDatas);
       setIsdelete(false);
    }
    useEffect(() => {
@@ -74,7 +74,7 @@ export default function commentElement({ isAddNewCmp }) {
    const [isBan, setIsBan] = useState(false);
    const [banItems, setBanItems] = useState([]);
    function banModalSubmitAction() {
-      editedata(`http://learnimoo.filedl.me:3000/users/ban/${userId}`, userDatas, {});
+      editedata(`${DOMAIN}users/ban/${userId}`, userDatas, {});
       setIsBan(false);
       let mainBanItem = banItems.some((item) => item == userId);
       if (!mainBanItem) {
@@ -95,16 +95,16 @@ export default function commentElement({ isAddNewCmp }) {
          body: inputs?.answer.value,
       };
       //
-      postdata(`http://learnimoo.filedl.me:3000/comments/answer/${userId}`, newUserData, userDatas);
+      postdata(`${DOMAIN}comments/answer/${userId}`, newUserData, userDatas);
       ClearInputs();
    }
    const [answer, setAnswer] = useState(false);
    function rejectComment(userId) {
-      editedata(`http://learnimoo.filedl.me:3000/comments/reject/${userId}`, userDatas, {});
+      editedata(`${DOMAIN}comments/reject/${userId}`, userDatas, {});
    }
    //
    function acceptComment(userId) {
-      editedata(`http://learnimoo.filedl.me:3000/comments/accept/${userId}`, userDatas, {});
+      editedata(`${DOMAIN}comments/accept/${userId}`, userDatas, {});
    }
    ///
    return (

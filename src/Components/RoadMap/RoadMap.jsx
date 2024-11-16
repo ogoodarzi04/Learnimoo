@@ -9,7 +9,7 @@ export default function RoadMap() {
    const userDatas = JSON.parse(localStorage.getItem("user"));
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://learnimoo.filedl.me:3000/courses", userDatas);
+      getAllDatas(`${DOMAIN}courses`, userDatas);
    };
    useEffect(() => {
       fetchData();

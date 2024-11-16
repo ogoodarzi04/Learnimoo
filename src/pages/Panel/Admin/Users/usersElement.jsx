@@ -48,7 +48,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
    //
    const { deletedata, deletepost, setDeletepost, error } = useDelete();
    function deleteModalSubmitAction() {
-      deletedata(`http://learnimoo.filedl.me:3000/users/${userId}`, userDatas);
+      deletedata(`${DOMAIN}users/${userId}`, userDatas);
       setIsdelete(false);
    }
    useEffect(() => {
@@ -57,7 +57,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
    const { editedata, editepost, setEditepost, errorr } = useEdit();
    const [banItems, setBanItems] = useState([]);
    function banModalSubmitAction() {
-      editedata(`http://learnimoo.filedl.me:3000/users/ban/${userId}`, userDatas, false);
+      editedata(`${DOMAIN}users/ban/${userId}`, userDatas, false);
       setIsBan(false);
       let mainBanItem = banItems.some((item) => item == userId);
       if (!mainBanItem) {
@@ -81,7 +81,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
          phone: newPhone,
       };
       // console.log("data in submit func -->", updatedDatas);
-      editedata(`http://learnimoo.filedl.me:3000/users`, userDatas, updatedDatas);
+      editedata(`${DOMAIN}users`, userDatas, updatedDatas);
       setIseditemodal(false);
       fetchData();
    };
@@ -112,7 +112,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
          phone: inputs?.phone.value,
       };
       //
-      postdata("http://learnimoo.filedl.me:3000/auth/register", newUserData, false);
+      postdata(`${DOMAIN}auth/register`, newUserData, false);
 
       if (allValid || !postpost?.message) {
          ClearInputs();
@@ -125,7 +125,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
          id: userId,
          role: userRole ? "USER" : "ADMIN",
       };
-      editedata("http://learnimoo.filedl.me:3000/users/role", userDatas, newUserRole);
+      editedata(`${DOMAIN}users/role`, userDatas, newUserRole);
       fetchData();
    };
    useEffect(() => {
@@ -134,7 +134,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
    //
    return (
       <>
-         <div className=" grid grid-cols-3  px-20 pb-24">
+         <div className=" grid grid-cols-3  md:px-20 pb-24">
             {isAddNewCmp && (
                <AddNewProduct title={"افزودن کاربر جدید"}>
                   <div className=" grid md:grid-cols-2 p-4 gap-x-20 cursor-pointer !text-gray-400">
@@ -244,7 +244,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
             {/* ///// */}
             <TableProducts post={post} title={titleHdr}>
                {/* fetchData */}
-               <table className="mt-10 w-full min-w-max table-auto text-right  ">
+               <table className="mt-10 w-full min-w-max table-auto text-right ">
                   <thead>
                      <tr>
                         {TABLE_HEAD.map((head, id) => (

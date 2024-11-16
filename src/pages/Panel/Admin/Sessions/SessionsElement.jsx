@@ -22,7 +22,7 @@ export default function SessionsElement({ isAddNewCmp }) {
    const userDatas = JSON.parse(localStorage.getItem("user"));
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://learnimoo.filedl.me:3000/courses/sessions", userDatas);
+      getAllDatas(`${DOMAIN}courses/sessions`, userDatas);
    };
    useEffect(() => {
       fetchData();
@@ -33,7 +33,7 @@ export default function SessionsElement({ isAddNewCmp }) {
    //
    const { deletedata, deletepost, setDeletepost, error } = useDelete();
    function deleteModalSubmitAction() {
-      deletedata(`http://learnimoo.filedl.me:3000/courses/sessions/${userId}`, userDatas);
+      deletedata(`${DOMAIN}courses/sessions/${userId}`, userDatas);
       setIsdelete(false);
    }
    useEffect(() => {
@@ -61,7 +61,7 @@ export default function SessionsElement({ isAddNewCmp }) {
       formData.append("video", sessionVideo);
       formData.append("free", isSsessionFree);
       //
-      fetch(`http://learnimoo.filedl.me:3000/courses/${sessionCourse}/sessions`, {
+      fetch(`${DOMAIN}courses/${sessionCourse}/sessions`, {
          method: "POST",
          headers: {
             Authorization: `Bearer ${userDatas.token}`,
@@ -83,7 +83,7 @@ export default function SessionsElement({ isAddNewCmp }) {
    useEffect(() => {
       fetchData();
       //
-      fetch("http://learnimoo.filedl.me:3000/courses")
+      fetch(`${DOMAIN}courses`)
          .then((res) => res.json())
          .then((allCat) => {
             setCourses(allCat);

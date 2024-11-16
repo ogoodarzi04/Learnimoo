@@ -28,7 +28,7 @@ export default function menusElement({ isAddNewCmp }) {
    const userDatas = JSON.parse(localStorage.getItem("user"));
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://learnimoo.filedl.me:3000/menus/all", false);
+      getAllDatas(`${DOMAIN}menus/all`, false);
    };
    useEffect(() => {
       fetchData();
@@ -40,7 +40,7 @@ export default function menusElement({ isAddNewCmp }) {
    //
    const { deletedata, deletepost, setDeletepost, error } = useDelete();
    function deleteModalSubmitAction() {
-      deletedata(`http://learnimoo.filedl.me:3000/menus/${userId}`, userDatas);
+      deletedata(`${DOMAIN}menus/${userId}`, userDatas);
       setIsdelete(false);
    }
    useEffect(() => {
@@ -58,7 +58,7 @@ export default function menusElement({ isAddNewCmp }) {
          parent: undefined,
       };
       // console.log("data in submit func -->", updatedDatas);
-      editedata(`http://learnimoo.filedl.me:3000/menus/${userId}`, userDatas, updatedDatas);
+      editedata(`${DOMAIN}menus/${userId}`, userDatas, updatedDatas);
       fetchData();
       setIseditemodal(false);
    };
@@ -83,7 +83,7 @@ export default function menusElement({ isAddNewCmp }) {
          parent: parentMenu === "-1" ? undefined : parentMenu,
       };
       //
-      postdata(`http://learnimoo.filedl.me:3000/menus/`, updatedDatas, userDatas);
+      postdata(`${DOMAIN}menus/`, updatedDatas, userDatas);
       fetchData();
       if (allValid || !postpost?.message) {
          ClearInputs();
@@ -93,7 +93,7 @@ export default function menusElement({ isAddNewCmp }) {
    useEffect(() => {
       fetchData();
       //
-      fetch("http://learnimoo.filedl.me:3000/courses")
+      fetch(`${DOMAIN}courses`)
          .then((res) => res.json())
          .then((allCat) => {
             setCourses(allCat);

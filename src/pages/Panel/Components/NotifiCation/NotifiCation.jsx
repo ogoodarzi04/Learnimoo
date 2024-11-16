@@ -29,7 +29,7 @@ export default function NotifiCation(props) {
          email: notif?.email,
       };
       // if (notif) {
-      editedata(`http://learnimoo.filedl.me:3000/notifications/see/${notif?._id}`, userDatas.token);
+      editedata(`${DOMAIN}notifications/see/${notif?._id}`, userDatas.token);
       // }
    }
 

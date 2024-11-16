@@ -28,7 +28,7 @@ export default function ArticlesElement({ isAddNewCmp }) {
    const userDatas = JSON.parse(localStorage.getItem("user"));
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://learnimoo.filedl.me:3000/articles", userDatas);
+      getAllDatas(`${DOMAIN}articles`, userDatas);
    };
    useEffect(() => {
       fetchData;
@@ -39,7 +39,7 @@ export default function ArticlesElement({ isAddNewCmp }) {
    useEffect(() => {
       fetchData();
       //
-      fetch("http://learnimoo.filedl.me:3000/category")
+      fetch(`${DOMAIN}category`)
          .then((res) => res.json())
          .then((allCat) => {
             setCategories(allCat);
@@ -53,7 +53,7 @@ export default function ArticlesElement({ isAddNewCmp }) {
    //
    const { deletedata, deletepost, setDeletepost, error } = useDelete();
    function deleteModalSubmitAction() {
-      deletedata(`http://learnimoo.filedl.me:3000/articles/${userId}`, userDatas);
+      deletedata(`${DOMAIN}articles/${userId}`, userDatas);
       setIsdelete(false);
    }
    useEffect(() => {
@@ -83,7 +83,7 @@ export default function ArticlesElement({ isAddNewCmp }) {
       formData.append("body", articleBody);
       formData.append("categoryID", courseCat);
       //
-      fetch(`http://learnimoo.filedl.me:3000/articles`, {
+      fetch(`${DOMAIN}articles`, {
          method: "POST",
          headers: {
             Authorization: `Bearer ${userDatas.token}`,
@@ -109,7 +109,7 @@ export default function ArticlesElement({ isAddNewCmp }) {
       formData.append("body", articleBody);
       formData.append("categoryID", courseCat);
       //
-      fetch(`http://learnimoo.filedl.me:3000/articles/draft`, {
+      fetch(`${DOMAIN}articles/draft`, {
          method: "POST",
          headers: {
             Authorization: `Bearer ${userDatas.token}`,

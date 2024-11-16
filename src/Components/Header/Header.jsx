@@ -25,7 +25,7 @@ export default function Header() {
    const [itemsMenu, setItemsMenu] = useState([]);
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://learnimoo.filedl.me:3000/menus", false);
+      getAllDatas(`${DOMAIN}menus`, false);
    };
    useEffect(() => {
       fetchData();

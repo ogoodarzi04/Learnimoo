@@ -21,7 +21,7 @@ export default function SecCourseDetails(props) {
       const newUserData = {
          price: props.courseDetails.price,
       };
-      postdata(`http://learnimoo.filedl.me:3000/courses/${props.courseDetails._id}/register`, newUserData, userDatas);
+      postdata(`${DOMAIN}courses/${props.courseDetails._id}/register`, newUserData, userDatas);
    };
    useEffect(() => {
       if (postpost && Object.keys(postpost)?.length > 0) {

@@ -4,7 +4,6 @@ import { RiNotification2Line } from "react-icons/ri";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { Context } from "../../../../contexts/Context";
 import NotifiCation from "../NotifiCation/NotifiCation";
-
 //
 export default function Header(props) {
    const userDatas = useContext(Context);
@@ -12,7 +11,7 @@ export default function Header(props) {
    return (
       <>
          <div className={` relative ${props.mb}`}>
-            <div className=" absolute  bg-cover top-0 left-0 w-full   ">
+            <div className=" absolute  bg-cover top-0 left-0 w-full">
                <svg className=" !w-full brightness-125" viewBox="0 0 1143 210" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_1_700)">
                      <path d="M0.486694 0.866669H1144.31V238.805H0.486694V0.866669Z" fill="black" />
@@ -37,7 +36,7 @@ export default function Header(props) {
                   </defs>
                </svg>
             </div>
-            <div className="Wrapp-Header  w-full flex justify-between py-[29px]">
+            <div className="Wrapp-Header  w-full flex justify-between md:py-[29px]">
                <div className=" Left-side-p  flex me-5 text-white gap-x-5">
                   <button className="   lefSide-icons-p !bg-black/40 z-50 relative">
                      {userDatas?.userInfos?.notifications?.length > 0 ? <div className=" bg-red-500 size-[11px] z-50 rounded-full absolute right-[12px] top-[12px]"></div> : ""}

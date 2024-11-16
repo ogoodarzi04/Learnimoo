@@ -16,7 +16,7 @@ import useFetch from "../../Hooks/useFetch";
 export default function PopularCourse(props) {
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas(`http://learnimoo.filedl.me:3000/courses/popular`, false);
+      getAllDatas(`${DOMAIN}courses/popular`, false);
    };
    useEffect(() => {
       fetchData();

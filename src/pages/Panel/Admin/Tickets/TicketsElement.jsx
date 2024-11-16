@@ -29,7 +29,7 @@ export default function TicketsElement({ isAddNewCmp }) {
    const userDatas = JSON.parse(localStorage.getItem("user"));
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://learnimoo.filedl.me:3000/tickets", userDatas);
+      getAllDatas(`${DOMAIN}tickets`, userDatas);
    };
    useEffect(() => {
       fetchData();
@@ -48,7 +48,7 @@ export default function TicketsElement({ isAddNewCmp }) {
          ticketID: ticketId,
       };
       //
-      postdata(`http://learnimoo.filedl.me:3000/tickets/answer`, newUserData, userDatas);
+      postdata(`${DOMAIN}tickets/answer`, newUserData, userDatas);
       ClearInputs();
    }
    const [answer, setAnswer] = useState(false);

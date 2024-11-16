@@ -6,7 +6,7 @@ export default function coursesElement(props) {
    const userDatas = JSON.parse(localStorage.getItem("user"));
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://learnimoo.filedl.me:3000/users/courses", userDatas);
+      getAllDatas(`${DOMAIN}users/courses`, userDatas);
    };
    useEffect(() => {
       fetchData();

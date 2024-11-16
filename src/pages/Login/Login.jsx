@@ -29,7 +29,7 @@ export default function Login() {
 
    const submitHandeler = () => {
       //
-      fetch(`http://learnimoo.filedl.me:3000/auth/login`, {
+      fetch(`${DOMAIN}auth/login`, {
          method: "POST",
          headers: {
             "Content-Type": "application/json",

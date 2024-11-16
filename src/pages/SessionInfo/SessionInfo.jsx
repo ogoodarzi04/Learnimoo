@@ -16,7 +16,7 @@ export default function SessionInfo() {
    let navigate = useNavigate();
    const userDatas = JSON.parse(localStorage.getItem("user"));
    const mainCourses = () => {
-      fetch(`http://learnimoo.filedl.me:3000/courses/${courseName}/${sessionID}`, {
+      fetch(`${DOMAIN}courses/${courseName}/${sessionID}`, {
          headers: {
             Authorization: `Bearer ${userDatas.token}`,
          },
@@ -40,7 +40,7 @@ export default function SessionInfo() {
    const [objs, setObjs] = useState([]);
    const [courseSessDet, setCourseSessDet] = useState([]);
    const fetchData = () => {
-      getAllDatas(`http://learnimoo.filedl.me:3000/courses/${courseName}`, false);
+      getAllDatas(`${DOMAIN}courses/${courseName}`, false);
       //
    };
    useEffect(() => {

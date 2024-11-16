@@ -11,7 +11,7 @@ export default function Draft() {
    const userDatas = JSON.parse(localStorage.getItem("user"));
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas(`http://learnimoo.filedl.me:3000/articles/${filterDraftArticle}`, userDatas);
+      getAllDatas(`${DOMAIN}articles/${filterDraftArticle}`, userDatas);
    };
    useEffect(() => {
       fetchData();
@@ -38,7 +38,7 @@ export default function Draft() {
    useEffect(() => {
       fetchData();
       //
-      fetch("http://learnimoo.filedl.me:3000/category")
+      fetch(`${DOMAIN}category`)
          .then((res) => res.json())
          .then((allCat) => {
             setCategories(allCat);
@@ -55,7 +55,7 @@ export default function Draft() {
       formData.append("body", draftBody);
       formData.append("categoryID", courseCat);
       //
-      fetch(`http://learnimoo.filedl.me:3000/articles`, {
+      fetch(`${DOMAIN}articles`, {
          method: "POST",
          headers: {
             Authorization: `Bearer ${userDatas.token}`,
@@ -78,7 +78,7 @@ export default function Draft() {
       formData.append("body", draftBody);
       formData.append("categoryID", courseCat);
       //
-      fetch(`http://learnimoo.filedl.me:3000/articles/draft`, {
+      fetch(`${DOMAIN}articles/draft`, {
          method: "POST",
          headers: {
             Authorization: `Bearer ${userDatas.token}`,

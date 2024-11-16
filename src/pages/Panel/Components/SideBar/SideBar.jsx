@@ -11,7 +11,7 @@ export default function SideBar() {
    const location = useLocation();
    return (
       <>
-         <div className="SideBar bg-[#111219]  w-full !text-gray-400 dark:text-black" style={{ borderLeft: "2px solid #323232" }}>
+         <div className="SideBar bg-[#111219]  w-full !text-gray-400 dark:text-black hidden md:block" style={{ borderLeft: "2px solid #323232" }}>
             <div className="SideBar-title   ">
                <div className="logo-footer ps-14 py-[40px] flex gap-x-5">
                   <div className="logo-img ">

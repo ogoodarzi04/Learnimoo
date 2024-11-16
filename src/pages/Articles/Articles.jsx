@@ -24,7 +24,7 @@ export default function Articles() {
    //
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas("http://learnimoo.filedl.me:3000/articles", false);
+      getAllDatas(`${DOMAIN}articles`, false);
    };
 
    useEffect(() => {

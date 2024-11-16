@@ -20,7 +20,7 @@ export default function GloballSearch() {
    //
    const { getAllDatas, post, isPending, err } = useFetch();
    const fetchData = () => {
-      getAllDatas(`http://learnimoo.filedl.me:3000/search/${value}`, false);
+      getAllDatas(`${DOMAIN}search/${value}`, false);
    };
    useEffect(() => {
       fetchData();
