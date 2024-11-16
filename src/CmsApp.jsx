@@ -6,6 +6,7 @@ import { ContextProvider } from "./contexts/Context";
 import { Spinner } from "@material-tailwind/react";
 //
 export default function CmsApp() {
+   console.log(process.env.REACT_APP_DOMAIN);
    const router = useRoutes(routes);
    //
    return (
