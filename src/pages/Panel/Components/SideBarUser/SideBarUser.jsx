@@ -14,7 +14,7 @@ export default function SideBarUser() {
          <div className="SideBar w-full dark:!text-black text-white ">
             <div className="SideBar-title   ">
                <div className="logo-footer  py-[40px] flex gap-x-5">
-                  <Link to={"http://localhost:5173/"}>
+                  <Link to={"https://learnimoo.filedl.me/"}>
                      <div className="logo-img ">
                         <img src="/images/slazzer-edit-image (2)_prev_ui.png" alt="" className=" md:h-[60px] md:w-[80px] h-[40px] w-[60px] " />
                      </div>

@@ -69,7 +69,7 @@ export default function Header() {
                </button>
                <div className=" Right-side flex mx-auto  w-full gap-x-10 ">
                   <div className="logo-img md:ms-20 my-auto block w-full md:w-max">
-                     <a href={"http://localhost:5173/"}>
+                     <a href={"https://learnimoo.filedl.me/"}>
                         <img src="/images/slazzer-edit-image (2)_prev_ui.png" alt="" className=" h-[55px] w-[85px] mx-auto md:mx-0" />
                      </a>
                   </div>

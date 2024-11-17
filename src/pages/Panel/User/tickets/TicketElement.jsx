@@ -21,7 +21,7 @@ export default function TicketElement({ isLeftSideElem, isSlice, titleSec }) {
             <div className="flex justify-between items-center p-4 md:pb-4 mb-6 md:mb-7 dark:!border-b-gray-200" style={{ borderBottom: "1px solid rgb(50,51,77)" }}>
                <span className="danaMedium md:text-[20px] dark:!text-gray-700 text-white">{titleSec}</span>
                {isLeftSideElem ? (
-                  <Link to={"http://localhost:5173/my-account/tickets"} className="flex items-center gap-x-1.5 text-blue-500  text-sm">
+                  <Link to={"https://learnimoo.filedl.me/my-account/tickets"} className="flex items-center gap-x-1.5 text-blue-500  text-sm">
                      همه تیکت ها
                      <FiArrowLeft style={{ fontSize: 17 }} className=" my-auto" />
                   </Link>
@@ -33,7 +33,7 @@ export default function TicketElement({ isLeftSideElem, isSlice, titleSec }) {
                {isSlice
                   ? post.slice(0, 4).map((item) => (
                        <div className="flex items-center justify-between flex-wrap gap-y-3 p-3 dark:hover:bg-gray-100 hover:bg-[rgb(50,51,77)] rounded-xl transition-colors">
-                          <Link to={`http://localhost:5173/my-account/view_ticket?id=${item._id}`} className="dark:!text-gray-700 text-white w-full sm:max-w-sm sm:truncate">
+                          <Link to={`https://learnimoo.filedl.me/my-account/view_ticket?id=${item._id}`} className="dark:!text-gray-700 text-white w-full sm:max-w-sm sm:truncate">
                              {item.departmentID}
                           </Link>
                           <div className="flex items-center gap-3">
@@ -48,7 +48,7 @@ export default function TicketElement({ isLeftSideElem, isSlice, titleSec }) {
                     ))
                   : post.map((item) => (
                        <div className="flex  items-center justify-between flex-wrap gap-y-3 p-3 dark:hover:bg-gray-100 hover:bg-[rgb(50,51,77)] rounded-xl transition-colors">
-                          <Link to={`http://localhost:5173/my-account/view_ticket?id=${item._id}`} className="dark:!text-gray-900 text-white w-full sm:max-w-sm sm:truncate">
+                          <Link to={`https://learnimoo.filedl.me/my-account/view_ticket?id=${item._id}`} className="dark:!text-gray-900 text-white w-full sm:max-w-sm sm:truncate">
                              #{item._id.slice(0, 5)}
                              {item.title}
                           </Link>

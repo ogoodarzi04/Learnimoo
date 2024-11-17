@@ -49,7 +49,7 @@ export function SideBar(props) {
                      <div className="mb-2  flex items-center justify-between py-[20px] dark:!border-gray-300" style={{ borderBottom: "0.5px solid #ffffff1a" }}>
                         <Typography>
                            <div className="logo-img  mt-2.5  ">
-                              <a href={"http://localhost:5173/"}>
+                              <a href={"https://learnimoo.filedl.me/"}>
                                  <img src="/images/slazzer-edit-image (2)_prev_ui.png" alt="" style={{ width: "7rem" }} />
                               </a>
                            </div>
@@ -167,7 +167,7 @@ export function SideBar(props) {
                      <div className="SideBar-title   ">
                         <div className="logo-footer  py-[40px] flex gap-x-5 justify-between">
                            <div className=" mt-2">
-                              <Link to={"http://localhost:5173/"} className=" flex gap-x-3">
+                              <Link to={"https://learnimoo.filedl.me/"} className=" flex gap-x-3">
                                  <div className="logo-img ">
                                     <img src="/images/slazzer-edit-image (2)_prev_ui.png" alt="" className=" md:h-[60px] md:w-[80px] h-[40px] w-[60px] " />
                                  </div>

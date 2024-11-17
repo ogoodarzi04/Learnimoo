@@ -17,7 +17,7 @@ export default function MainUser() {
                <div className="flex justify-between items-center bg-[rgb(40,41,61)] dark:!bg-white px-3.5 py-2.5 md:p-7 mb-4 md:mb-5 rounded-3xl">
                   <span className="danaMedium md:text-[20px] text-white dark:!text-black my-auto">اخیرا مشاهده شده</span>
                   <div className="button-sm bg-blue-500/10  dark:bg-secondary/10 dark:text-secondary text-sm p-2 px-4 rounded-3xl">
-                     <Link to={"http://localhost:5173/my-account/courses"} className="text-blue-500 ">
+                     <Link to={"https://learnimoo.filedl.me/my-account/courses"} className="text-blue-500 ">
                         <div className=" flex gap-x-2.5">
                            <span>همه دوره های ثبت‌نام شده</span>
                            <FiArrowLeft style={{ fontSize: 17 }} className=" my-auto" />

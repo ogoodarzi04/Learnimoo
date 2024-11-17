@@ -31,7 +31,7 @@ const SITEMAP = [
       title: "دسترسی سریع",
       links: [
          { name: "قوانین و مقررات", path: "/conditions" },
-         { name: "ارسال تیکت", path: "http://localhost:5173/my-account/add_ticket" },
+         { name: "ارسال تیکت", path: "https://learnimoo.filedl.me/my-account/add_ticket" },
          { name: "همه دوره ها", path: "/AllCourses" },
       ],
    },
