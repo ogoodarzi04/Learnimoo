@@ -25,7 +25,7 @@ export default function MainAdmin() {
    // console.log(post.infos);
    //
    return (
-      <>
+      <div>
          <div className="MainAdmin relative mt-12 text-white  ">
             <div className=" md:grid-cols-3 grid text-white  left-0 right-0 top-3 gap-y-10 md:gap-y-0 md:gap-x-20 z-50 md:px-20 ">
                {noticePanelBox.map((item) => {
@@ -76,6 +76,6 @@ export default function MainAdmin() {
                <UsersElement isAddNewCmp={false} post={post.lastUsers} fetchData={fetchData} titleHdr={"لیست کاربران اخیر"} />
             </div>
          </div>
-      </>
+      </div>
    );
 }

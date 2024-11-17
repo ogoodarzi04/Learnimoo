@@ -7,7 +7,7 @@ export default function Admin() {
    const location = useLocation();
    let routeName = location.pathname.split("p-admin/")[1];
    return (
-      <>
+      <div>
          {/* linear-gradient(to right, #92fe9d, #00c9ff) */}
          {/* <div className="hidden z-50 lg:block absolute top-[0px] right-10 w-[200px] h-[200px] bg-[#00c9ff] opacity-30 blur-[120px] rounded-full"></div>
          <div className="hidden z-50 lg:block absolute top-96 left-10 w-[200px] h-[200px] bg-[#92fe9d] opacity-30 blur-[120px] rounded-full"></div>
@@ -31,6 +31,6 @@ export default function Admin() {
                </div>
             </div>
          </div>
-      </>
+      </div>
    );
 }
