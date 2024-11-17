@@ -45,7 +45,7 @@ export default function HeaderUser() {
                <div className=" text-white md:!text-black flex md:hidden gap-x-2">
                   <div className=" my-auto ">
                      <Button
-                        className=" dark:!bg-white dark:!text-gray-900"
+                        className=" dark:!bg-white bg-[rgb(40,41,61)] dark:!text-gray-900"
                         onClick={() => {
                            setShowSideBar(true);
                         }}
@@ -64,10 +64,10 @@ export default function HeaderUser() {
                   </span>
                </div>
                <div className=" Left-side-p  flex md:me-16 text-white md:gap-x-[28px] gap-x-6 md:mt-3">
-                  <Button className="   lefSide-icons-p bg-[rgb(40,41,61)] dark:!bg-white z-50 relative !rounded-full md:!size-[57px] !size-[48px] ">
-                     {userDatas?.userInfos?.notifications?.length > 0 ? <div className=" bg-red-500  z-50  absolute right-[12px] top-[12px]"></div> : ""}
+                  <Button className=" mt-2  lefSide-icons-p bg-[rgb(40,41,61)] dark:!bg-white z-50 relative !rounded-full md:!size-[58px] !size-[48px] ">
+                     {userDatas?.userInfos?.notifications?.length > 0 ? <div className=" bg-red-500  z-50  "></div> : ""}
                      <NotifiCation notifs={userDatas?.userInfos?.notifications}>
-                        <RiNotification2Line className=" text-[rgb(119,124,148)]" style={{ fontSize: 23 }} />
+                        <RiNotification2Line className=" ms-4 md:ms-[16px] text-[rgb(119,124,148)]" style={{ fontSize: 23 }} />
                      </NotifiCation>
                   </Button>
                   <Button

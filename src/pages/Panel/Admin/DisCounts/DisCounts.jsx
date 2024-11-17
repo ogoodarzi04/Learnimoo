@@ -54,7 +54,7 @@ export default function DisCounts() {
    return (
       <>
          <div className=" DisCounts text-white">
-            <div className=" grid grid-cols-3  px-20 pb-24">
+            <div className="  md:px-20 pb-24">
                <AddNewProduct title={"برگزاری کمپین جدید"}>
                   <div className=" grid md:grid-cols-2 p-4 gap-x-20 cursor-pointer !text-gray-400">
                      <div className=" Name-Product relative space-y-2.5 h-[43px] rounded-lg " style={{ borderBottom: "1px solid #ffffff" }}>

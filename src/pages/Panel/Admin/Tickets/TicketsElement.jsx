@@ -57,7 +57,7 @@ export default function TicketsElement({ isAddNewCmp }) {
    ///
    return (
       <>
-         <div className="commentElement grid grid-cols-3  px-20 pb-24">
+         <div className="commentElement  md:px-20 pb-24">
             {/* ///// */}
             <TableProducts post={post} title={"لیست تیکت ها"}>
                {/* fetchData */}

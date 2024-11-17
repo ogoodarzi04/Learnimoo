@@ -3,7 +3,6 @@ import useFetch from "../Hooks/useFetch";
 export const Context = createContext();
 export const ContextProvider = ({ children }) => {
    const DOMAIN = `${JSON.stringify(import.meta.env.VITE_REACT_APP_DOMAIN).slice(1, -1)}`;
-   console.log(DOMAIN);
    //
    const [isLoggedIn, setIsLoggedIn] = useState(false);
    const [token, setToken] = useState(false);

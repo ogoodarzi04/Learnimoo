@@ -105,7 +105,7 @@ export default function menusElement({ isAddNewCmp }) {
    /////
    return (
       <>
-         <div className=" grid grid-cols-3  px-20 pb-24">
+         <div className="  md:px-20 pb-24">
             {isAddNewCmp && (
                <AddNewProduct title={"افزودن قسمت جدید"}>
                   <div className=" grid md:grid-cols-2 p-4 gap-x-20 cursor-pointer !text-gray-400">

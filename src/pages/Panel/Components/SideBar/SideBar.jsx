@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import "./SideBar.css";
-import { BsBagCheck } from "react-icons/bs";
 import { NavLink, Link, useNavigate, useLocation } from "react-router-dom";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { Context } from "../../../../contexts/Context";
@@ -24,7 +23,7 @@ export default function SideBar() {
             </div>
             <p className=" ms-12 mt-12 text-[16.5px]">منو</p>
             <div className="SideBar-menu  py-[10px] mx-auto flex ">
-               <ul className=" list-item  list-none  text-[23px] cursor-pointer mx-auto ">
+               <ul className=" list-item  list-none   cursor-pointer mx-auto ">
                   {sideBarMenus.map((item) => {
                      return (
                         <li className=" mx-auto  flex ">
@@ -39,7 +38,7 @@ export default function SideBar() {
             </div>
             <p className=" ms-12 mt-6 text-[16.5px]">سایر</p>
             <div className="SideBar-menu  py-[10px] mx-auto flex ">
-               <ul className=" list-item  list-none  text-[23px] cursor-pointer mx-auto ">
+               <ul className=" list-item  list-none cursor-pointer mx-auto ">
                   <li className={` mx-auto flex `}>
                      <Link to={"discounts"} className={`  ${location.pathname === "/p-admin/discounts" && "active-S"} item flex  py-[16.5px] w-[265px] ps-8 rounded-xl gap-x-4 !text-gray-400`}>
                         <RiLogoutCircleRLine className=" my-auto" />

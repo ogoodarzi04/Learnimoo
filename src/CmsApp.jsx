@@ -12,9 +12,7 @@ export default function CmsApp() {
       <ContextProvider>
          <Suspense
             fallback={
-               <div
-               // className="flex min-h-screen items-center justify-center text-3xl"
-               >
+               <div className="flex min-h-screen items-center justify-center text-3xl">
                   <Loader />
                </div>
             }

@@ -72,7 +72,7 @@ export default function MainAdmin() {
                   />
                </div>
             </div>
-            <div className=" md:grid grid-cols-3  ">
+            <div>
                <UsersElement isAddNewCmp={false} post={post.lastUsers} fetchData={fetchData} titleHdr={"لیست کاربران اخیر"} />
             </div>
          </div>

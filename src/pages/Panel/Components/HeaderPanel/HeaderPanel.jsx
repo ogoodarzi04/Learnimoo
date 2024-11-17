@@ -4,9 +4,12 @@ import { RiNotification2Line } from "react-icons/ri";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { Context } from "../../../../contexts/Context";
 import NotifiCation from "../NotifiCation/NotifiCation";
+import { CiMenuFries } from "react-icons/ci";
+import SideBar from "../SideBar/SideBar";
 //
 export default function Header(props) {
    const userDatas = useContext(Context);
+   const [showSideBar, setShowSideBar] = useState(false);
    //
    return (
       <>
@@ -38,34 +41,24 @@ export default function Header(props) {
             </div>
             <div className="Wrapp-Header  w-full flex justify-between md:py-[29px]">
                <div className=" Left-side-p  flex me-5 text-white gap-x-5">
+                  <button
+                     className=" md:!hidden flex lefSide-icons-p !bg-black/40 z-50 relative"
+                     onClick={() => {
+                        setShowSideBar(true);
+                     }}
+                  >
+                     <CiMenuFries className=" text-white" style={{ fontSize: 23 }} />
+                  </button>
                   <button className="   lefSide-icons-p !bg-black/40 z-50 relative">
-                     {userDatas?.userInfos?.notifications?.length > 0 ? <div className=" bg-red-500 size-[11px] z-50 rounded-full absolute right-[12px] top-[12px]"></div> : ""}
+                     {userDatas?.userInfos?.notifications?.length > 0 ? <div className=" bg-red-500 size-[11px] z-50 rounded-full absolute right-[12px]"></div> : ""}
                      <NotifiCation notifs={userDatas?.userInfos?.notifications}>
                         <RiNotification2Line className=" text-white" style={{ fontSize: 23 }} />
                      </NotifiCation>
                   </button>
-                  {/* <button className="   lefSide-icons-p !bg-black/40 z-50">
-                     <LightModeOutlinedIcon />
-                  </button> */}
-                  <div className="search-box bg-black/40  z-50 rounded-[12px] hidden lg:flex w-max xl:w-[313px] h-[50px] text-white dark:!text-text-gray-color">
-                     <input
-                        // onInput={(e) => {
-                        //    setSearchInputCourse(e.target.value);
-                        // }}
-                        // value={searchInputValue}
-                        className=" hidden xl:flex"
-                        type="text"
-                        placeholder="جست جو کنید... "
-                     />
-                     <button
-                        className="  h-full flex"
-                        // onClick={() => {
-                        //    if (searchInputValue) {
-                        //       navigate(`/search/${searchInputValue}`);
-                        //    }
-                        // }}
-                     >
-                        <SearchRoundedIcon style={{ fontSize: 26 }} className=" text-white dark:!text-text-gray-color " />
+                  <div className="xl:flex hidden search-box !bg-black/40  z-50 rounded-[12px]  lg:flex w-max px-4 h-[50px] text-white dark:!text-text-gray-color">
+                     <input className="  bg-black/0 px-3 z-50 rounded-[12px]  w-max  text-white dark:!text-text-gray-color" type="text" placeholder="جست جو کنید... " />
+                     <button className=" z-50 h-full flex ">
+                        <SearchRoundedIcon style={{ fontSize: 26 }} className=" my-auto  text-white dark:!text-text-gray-color " />
                      </button>
                   </div>
                </div>
@@ -82,6 +75,7 @@ export default function Header(props) {
                </div>
             </div>
          </div>
+         {showSideBar && <SideBar setShowSideBar={setShowSideBar} isShowAdminSideBar={true} />}
       </>
    );
 }
