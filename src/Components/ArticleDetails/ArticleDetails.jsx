@@ -44,7 +44,7 @@ export default function ArticleDetails({ datas }) {
                   </div>
                   <div>
                      {/* <!-- thumbnail --> */}
-                     <img src={`http://learnimoo.filedl.me:3000/courses/covers/${item?.cover}`} className="aspect-video object-cover rounded-2xl w-full" alt="فرق بک اند و فرانت اند چیست" />{" "}
+                     <img src={`http://learnimoo.filedl.me/courses/covers/${item?.cover}`} className="aspect-video object-cover rounded-2xl w-full" alt="فرق بک اند و فرانت اند چیست" />{" "}
                      <div className="rounded-lg !rounded-tr-none  mt-8 overflow-hidden mb-6 md:mb-8 dark:!border-gray-300" id="toc-collapse" style={{ border: "1px solid rgb(100 116 139)" }}>
                         {" "}
                         <div className="flex items-center justify-between px-4 py-[20px] dark:!border-b-gray-300" style={{ borderBottom: "1px solid rgb(100 116 139)" }}>

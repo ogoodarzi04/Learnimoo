@@ -31,7 +31,7 @@ export default function (props) {
                      <Link to={`http://learnimoo.filedl.me:3000/course-info/${item?.shortName}`} className=" text-white dark:!text-black">
                         <div className="Ri">
                            <div className=" flex gap-x-6">
-                              <img className=" w-[96px] h-[54px] rounded-[7px]" src={`http://learnimoo.filedl.me:3000/courses/covers/${item?.cover}`} alt={item?.name} />
+                              <img className=" w-[96px] h-[54px] rounded-[7px]" src={`http://learnimoo.filedl.me/courses/covers/${item?.cover}`} alt={item?.name} />
                               <span className=" my-auto cursor-pointer">{item?.name}</span>
                            </div>
                         </div>

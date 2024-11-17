@@ -254,7 +254,7 @@ export default function ArticlesElement({ isAddNewCmp }) {
                                           {item?.cover ? (
                                              <div className=" size-max flex ">
                                                 {" "}
-                                                <Avatar className=" scale-[0.6] " src={`http://learnimoo.filedl.me:3000/courses/covers/${item?.cover}`} alt={item.title} />
+                                                <Avatar className=" scale-[0.6] " src={`http://learnimoo.filedl.me/courses/covers/${item?.cover}`} alt={item.title} />
                                              </div>
                                           ) : (
                                              <FaUserCircle className=" me-3 scale-[1.1] mt-[1.5px] " />

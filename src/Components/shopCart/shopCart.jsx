@@ -35,11 +35,7 @@ export default function shopCart({ cartCourses }) {
                                           className=" text-white absolute text-3xl top-4 right-4 md:hidden block"
                                        />
                                        <Link to={`http://localhost:5173/course-info/${item?.shortName}`} className="shrink-0 flex text-white dark:!text-black">
-                                          <img
-                                             className=" md:h-36 aspect-video rounded-[15px] md:rounded-[8px]"
-                                             src={`http://learnimoo.filedl.me:3000/courses/covers/${item?.cover}`}
-                                             alt={item?.name}
-                                          />
+                                          <img className=" md:h-36 aspect-video rounded-[15px] md:rounded-[8px]" src={`http://learnimoo.filedl.me/courses/covers/${item?.cover}`} alt={item?.name} />
                                           <div className=" ms-8 my-auto hidden md:block">
                                              <p className="line-clamp-2 danaMedium text-2x !text-white dark:!text-black">{item?.name}</p>
                                           </div>
@@ -58,7 +54,7 @@ export default function shopCart({ cartCourses }) {
                                              ) : (
                                                 <span className="danaMedium text-[17px] flex">
                                                    {item?.price?.toLocaleString()}
-                                                   <img className=" size-8 flex !text-white" src="http://learnimoo.filedl.me:3000/courses/covers/Toman.png" alt="" />
+                                                   <img className=" size-8 flex !text-white" src="http://learnimoo.filedl.me/courses/covers/Toman.png" alt="" />
                                                 </span>
                                              )}
                                              <HiOutlineTrash
@@ -102,7 +98,7 @@ export default function shopCart({ cartCourses }) {
                   <div className="upselling-step upselling-step--active " style={{ right: "0%" }}>
                      <div className="upselling-step__price flex ">
                         <span className="text-lg danaMedium text-limon-color">1,980,000</span>
-                        <img className=" size-8 flex " src="http://learnimoo.filedl.me:3000/courses/covers/Toman.png" alt="" />
+                        <img className=" size-8 flex " src="http://learnimoo.filedl.me/courses/covers/Toman.png" alt="" />
                      </div>
                      <div className=" flex relative mt-2.5">
                         <div className="absolute inset-0 m-auto bg-limon-color h-[2px] " style={{ width: "90%" }}></div>

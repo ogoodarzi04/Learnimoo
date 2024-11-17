@@ -63,7 +63,7 @@ export default function UserBasket(props) {
                                     <div>
                                        <div className="cart-item flex items-center gap-x-3 text-white dark:!text-black">
                                           <Link to={`http://localhost:5173/course-info/${item?.shortName}`} className="shrink-0 text-white dark:!text-black">
-                                             <img className=" h-24 aspect-video rounded-lg" src={`http://learnimoo.filedl.me:3000/courses/covers/${item?.cover}`} alt={item?.name} />
+                                             <img className=" h-24 aspect-video rounded-lg" src={`http://learnimoo.filedl.me/courses/covers/${item?.cover}`} alt={item?.name} />
                                           </Link>
                                           <div className="flex flex-col justify-between">
                                              <p className="line-clamp-2 danaMedium text-sm">{item?.name}</p>
@@ -75,7 +75,7 @@ export default function UserBasket(props) {
                                                 ) : (
                                                    <span className="danaMedium text-sm flex">
                                                       {item?.price.toLocaleString()}
-                                                      <img className=" size-8 flex !text-white" src="http://learnimoo.filedl.me:3000/courses/covers/Toman.png" alt="" />
+                                                      <img className=" size-8 flex !text-white" src="http://learnimoo.filedl.me/courses/covers/Toman.png" alt="" />
                                                    </span>
                                                 )}
                                              </div>
@@ -100,7 +100,7 @@ export default function UserBasket(props) {
                                  {
                                     <div className=" flex">
                                        <span className="text-[17px] danaDemiBold font-bold dark:!text-black">{resultPrices?.toLocaleString()}</span>
-                                       <img className=" size-8 flex !text-white " src="http://learnimoo.filedl.me:3000/courses/covers/Toman.png" alt="" />
+                                       <img className=" size-8 flex !text-white " src="http://learnimoo.filedl.me/courses/covers/Toman.png" alt="" />
                                     </div>
                                  }
                               </div>

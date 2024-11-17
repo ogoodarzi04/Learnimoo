@@ -89,7 +89,7 @@ export default function SecCourseDetails(props) {
                         {props?.courseDetails?.price > 0 && <p className="  opacity-70 line-through text-sm text-white dark:!text-black ">{props?.courseDetails?.price.toLocaleString()}</p>}
                         <p className=" text-limon-color font-bold flex" style={{ fontSize: 16.5 }}>
                            {props?.courseDetails?.price === 0 ? "رایگان" : (props?.courseDetails?.price - (props?.courseDetails?.price * props?.courseDetails?.discount) / 100).toLocaleString()}
-                           {props?.courseDetails?.price > 0 && <img className=" !size-8 flex !text-white" src="http://learnimoo.filedl.me:3000/courses/covers/Toman.png" alt="" />}
+                           {props?.courseDetails?.price > 0 && <img className=" !size-8 flex !text-white" src="http://learnimoo.filedl.me/courses/covers/Toman.png" alt="" />}
                         </p>
                      </div>
                   )}

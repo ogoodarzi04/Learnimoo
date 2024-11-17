@@ -34,7 +34,7 @@ export default function dataPay({
                   <span className="danaMedium">مبلغ کل</span>
                   <div className="flex items-center gap-x-1">
                      <span className="danaDemiBold ">{resultPrices?.toLocaleString()}</span>
-                     <img className=" size-8 flex " src="http://learnimoo.filedl.me:3000/courses/covers/Toman.png" alt="" />
+                     <img className=" size-8 flex " src="http://learnimoo.filedl.me/courses/covers/Toman.png" alt="" />
                   </div>
                </div>
                <div className="flex items-center justify-between text-red-500">
@@ -44,7 +44,7 @@ export default function dataPay({
                         <span className="text-sm">(17%)</span>
                         <span className="danaDemiBold">150,000</span>
                      </div>
-                     <img className=" size-8 flex " src="http://learnimoo.filedl.me:3000/courses/covers/Toman.png" alt="" />
+                     <img className=" size-8 flex " src="http://learnimoo.filedl.me/courses/covers/Toman.png" alt="" />
                   </div>
                </div>
                <div className="flex items-center justify-between text-red-500">
@@ -54,14 +54,14 @@ export default function dataPay({
                         <span className="text-sm">(15%)</span>
                         <span className="danaDemiBold">{"stepOff"}</span>
                      </div>
-                     <img className=" size-8 flex " src="http://learnimoo.filedl.me:3000/courses/covers/Toman.png" alt="" />
+                     <img className=" size-8 flex " src="http://learnimoo.filedl.me/courses/covers/Toman.png" alt="" />
                   </div>
                </div>
                <div className="flex items-center justify-between ">
                   <span className="danaMedium">موجودی کیف پول</span>
                   <div className="flex items-center gap-x-1">
                      <span className="danaDemiBold">0</span>
-                     <img className=" size-8 flex " src="http://learnimoo.filedl.me:3000/courses/covers/Toman.png" alt="" />
+                     <img className=" size-8 flex " src="http://learnimoo.filedl.me/courses/covers/Toman.png" alt="" />
                   </div>
                </div>
                <div className="offer-item hidden  items-center justify-between text-sm sm:text-base dark:text-gray-500 text-white">
@@ -80,7 +80,7 @@ export default function dataPay({
                <div className="flex items-center gap-x-1">
                   <span className="danaDemiBold  text-3xl xl:text-4xl grand-total flex">
                      {resultOffsPrices?.toLocaleString()}
-                     <img className=" size-8 flex " src="http://learnimoo.filedl.me:3000/courses/covers/Toman.png" alt="" />
+                     <img className=" size-8 flex " src="http://learnimoo.filedl.me/courses/covers/Toman.png" alt="" />
                   </span>
                </div>
             </div>
