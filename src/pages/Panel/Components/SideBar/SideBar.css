@@ -1,0 +1,22 @@
+/* .SideBar-menu {
+   border-top: 1px solid #cdcdcd;
+} */
+.active-S {
+   background-image: linear-gradient(to right, #92fe9d, #00c9ff) !important;
+}
+.item.active-S,
+.item:hover {
+   background-image: linear-gradient(to right, #92fe9d, #00c9ff);
+   color: black !important;
+}
+.list-item a {
+   text-decoration: none;
+   color: rgb(255, 255, 255);
+}
+.nbv:focus {
+   color: black !important;
+}
+.answer-act:hover {
+   color: white !important;
+   background-color: steelblue !important;
+}

@@ -1,0 +1,39 @@
+h1 {
+   color: #1a17d1;
+}
+.onactive {
+   background-color: brown;
+}
+@font-face {
+   font-family: danaBold;
+   src: url("../src/fonts/Dana/dana-fanum-extrabold.ttf");
+}
+@font-face {
+   font-family: danaMedium;
+   src: url("../src/fonts/Dana/dana-fanum-medium.ttf");
+}
+@font-face {
+   font-family: danaDemiBold;
+   src: url("../src/fonts/Dana/dana-fanum-medium.ttf");
+}
+
+.danaBold {
+   font-family: danaBold !important;
+}
+.danaMedium {
+   font-family: danaMedium !important;
+   background-color: rgb((rgb(255, 243, 113)));
+}
+.danaDemiBold {
+   font-family: danaDemiBold !important;
+}
+@media (max-width: 1024px) {
+   .overflow {
+      overflow: hidden;
+   }
+}
+
+.SortingCourseModal .backdrop-blur-sm {
+   background-color: transparent !important;
+   filter: brightness(84%) !important;
+}

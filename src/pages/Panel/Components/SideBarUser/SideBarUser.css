@@ -1,0 +1,8 @@
+.active-user-S {
+   background-color: rgb(255, 235, 59);
+}
+.items.active-user-S,
+.items:hover {
+   background-color: rgb(255, 235, 59);
+   color: black !important;
+}

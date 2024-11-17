@@ -1,0 +1,18 @@
+nav {
+   width: 100% !important;
+}
+@media (max-width: 768px) {
+   nav {
+      width: max-content !important;
+   }
+}
+
+@media (max-width: 640px) {
+   .FirstSec {
+      overflow: scroll !important;
+   }
+}
+li {
+   font-size: 16px !important;
+   font-family: danaMedium !important;
+}

@@ -1,0 +1,11 @@
+.text-sm {
+   font-size: 13.5px;
+   line-height: 2.4rem;
+}
+.userTag a {
+   color: white;
+   transition: 0.1s;
+}
+.userTag:hover a {
+   color: rgb(255, 235, 59);
+}

@@ -1,0 +1,44 @@
+.lefSide-icons {
+   margin-top: 5px;
+   /* padding: 20px; */
+   /* display: flex; */
+   align-items: center;
+   justify-content: center;
+   border-radius: 30px;
+   /* background-color: rgb(20, 8, 96); */
+   width: 54px;
+   height: 51px;
+   /* box-shadow: rgba(149, 157, 165, 0.8) 0 8px 24px; */
+}
+.search-box {
+   /* background-color: white; */
+   margin-top: 6px;
+   /* border-radius: 30px; */
+
+   /* display: flex; */
+   align-items: center;
+   justify-content: space-between;
+   /* padding: 0 0 0 6px; */
+   /* box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px; */
+}
+.search-box input {
+   /* color: black; */
+   outline: none;
+   border: none;
+   background: unset;
+   width: 100%;
+   font-size: 1.4rem;
+   padding: 10px 20px 10px 10px;
+}
+
+.search-box button {
+   /* height: max-content; */
+   /* display: flex; */
+   align-items: center;
+   font-size: 1.1rem;
+   /* width: 135px; */
+   /* height: 32px; */
+   /* border-radius: 11px; */
+   /* background-color: rgb(20, 8, 96); */
+   padding: 3px 20px;
+}
