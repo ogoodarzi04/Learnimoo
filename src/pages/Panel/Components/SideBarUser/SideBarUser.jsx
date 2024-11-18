@@ -5,7 +5,7 @@ import { RiLogoutCircleRLine } from "react-icons/ri";
 import { Context } from "../../../../contexts/Context";
 import { sideBarUserMenus } from "../../../../datas";
 import "./SideBarUser.css";
-export default function SideBarUser() {
+export default function SideBarUser(props) {
    let navigate = useNavigate();
    let userDatas = useContext(Context);
    const location = useLocation();
@@ -13,19 +13,20 @@ export default function SideBarUser() {
       <>
          <div className="SideBar w-full dark:!text-black text-white ">
             <div className="SideBar-title   ">
-               <div className="logo-footer  py-[40px] flex gap-x-5">
-                  <Link to={"https://learnimoo.filedl.me/"}>
+               <div className="logo-footer  py-[40px] flex gap-x-5 relative">
+                  <Link to={"/"}>
                      <div className="logo-img ">
-                        <img src="/images/slazzer-edit-image (2)_prev_ui.png" alt="" className=" md:h-[60px] md:w-[80px] h-[40px] w-[60px] " />
+                        <img src="/images/slazzer-edit-image (2)_prev_ui.png" alt="" className=" md:h-[60px] md:w-[80px] h-[35px] w-[100px] " />
                      </div>
                   </Link>
-                  <div className="">
-                     <p className=" text-white danaMedium md:text-[44px] dark:!text-blue-gray-900">لرنیمو</p>
+                  <div className=" my-auto">
+                     <p className=" text-white danaMedium md:text-[44px] text-[25px]  dark:!text-blue-gray-900">لرنیمو</p>
                   </div>
+                  {props.hiddenStyle}
                </div>
             </div>
             <div className="SideBar-user-menu  py-[10px]  flex ">
-               <ul className=" list-item  list-none  text-[23px] cursor-pointer space-y-4">
+               <ul className=" list-item  list-none   cursor-pointer space-y-4">
                   {sideBarUserMenus.map((item) => {
                      return (
                         <li className=" mx-auto  flex  ">

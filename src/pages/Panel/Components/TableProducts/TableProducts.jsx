@@ -21,7 +21,7 @@ export default function TableProducts(props) {
                <div className="TableProducts mt-4   dark:bg-light-theme-color ">
                   <div className="  relative   mt-16 ">
                      <Card className="h-full w-full rounded-[20px]">
-                        <CardBody className="  w-full  dark:bg-light-theme-color rounded-[20px] md:px-14 pt-14 " style={{ background: " #000000 " }}>
+                        <CardBody className=" overflow-x-auto w-full  dark:bg-light-theme-color rounded-[20px] md:px-14 pt-14 " style={{ background: " #000000 " }}>
                            <span className=" text-white text-4xl  danaDemiBold  ">{props.title}</span>
                            {props.children}
                         </CardBody>

@@ -15,8 +15,6 @@ import useFetch from "../../Hooks/useFetch";
 import FilterCourseModal from "../../Components/FilterCourseModal/FilterCourseModal";
 import SortingCourseModal from "../../Components/SortingCourseModal/SortingCourseModal";
 import { Context } from "../../contexts/Context";
-// import LoadingButton from "@mui/lab/LoadingButton";
-// import SendIcon from "@mui/icons-material/Send";
 //
 export default function AllCourses() {
    const { DOMAIN } = useContext(Context);

@@ -8,7 +8,7 @@ import UsersElement from "../Users/usersElement";
 import useFetch from "../../../../Hooks/useFetch";
 import { noticePanelBox } from "../../../../datas";
 import { GoArrowDownRight, GoArrowUpRight } from "react-icons/go";
-import SideBar from "../../Components/SideBar/SideBar";
+import SideBar from "../../Components/SideBarAdmin/SideBarAdmin";
 import Header from "../../Components/HeaderPanel/HeaderPanel";
 import { Context } from "../../../../contexts/Context";
 //

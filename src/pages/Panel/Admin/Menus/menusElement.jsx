@@ -108,7 +108,7 @@ export default function menusElement({ isAddNewCmp }) {
          <div className="  md:px-20 pb-24">
             {isAddNewCmp && (
                <AddNewProduct title={"افزودن قسمت جدید"}>
-                  <div className=" grid md:grid-cols-2 p-4 gap-x-20 cursor-pointer !text-gray-400">
+                  <div className=" md:grid md:grid-cols-2 md:space-y-10 space-y-14  p-4 gap-x-20 cursor-pointer !text-gray-400">
                      <div className=" Name-Product relative space-y-2.5 h-[43px] rounded-lg " style={{ borderBottom: "1px solid #ffffff" }}>
                         <Input
                            placeholder="نام منو را وارد کنید..."
@@ -122,7 +122,7 @@ export default function menusElement({ isAddNewCmp }) {
                         />
                         <ModeEditOutlineOutlinedIcon className=" icon-products absolute left-4 top-3" style={{ fontSize: 17 }} />
                      </div>
-                     <div className=" Name-Product relative space-y-2.5 h-[43px] rounded-lg " style={{ borderBottom: "1px solid #ffffff" }}>
+                     <div className=" md:!mt-0 Name-Product relative space-y-2.5 h-[43px] rounded-lg " style={{ borderBottom: "1px solid #ffffff" }}>
                         <Input
                            placeholder="مقصد منو را وارد کنید..."
                            element="input"

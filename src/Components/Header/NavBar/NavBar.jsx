@@ -13,7 +13,8 @@ export default function NavBar(props) {
    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
    const renderItems = props.items.map((item, key) => {
       return (
-         <Link to={item._id ? `/course-info/${item.href}` : item.href} key={key} className=" bg-header-color">
+         <Link to={item._id && !item.href.includes("course-info") ? `/course-info/${item.href}` : `${item.href}`} key={key} className=" bg-header-color">
+            {/* # ${!item.href.includes("course-info") ? `course-info/${item.href}` : item.href} */}
             <MenuItem className=" block items-center gap-3 rounded-lg  " style={{ marginTop: 10, marginBottom: 10 }}>
                <div className=" block float-right ">
                   <Typography color="white" className="block items-center  text-[16px] text-white text-items py-2.5" style={{ fontFamily: "danaMedium" }}>

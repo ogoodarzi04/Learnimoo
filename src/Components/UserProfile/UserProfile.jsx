@@ -53,7 +53,7 @@ export default function UserProfile(props) {
                      </div>
                      <Card className="w-[278px] pb-8 rounded-[12px] bg-header-color dark:bg-white dark:!text-black">
                         <List className=" danaMedium text-[16px] space-y-1.5 ">
-                           <Link to={"https://learnimoo.filedl.me/my-account"} className="text-initial px-6  dark:!border-t-gray-200 " style={{ borderTop: "1px solid #ffffff0d" }}>
+                           <Link to={"/my-account"} className="text-initial px-6  dark:!border-t-gray-200 " style={{ borderTop: "1px solid #ffffff0d" }}>
                               <ListItem className=" mt-3 dark:!text-black ">
                                  <div className=" ps-3.5 flex  gap-x-3.5 py-3 ">
                                     <AiOutlineHome style={{ fontSize: 23 }} />
@@ -61,7 +61,7 @@ export default function UserProfile(props) {
                                  </div>
                               </ListItem>
                            </Link>
-                           <Link to={"https://learnimoo.filedl.me/my-account/courses"} className="text-initial px-6">
+                           <Link to={"/my-account/courses"} className="text-initial px-6">
                               <ListItem>
                                  <div className=" ps-3.5 flex  gap-x-3.5 py-3 dark:!text-black">
                                     <BsFolder2Open style={{ fontSize: 23 }} />
@@ -69,7 +69,7 @@ export default function UserProfile(props) {
                                  </div>
                               </ListItem>
                            </Link>
-                           <Link to={"https://learnimoo.filedl.me/my-account/tickets"} className="text-initial px-6">
+                           <Link to={"/my-account/tickets"} className="text-initial px-6">
                               <ListItem>
                                  <div className=" ps-3.5 flex  gap-x-3.5 py-3 dark:!text-black">
                                     <HiOutlineChatBubbleLeftRight style={{ fontSize: 23 }} />
@@ -77,7 +77,7 @@ export default function UserProfile(props) {
                                  </div>
                               </ListItem>
                            </Link>
-                           <Link to={"https://learnimoo.filedl.me/my-account/edit-account"} className="text-initial px-6 dark:!border-b-gray-200" style={{ borderBottom: "1px solid #ffffff0d" }}>
+                           <Link to={"/my-account/edit-account"} className="text-initial px-6 dark:!border-b-gray-200" style={{ borderBottom: "1px solid #ffffff0d" }}>
                               <ListItem className=" mb-3  dark:!text-black">
                                  <div className=" ps-3.5 flex  gap-x-3.5 py-3">
                                     <HiOutlineUser style={{ fontSize: 23 }} />

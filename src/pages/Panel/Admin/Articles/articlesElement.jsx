@@ -133,7 +133,7 @@ export default function ArticlesElement({ isAddNewCmp }) {
          <div className="  md:px-20 pb-24">
             {isAddNewCmp && (
                <AddNewProduct title={"افزودن مقاله جدید"}>
-                  <div className=" grid md:grid-cols-2 p-4 gap-x-20 cursor-pointer !text-gray-400">
+                  <div className=" grid md:grid-cols-2 md:p-4 md:gap-x-20 cursor-pointer !text-gray-400">
                      <div className=" Name-Product relative space-y-2.5 h-[43px] my-[10px] rounded-lg " style={{ borderBottom: "1px solid #ffffff" }}>
                         <Input
                            placeholder="نام مقاله را وارد کنید"

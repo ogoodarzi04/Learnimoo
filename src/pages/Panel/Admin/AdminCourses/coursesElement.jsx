@@ -147,7 +147,7 @@ export default function CoursesElement({ isAddNewCmp }) {
          <div className="   md:px-20 pb-24">
             {isAddNewCmp && (
                <AddNewProduct title={"افزودن دوره جدید"}>
-                  <div className=" grid md:grid-cols-2 p-4 gap-x-20 cursor-pointer !text-gray-400">
+                  <div className=" space-y-14 md:space-y-10 md:grid md:grid-cols-2 p-4 md:gap-x-20 cursor-pointer !text-gray-400">
                      <div className=" Name-Product relative space-y-2.5 h-[43px] rounded-lg " style={{ borderBottom: "1px solid #ffffff" }}>
                         <Input
                            placeholder="نام دوره را وارد کنید"
@@ -161,7 +161,7 @@ export default function CoursesElement({ isAddNewCmp }) {
                         />
                         <ModeEditOutlineOutlinedIcon className=" icon-products absolute left-4 top-3" style={{ fontSize: 17 }} />
                      </div>
-                     <div className="Stock-Product   relative  space-y-2.5 h-[43px]  rounded-lg" style={{ borderBottom: "1px solid #ffffff" }}>
+                     <div className="Name-Product relative md:!mt-0 space-y-2.5 h-[43px] rounded-lg" style={{ borderBottom: "1px solid #ffffff" }}>
                         <Input
                            placeholder="قیمت دوره را وارد کنید"
                            element="input"
@@ -174,7 +174,6 @@ export default function CoursesElement({ isAddNewCmp }) {
                         />
                         <MdOutlineEmail className="icon-products absolute left-4 top-3 " style={{ fontSize: 17 }} />
                      </div>
-
                      <div className="Price-Product relative  my-[10px] space-y-2.5 h-[43px]  rounded-lg" style={{ borderBottom: "1px solid #ffffff" }}>
                         <Input
                            placeholder="لینک دوره را وارد کنید"
@@ -210,7 +209,7 @@ export default function CoursesElement({ isAddNewCmp }) {
                            })}
                         </select>
                      </div>
-                     <div className="Popularity-Product relative  my-[10px] space-y-2.5 h-[43px]  rounded-lg" style={{ borderBottom: "1px solid #ffffff" }}>
+                     <div className="Popularity-Product relative  md:my-[10px] space-y-2.5 h-[43px]  rounded-lg" style={{ borderBottom: "1px solid #ffffff" }}>
                         {" "}
                         <input
                            placeholder="عکس دوره مورد نظر را وارد کنید"
@@ -227,26 +226,6 @@ export default function CoursesElement({ isAddNewCmp }) {
                   <div className=" flex justify-between px-6">
                      <div className=" my-auto text-white">
                         <span className=" danaBold"></span>
-                        {/* <div className="ChekBox flex gap-x-5 ">
-                           <div className=" flex">
-                              <span className=" my-auto">پیش فروش</span>
-                              <Checkbox
-                                 value={"start"}
-                                 color="green"
-                                 ripple={false}
-                                 className=" my-auto h-7 w-7 rounded-full border-gray-900/20 bg-gray-900/10 transition-all hover:scale-105 hover:before:opacity-0"
-                              />
-                           </div>
-                           <div className=" flex">
-                              <span className=" my-auto">در حال برگزاری</span>
-                              <Checkbox
-                                 value={"start"}
-                                 color="green"
-                                 ripple={false}
-                                 className=" my-auto h-7 w-7 rounded-full border-gray-900/20 bg-gray-900/10 transition-all hover:scale-105 hover:before:opacity-0"
-                              />
-                           </div>
-                        </div> */}
                      </div>
                      <button className="search-btnd px-4 py-2.5 mt-28 h-[44px] text-black text-[18px] " onClick={AddProducts}>
                         <span className=" danaDemiBold my-auto">ثبت محصول</span>

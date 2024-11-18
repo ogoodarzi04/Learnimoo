@@ -2,7 +2,6 @@ import React from "react";
 
 export default function Error() {
    const initialTheme = localStorage.getItem("theme");
-   console.log(initialTheme);
    return (
       <div>
          <div className="hidden lg:block absolute top-0 left-0 w-[300px] h-[300px] bg-sabz-color opacity-30 blur-[120px] rounded-full"></div>

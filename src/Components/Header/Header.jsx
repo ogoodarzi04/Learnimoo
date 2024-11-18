@@ -59,19 +59,19 @@ export default function Header() {
       <>
          <header className={` overflow-hidden bg-header-color dark:bg-white text-white dark:!text-text-gray-color`}>
             <div className="Wrapp-Header w-full flex justify-between lg:py-[23.5px] py-[17px]  px-7 lg:px-0">
-               <button
-                  className=" px-4  lefSide-icons bg-icon-color flex  lg:hidden dark:bg-light-theme-color"
+               <Button
+                  className=" px-10  lefSide-icons bg-icon-color flex  lg:hidden dark:bg-light-theme-color"
                   onClick={() => {
                      setShowSideBar(true);
                   }}
                >
                   <MenuIcon style={{ fontSize: 23 }} />
-               </button>
+               </Button>
                <div className=" Right-side flex mx-auto  w-full gap-x-10 ">
                   <div className="logo-img md:ms-20 my-auto block w-full md:w-max">
-                     <a href={"https://learnimoo.filedl.me/"}>
+                     <Link to={"/"}>
                         <img src="/images/slazzer-edit-image (2)_prev_ui.png" alt="" className=" h-[55px] w-[85px] mx-auto md:mx-0" />
-                     </a>
+                     </Link>
                   </div>
                   <div className="Navbar  my-auto gap-x-3  hidden lg:flex">
                      {post.map((item) => {
@@ -87,7 +87,7 @@ export default function Header() {
                               { href: "/blog/category/how-much-js-to-start-react", title: "برای یادگیری ری‌اکت چقدر باید جاوا اسکریپت بلد باشیم؟" },
                               { href: "/blog/category/date-in-js", title: "ترفند های تاریخ و زمان در جاوا اسکریپت" },
                               { href: "/blog/category/why-angular-in-not-popular", title: "چرا انگیولار محبوب نشد؟" },
-                              { href: "/blog/category/vue-or-react", title: "مقایسه ویو و ری اکت" },
+                              { href: "/blog/category/vue-or-react", title: "مقایسه ری اکت و ری اکت" },
                            ]}
                            key={8}
                            href={`blog`}

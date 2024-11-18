@@ -139,8 +139,8 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
          <div className="   md:px-20 pb-24">
             {isAddNewCmp && (
                <AddNewProduct title={"افزودن کاربر جدید"}>
-                  <div className=" grid md:grid-cols-2 p-4 gap-x-20 cursor-pointer !text-gray-400">
-                     <div className=" Name-Product relative space-y-2.5 h-[43px] rounded-lg " style={{ borderBottom: "1px solid #ffffff" }}>
+                  <div className=" grid md:grid-cols-2 p-4 gap-x-20 cursor-pointer !text-gray-400 space-y-14 md:space-y-10">
+                     <div className=" Name-Product relative  space-y-2.5 h-[43px] rounded-lg " style={{ borderBottom: "1px solid #ffffff" }}>
                         <Input
                            placeholder="نام و نام خانوادگی کاربر را وارد کنید"
                            element="input"
@@ -153,7 +153,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
                         />
                         <ModeEditOutlineOutlinedIcon className=" icon-products absolute left-4 top-3" style={{ fontSize: 17 }} />
                      </div>
-                     <div className="Stock-Product   relative  space-y-2.5 h-[43px]  rounded-lg" style={{ borderBottom: "1px solid #ffffff" }}>
+                     <div className="Stock-Product  md:!mt-0 relative  space-y-2.5 h-[43px]  rounded-lg" style={{ borderBottom: "1px solid #ffffff" }}>
                         <Input
                            placeholder="ایمیل کاربر را وارد کنید"
                            element="input"
@@ -265,7 +265,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
                            const isLast = index + 1 === post?.lastUsers?.length - 1;
                            const classes = isLast ? " " : "";
                            return (
-                              <tr key={item?.name} className={`${banItems.includes(item?._id) && "opacity-20"} text-gray-200 text-right `} style={{ borderTop: "1px solid #424242" }}>
+                              <tr key={item?.name} className={`${banItems.includes(item?._id) && "opacity-20"} text-gray-200 text-righ `} style={{ borderTop: "1px solid #424242" }}>
                                  <td className={classes}>
                                     <div className="flex items-center pe-44 ">
                                        <div className="flex flex-col">
@@ -308,7 +308,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
                                     </div>
                                  </td>
                                  <td className={classes}>
-                                    <div className="flex flex-col">
+                                    <div className="flex flex-col me-11">
                                        <Typography variant="small" className="font-normal">
                                           {item?.role}
                                        </Typography>
@@ -321,7 +321,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
                                           ChangeUserRole(item._id), setUserRole((prev) => !prev);
                                        }}
                                     >
-                                       <Button className=" search-btnd danaDemiBold !text-2xl !rounded-3xl">
+                                       <Button className="  search-btnd danaDemiBold !text-2xl !rounded-3xl">
                                           <span className=" text-black danaDemiBold font-bold">تغییر نقش</span>
                                        </Button>
                                     </div>

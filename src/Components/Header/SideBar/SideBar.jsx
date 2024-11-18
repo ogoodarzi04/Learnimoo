@@ -16,6 +16,8 @@ import { Context } from "../../../contexts/Context";
 import { sideBarUserMenus } from "../../../datas";
 //
 import { sideBarMenus } from "../../../datas";
+import SideBarUser from "../../../pages/Panel/Components/SideBarUser/SideBarUser";
+import SideBarAdmin from "../../../pages/Panel/Components/SideBarAdmin/SideBarAdmin";
 //
 export function SideBar(props) {
    const [searchInputValue, setSearchInputValue] = useState("");
@@ -43,15 +45,45 @@ export function SideBar(props) {
    return ReactDom.createPortal(
       <>
          <div className="SortingCourseModal ">
-            <Drawer open={open} placement="right" className={` dark:bg-white px-[17px] ${!props.isShowUserSideBar ? "bg-header-color" : "  bg-[rgb(40,41,61)]"}`}>
-               {!props.isShowUserSideBar ? (
+            <Drawer
+               open={open}
+               placement="right"
+               className={` dark:bg-white px-[17px] ${props.isShowUserSideBar ? "bg-[rgb(40,41,61)]" : props.isShowAdminSideBar ? "bg-[#111219]" : "bg-header-color"}`}
+            >
+               {props.isShowUserSideBar ? (
+                  <SideBarUser
+                     hiddenStyle={
+                        <div className=" relative w-full ">
+                           <button
+                              className="  absolute left-3  rounded-full p-3 bg-icon-color text-white flex dark:bg-light-theme-color dark:!text-text-gray-color"
+                              onClick={() => props.setShowSideBar(false)}
+                           >
+                              <CloseIcon style={{ fontSize: 25 }} />
+                           </button>
+                        </div>
+                     }
+                  />
+               ) : props.isShowAdminSideBar ? (
+                  <SideBarAdmin
+                     hiddenStyle={
+                        <div className=" relative w-full ">
+                           <button
+                              className="  absolute left-3  rounded-full p-3 bg-icon-color text-white flex dark:bg-light-theme-color dark:!text-text-gray-color"
+                              onClick={() => props.setShowSideBar(false)}
+                           >
+                              <CloseIcon style={{ fontSize: 25 }} />
+                           </button>
+                        </div>
+                     }
+                  />
+               ) : (
                   <div>
                      <div className="mb-2  flex items-center justify-between py-[20px] dark:!border-gray-300" style={{ borderBottom: "0.5px solid #ffffff1a" }}>
                         <Typography>
                            <div className="logo-img  mt-2.5  ">
-                              <a href={"https://learnimoo.filedl.me/"}>
+                              <Link to={"/"}>
                                  <img src="/images/slazzer-edit-image (2)_prev_ui.png" alt="" style={{ width: "7rem" }} />
-                              </a>
+                              </Link>
                            </div>
                         </Typography>
                         <div className=" flex gap-x-5">
@@ -97,7 +129,7 @@ export function SideBar(props) {
                                     { href: "/blog/category/how-much-js-to-start-react", title: "برای یادگیری ری‌اکت چقدر باید جاوا اسکریپت بلد باشیم؟" },
                                     { href: "/blog/category/date-in-js", title: "ترفند های تاریخ و زمان در جاوا اسکریپت" },
                                     { href: "/blog/category/why-angular-in-not-popular", title: "چرا انگیولار محبوب نشد؟" },
-                                    { href: "/blog/category/vue-or-react", title: "مقایسه ویو و ری اکت" },
+                                    { href: "/blog/category/vue-or-react", title: "مقایسه ری اکت و ری اکت" },
                                  ]}
                                  key={8}
                                  href={`blog`}
@@ -106,119 +138,64 @@ export function SideBar(props) {
                         </div>
                      </div>
                   </div>
-               ) : props.isShowAdminSideBar ? (
-                  <div className="SideBar bg-[#111219] w-full !text-gray-400 dark:text-black !z-50" style={{ borderLeft: "2px solid #323232" }}>
-                     <div className="SideBar-title   ">
-                        <div className="logo-footer ps-14 py-[40px] flex gap-x-5">
-                           <div className="logo-img ">
-                              <img src="/images/slazzer-edit-image (2)_prev_ui.png" alt="" className=" md:h-[35px] md:w-[55px] h-[40px] w-[60px] " />
-                           </div>
-                           <div className="">
-                              <p className=" text-gray-200 danaMedium md:text-[25px] dark:!text-blue-gray-900">لرنیمو</p>
-                           </div>
-                        </div>
-                     </div>
-                     <p className=" ms-12 mt-12 text-[16.5px]">منو</p>
-                     <div className="SideBar-menu  py-[10px] mx-auto flex ">
-                        <ul className=" list-item  list-none   cursor-pointer mx-auto ">
-                           {sideBarMenus.map((item) => {
-                              return (
-                                 <li className=" mx-auto  flex ">
-                                    <Link to={`${item.path}`} className={`item ${location.pathname === item.path && "active-S"}  flex py-[16.5px]  rounded-xl gap-x-4 w-[265px] ps-8 !text-gray-400`}>
-                                       {item.icon}
-                                       <span>{item.title}</span>
-                                    </Link>
-                                 </li>
-                              );
-                           })}
-                        </ul>
-                     </div>
-                     <p className=" ms-12 mt-6 text-[16.5px]">سایر</p>
-                     <div className="SideBar-menu  py-[10px] mx-auto flex ">
-                        <ul className=" list-item  list-none cursor-pointer mx-auto ">
-                           <li className={` mx-auto flex `}>
-                              <Link
-                                 to={"discounts"}
-                                 className={`  ${location.pathname === "/p-admin/discounts" && "active-S"} item flex  py-[16.5px] w-[265px] ps-8 rounded-xl gap-x-4 !text-gray-400`}
-                              >
-                                 <RiLogoutCircleRLine className=" my-auto" />
-                                 <span className=" my-auto">تخفیف همگانی</span>
-                              </Link>
-                           </li>
-                           <li
-                              className=" mx-auto  flex mt-3 "
-                              onClick={() => {
-                                 setTimeout(() => {
-                                    navigate("/");
-                                    userDatas.logout();
-                                 }, 1500);
-                              }}
-                           >
-                              <Link className="item flex  py-[16.5px] w-[265px] ps-8 rounded-xl gap-x-4 !text-gray-400">
-                                 <RiLogoutCircleRLine className=" my-auto" />
-                                 <span className=" my-auto">خروج</span>
-                              </Link>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-               ) : (
-                  <div className="SideBar w-full !text-white dark:!text-black bg-[rgb(40,41,61)] dark:!bg-white">
-                     <div className="SideBar-title   ">
-                        <div className="logo-footer  py-[40px] flex gap-x-5 justify-between">
-                           <div className=" mt-2">
-                              <Link to={"https://learnimoo.filedl.me/"} className=" flex gap-x-3">
-                                 <div className="logo-img ">
-                                    <img src="/images/slazzer-edit-image (2)_prev_ui.png" alt="" className=" md:h-[60px] md:w-[80px] h-[40px] w-[60px] " />
-                                 </div>
-                                 <div className=" my-auto">
-                                    <p className=" text-white danaMedium md:text-[44px] text-[28px] dark:!text-blue-gray-900">لرنیمو</p>
-                                 </div>
-                              </Link>
-                           </div>
-                           <div className=" ">
-                              <button className=" lefSide-icons2 bg-icon-color text-white flex dark:bg-light-theme-color dark:!text-text-gray-color" onClick={() => props.setShowSideBar(false)}>
-                                 <CloseIcon style={{ fontSize: 25 }} />
-                              </button>
-                           </div>
-                        </div>
-                     </div>
-                     <div className="SideBar-user-menu  py-[10px]  flex ">
-                        <ul className=" list-item  list-none  text-[23px] cursor-pointer space-y-4">
-                           {sideBarUserMenus.map((item) => {
-                              return (
-                                 <li className=" mx-auto  flex ">
-                                    <Link
-                                       to={`${item.path}`}
-                                       className={`items ${location.pathname === item.path && "active-user-S"}  flex py-[5px]  rounded-xl gap-x-4 w-[219px]  text-white dark:!text-gray-900 ps-5`}
-                                    >
-                                       {item.icon}
-                                       <span className=" mt-1.5">{item.title}</span>
-                                    </Link>
-                                 </li>
-                              );
-                           })}
-                           <li
-                              className=" mx-auto  flex "
-                              onClick={() => {
-                                 setTimeout(() => {
-                                    navigate("/");
-                                    userDatas.logout();
-                                 }, 1500);
-                              }}
-                           >
-                              <Link className="items  flex py-[5px]  rounded-xl gap-x-4 w-[219px]  text-white dark:!text-gray-900 ps-5">
-                                 <RiLogoutCircleRLine className=" my-auto" />
-                                 <span className=" my-auto">خروج</span>
-                              </Link>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
                )}
             </Drawer>
          </div>
       </>,
       document.getElementById("SideBar")
    );
+}
+{
+   /* <div className="SideBar w-full !text-white dark:!text-black bg-[rgb(40,41,61)] dark:!bg-white">
+<div className="SideBar-title   ">
+   <div className="logo-footer  py-[40px] flex gap-x-5 justify-between">
+      <div className=" mt-2">
+         <Link to={"/"} className=" flex gap-x-3">
+            <div className="logo-img ">
+               <img src="/images/slazzer-edit-image (2)_prev_ui.png" alt="" className=" md:h-[60px] md:w-[80px] h-[40px] w-[60px] " />
+            </div>
+            <div className=" my-auto">
+               <p className=" text-white danaMedium md:text-[44px] text-[28px] dark:!text-blue-gray-900">لرنیمو</p>
+            </div>
+         </Link>
+      </div>
+      <div className=" ">
+         <button className=" lefSide-icons2 bg-icon-color text-white flex dark:bg-light-theme-color dark:!text-text-gray-color" onClick={() => props.setShowSideBar(false)}>
+            <CloseIcon style={{ fontSize: 25 }} />
+         </button>
+      </div>
+   </div>
+</div>
+<div className="SideBar-user-menu  py-[10px]  flex ">
+   <ul className=" list-item  list-none   cursor-pointer space-y-4">
+      {sideBarUserMenus.map((item) => {
+         return (
+            <li className=" mx-auto  flex ">
+               <Link
+                  to={`${item.path}`}
+                  className={`items ${location.pathname === item.path && "active-user-S"}  flex py-[5px]  rounded-xl gap-x-4 w-[219px]  text-white dark:!text-gray-900 ps-5`}
+               >
+                  {item.icon}
+                  <span className=" mt-1.5">{item.title}</span>
+               </Link>
+            </li>
+         );
+      })}
+      <li
+         className=" mx-auto  flex "
+         onClick={() => {
+            setTimeout(() => {
+               navigate("/");
+               userDatas.logout();
+            }, 1500);
+         }}
+      >
+         <Link className="items  flex py-[5px]  rounded-xl gap-x-4 w-[219px]  text-white dark:!text-gray-900 ps-5">
+            <RiLogoutCircleRLine className=" my-auto" />
+            <span className=" my-auto">خروج</span>
+         </Link>
+      </li>
+   </ul>
+</div>
+</div> */
 }

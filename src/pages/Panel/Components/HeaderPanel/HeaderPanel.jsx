@@ -4,8 +4,8 @@ import { RiNotification2Line } from "react-icons/ri";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { Context } from "../../../../contexts/Context";
 import NotifiCation from "../NotifiCation/NotifiCation";
-import { CiMenuFries } from "react-icons/ci";
-import SideBar from "../SideBar/SideBar";
+import { SideBar } from "../../../../Components/Header/SideBar/SideBar";
+import { SlMenu } from "react-icons/sl";
 //
 export default function Header(props) {
    const userDatas = useContext(Context);
@@ -15,7 +15,7 @@ export default function Header(props) {
       <>
          <div className={` relative ${props.mb}`}>
             <div className=" absolute  bg-cover top-0 left-0 w-full">
-               <svg className=" !w-full brightness-125" viewBox="0 0 1143 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <svg className=" !w-full brightness-125  " viewBox="0 0 1143 210" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_1_700)">
                      <path d="M0.486694 0.866669H1144.31V238.805H0.486694V0.866669Z" fill="black" />
                      <g filter="url(#filter0_f_1_700)">
@@ -34,22 +34,23 @@ export default function Header(props) {
                         <stop offset="1" stop-color="#00C9FF" />
                      </linearGradient>
                      <clipPath id="clip0_1_700">
-                        <rect className=" " width="1141.91" height={`${props.height}`} fill="white" transform="translate(0.486328 0.866669)" />
+                        <rect className={`  ${props.height === "90.315" ? "h-72  md:h-36" : ""}`} width="1141.91" height={`${props.height}`} fill="white" transform="translate(0.486328 0.866669)" />
                      </clipPath>
                   </defs>
                </svg>
             </div>
             <div className="Wrapp-Header  w-full flex justify-between md:py-[29px]">
                <div className=" Left-side-p  flex me-5 text-white gap-x-5">
-                  <button
-                     className=" md:!hidden flex lefSide-icons-p !bg-black/40 z-50 relative"
-                     onClick={() => {
-                        setShowSideBar(true);
-                     }}
-                  >
-                     <CiMenuFries className=" text-white" style={{ fontSize: 23 }} />
+                  <button className=" md:!hidden flex lefSide-icons-p !bg-black/40 z-50 relative">
+                     <SlMenu
+                        onClick={() => {
+                           setShowSideBar(true);
+                        }}
+                        className=" text-white"
+                        style={{ fontSize: 23 }}
+                     />
                   </button>
-                  <button className="   lefSide-icons-p !bg-black/40 z-50 relative">
+                  <button className=" lefSide-icons-p md:!mt-0 !bg-black/40 z-50 relative">
                      {userDatas?.userInfos?.notifications?.length > 0 ? <div className=" bg-red-500 size-[11px] z-50 rounded-full absolute right-[12px]"></div> : ""}
                      <NotifiCation notifs={userDatas?.userInfos?.notifications}>
                         <RiNotification2Line className=" text-white" style={{ fontSize: 23 }} />
@@ -68,7 +69,7 @@ export default function Header(props) {
                      <div className="admin-name  text-white">
                         <p className=" text-[21px] danaDemiBold">
                            {userDatas?.isLoggedIn && userDatas.userInfos?.name}
-                           <p className=" text-[14px] text-gray-300 ">ادمین</p>
+                           <p className=" text-[14px] text-black">ادمین</p>
                         </p>
                      </div>
                   </div>

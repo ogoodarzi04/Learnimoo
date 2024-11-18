@@ -98,7 +98,7 @@ export default function SessionsElement({ isAddNewCmp }) {
          <div className="  md:px-20 pb-24">
             {isAddNewCmp && (
                <AddNewProduct title={"افزودن قسمت جدید"}>
-                  <div className=" grid md:grid-cols-2 p-4 gap-x-20 cursor-pointer !text-gray-400">
+                  <div className=" md:space-y-10 space-y-14 md:grid md:grid-cols-2 md:p-4 md:gap-x-20 cursor-pointer !text-gray-400">
                      <div className=" Name-Product relative space-y-2.5 h-[43px] rounded-lg " style={{ borderBottom: "1px solid #ffffff" }}>
                         <Input
                            placeholder="نام جلسه را وارد کنید..."
@@ -125,7 +125,7 @@ export default function SessionsElement({ isAddNewCmp }) {
                         />
                         {/* <ModeEditOutlineOutlinedIcon className=" icon-products absolute left-4 top-3" style={{ fontSize: 17 }} /> */}
                      </div>
-                     <div className="Price-Product relative gap-x-3 my-[30px] space-y-2.5 h-[43px] flex">
+                     <div className="Price-Product relative gap-x-3 my-[30px] space-y-2.5 h-[43px] md:flex">
                         <p className=" my-auto">نام دوره</p>
                         <select onChange={(e) => setSessionCourse(e.target.value)} className=" bg-black " title="" id="" style={{ border: "1px solid #ffffff" }}>
                            <option value="-1">لطفا دوره مد نظر را انتخاب کنید</option>

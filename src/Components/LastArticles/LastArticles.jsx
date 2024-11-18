@@ -26,11 +26,13 @@ export default function LastArticles() {
                   color="bg-limon-color"
                   btnHref={"/blog"}
                   leftBtnText={
-                     <div className="md:hover:bg-limon-color dark:hover:bg-yellow-600 dark:hover:text-white  md:hover:text-gray-color rounded-full transition-colors gap-x-2 md:px-4 md:py-3.5">
-                        <span>
-                           مشاهده همه مقالات
-                           <KeyboardBackspaceIcon style={{ fontSize: 30 }} className=" me-3 " />
-                        </span>
+                     <div className="md:hover:bg-limon-color dark:hover:bg-yellow-600 dark:hover:text-white md:hover:text-black rounded-full transition-colors  md:px-4 md:py-3.5 flex gap-x-3">
+                        <div className=" my-auto">
+                           <span>مشاهده همه مقالات</span>
+                        </div>
+                        <div>
+                           <KeyboardBackspaceIcon style={{ fontSize: 30 }} className="  " />
+                        </div>
                      </div>
                   }
                />

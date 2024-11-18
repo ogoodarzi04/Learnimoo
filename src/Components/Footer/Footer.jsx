@@ -20,7 +20,7 @@ const SITEMAP = [
       widtht: "176",
       title: "دوره های پرطرفدار",
       links: [
-         { name: "آموزش ویو ", path: "/course-info/vuejs" },
+         { name: "آموزش ری اکت ", path: "/course-info/react.js" },
          { name: "آموزش جاوااسکریپت", path: "/course-info/js-20-lib" },
          { name: "آموزش Html", path: "/course-info/html" },
          { name: "آموزش Canvas", path: "/course-info/canvas" },
@@ -31,7 +31,7 @@ const SITEMAP = [
       title: "دسترسی سریع",
       links: [
          { name: "قوانین و مقررات", path: "/conditions" },
-         { name: "ارسال تیکت", path: "https://learnimoo.filedl.me/my-account/add_ticket" },
+         { name: "ارسال تیکت", path: "/my-account/add_ticket" },
          { name: "همه دوره ها", path: "/AllCourses" },
       ],
    },

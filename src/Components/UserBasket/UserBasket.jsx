@@ -62,7 +62,7 @@ export default function UserBasket(props) {
                                  return (
                                     <div>
                                        <div className="cart-item flex items-center gap-x-3 text-white dark:!text-black">
-                                          <Link to={`https://learnimoo.filedl.me/course-info/${item?.shortName}`} className="shrink-0 text-white dark:!text-black">
+                                          <Link to={`/course-info/${item?.shortName}`} className="shrink-0 text-white dark:!text-black">
                                              <img className=" h-24 aspect-video rounded-lg" src={`http://learnimoo.filedl.me/courses/covers/${item?.cover}`} alt={item?.name} />
                                           </Link>
                                           <div className="flex flex-col justify-between">
@@ -105,7 +105,7 @@ export default function UserBasket(props) {
                                  }
                               </div>
                            </div>
-                           <Link to={"https://learnimoo.filedl.me/cart"} className="w-full text-white dark:!text-black">
+                           <Link to={"cart"} className="w-full text-white dark:!text-black">
                               <button className=" h-[49px] bg-limon-color hover:opacity-75 px-7 w-full" style={{ borderRadius: " 30px" }}>
                                  <a href=" ">
                                     <div className=" text-[15px]  danaBold flex gap-x-4 mx-auto w-max">

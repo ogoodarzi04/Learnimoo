@@ -33,13 +33,13 @@ export default function Cart() {
       if (cartCourses?.length > 0) {
          setResultPrices(
             cartCourses.reduce((current, next) => {
-               return current + next.price;
+               return current + next?.price;
             }, 0)
          );
          setResultOffsPrices(
             cartCourses.reduce((current, next) => {
-               let percentPrice = (next.price * 5) / 100;
-               return current + next.price - percentPrice;
+               let percentPrice = (next?.price * 5) / 100;
+               return current + next?.price - percentPrice;
             }, 0)
          );
       }

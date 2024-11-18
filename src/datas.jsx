@@ -174,7 +174,7 @@ const noticePanelBox = [
       regress: "",
       progress: "4.8",
       svg: (
-         <svg className=" size-[175px] " viewBox="0 0 107 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <svg className=" md:size-[175px] size-[190px] pe-14 md:!pe-0" viewBox="0 0 107 39" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
                d="M1.62866 22.7746C7.50257 17.4702 13.3764 17.4702 19.0056 21.0065C24.8795 24.5427 33.861 10.3978 39.7349 22.7746C45.3641 35.1514 45.4077 22.8766 51.0369 33.4853C56.9108 44.094 58.0061 33.5793 63.88 19.4344C69.5091 5.28942 74.1763 25.5491 79.8054 9.63605C85.6793 -6.27701 99.527 6.86152 102.464 6.86152H105.401"
                stroke="url(#paint0_linear_1_797)"

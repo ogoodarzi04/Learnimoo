@@ -64,19 +64,23 @@ export default function HeaderUser() {
                   </span>
                </div>
                <div className=" Left-side-p  flex md:me-16 text-white md:gap-x-[28px] gap-x-6 md:mt-3">
-                  <Button className=" mt-2  lefSide-icons-p bg-[rgb(40,41,61)] dark:!bg-white z-50 relative !rounded-full md:!size-[58px] !size-[48px] ">
+                  <Button className=" mt-[1px]  lefSide-icons-p bg-[rgb(40,41,61)] dark:!bg-white z-50 relative !rounded-full md:!size-[58px] !size-[48px] ">
                      {userDatas?.userInfos?.notifications?.length > 0 ? <div className=" bg-red-500  z-50  "></div> : ""}
                      <NotifiCation notifs={userDatas?.userInfos?.notifications}>
                         <RiNotification2Line className=" ms-4 md:ms-[16px] text-[rgb(119,124,148)]" style={{ fontSize: 23 }} />
                      </NotifiCation>
                   </Button>
                   <Button
-                     className=" lefSide-icons bg-[rgb(40,41,61)] !rounded-full md:!size-[57px] !size-[48px]  flex text-[rgb(119,124,148)] dark:!text-text-gray-color dark:!bg-white"
+                     className=" relative lefSide-icons bg-[rgb(40,41,61)] !rounded-full md:!size-[57px] !size-[48px]  flex text-[rgb(119,124,148)] dark:!text-text-gray-color dark:!bg-white my-auto"
                      onClick={() => {
                         toggleTheme();
                      }}
                   >
-                     {theme === "dark" ? <DarkModeOutlinedIcon style={{ fontSize: 25 }} /> : <LuSun style={{ fontSize: 23 }} />}
+                     {theme === "dark" ? (
+                        <DarkModeOutlinedIcon className=" absolute inset-0 m-auto" style={{ fontSize: 25 }} />
+                     ) : (
+                        <LuSun style={{ fontSize: 23 }} className="absolute inset-0 m-auto" />
+                     )}
                   </Button>
                   <img src={`${userDatas?.userInfos?.profile ? userDatas?.userInfos?.profile : "/images/amir.jpg"}`} alt="" className=" md:!size-[58px] !size-[50px] rounded-full my-auto" />
                </div>

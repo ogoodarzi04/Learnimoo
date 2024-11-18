@@ -1,7 +1,7 @@
 import React, { lazy } from "react";
 import { useLocation, Outlet } from "react-router-dom";
 import Header from "../Components/HeaderPanel/HeaderPanel";
-import SideBar from "../Components/SideBar/SideBar";
+import SideBarAdmin from "../Components/SideBarAdmin/SideBarAdmin";
 //
 export default function Admin() {
    const location = useLocation();
@@ -21,8 +21,8 @@ export default function Admin() {
             className=" md:grid md:grid-cols-6   relative "
             dir="rtl"
          >
-            <div className=" col-span-1 flex sticky top-0">
-               <SideBar />
+            <div className=" col-span-1 md:flex hidden sticky top-0">
+               <SideBarAdmin />
             </div>
             <div className="md:col-span-5 ">
                {routeName ? <Header height={"90.315"} mb={" mb-[53px]"} /> : <Header height={"170.315"} mb={"mb-[0px]"} />}

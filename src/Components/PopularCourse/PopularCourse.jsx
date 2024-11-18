@@ -35,13 +35,13 @@ export default function PopularCourse(props) {
                leftBtnText={
                   <div className={` gap-x-6 flex ${props.msArrow}`}>
                      <div
-                        className={` ${props.roundedColor} prev cursor-pointer rounded-full py-[12px] px-4 md:hover:bg-limon-color dark:md:hover:!bg-yellow-600 dark:hover:text-white md:hover:text-gray-color transition-all dark:!border-yellow-600`}
+                        className={` ${props.roundedColor} prev cursor-pointer rounded-full py-[12px] px-4 md:hover:bg-limon-color dark:md:hover:!bg-yellow-600 dark:hover:text-white md:hover:text-black transition-all dark:!border-yellow-600`}
                         style={{ border: "1px solid rgb(255,235,59)" }}
                      >
                         <ArrowForwardIosIcon style={{ fontSize: 21 }} className={`${props.arrowStyle}`} />
                      </div>
                      <div
-                        className={` ${props.roundedColor} next cursor-pointer rounded-full py-[12px] px-4 md:hover:bg-limon-color dark:md:hover:!bg-yellow-600 dark:hover:text-white md:hover:text-gray-color  transition-all dark:!border-yellow-600`}
+                        className={` ${props.roundedColor} next cursor-pointer rounded-full py-[12px] px-4 md:hover:bg-limon-color dark:md:hover:!bg-yellow-600 dark:hover:text-white md:hover:text-black  transition-all dark:!border-yellow-600`}
                         style={{ border: "1px solid rgb(255,235,59)" }}
                      >
                         <ArrowBackIosNewIcon style={{ fontSize: 21 }} className={`${props.arrowStyle}`} />

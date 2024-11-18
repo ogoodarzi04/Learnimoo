@@ -9,7 +9,6 @@ import SkeletonLoader from "../SkeletonLoader/SkeletonLoader";
 import { MdOutlineGrade } from "react-icons/md";
 //
 export default function CourseCard({ name, creator, description, cover, courseAverageScore, discount, price, shortName, registers, isSlide, cardStyle, isUserPanelStyle, isPending }) {
-   console.log(cover);
    return (
       <>
          {cover ? (

@@ -110,7 +110,7 @@ export default function CategoryElement({ isAddNewCmp }) {
          <div className="  md:px-20 pb-24">
             {isAddNewCmp && (
                <AddNewProduct title={"افزودن دسته بندی جدید"}>
-                  <div className=" grid md:grid-cols-2 p-4 gap-x-20 cursor-pointer !text-gray-400">
+                  <div className=" grid md:grid-cols-2 p-4 gap-x-20 cursor-pointer !text-gray-400 space-y-14 md:space-y-10">
                      <div className=" Name-Product relative space-y-2.5 h-[43px] rounded-lg " style={{ borderBottom: "1px solid #ffffff" }}>
                         <Input
                            placeholder="نام دسته بندی را وارد کنید..."
@@ -124,7 +124,7 @@ export default function CategoryElement({ isAddNewCmp }) {
                         />
                         <ModeEditOutlineOutlinedIcon className=" icon-products absolute left-4 top-3" style={{ fontSize: 17 }} />
                      </div>
-                     <div className=" Name-Product relative space-y-2.5 h-[43px] rounded-lg " style={{ borderBottom: "1px solid #ffffff" }}>
+                     <div className=" Name-Product md:!mt-0 relative space-y-2.5 h-[43px] rounded-lg " style={{ borderBottom: "1px solid #ffffff" }}>
                         <Input
                            placeholder="نام کوتاه را وارد کنید..."
                            element="input"
