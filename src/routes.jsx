@@ -54,9 +54,9 @@ let routes = [
    {
       path: "/p-admin/*",
       element: (
-         <PrivatesPAdminRoutes>
-            <Admin />
-         </PrivatesPAdminRoutes>
+         // <PrivatesPAdminRoutes>
+         <Admin />
+         // </PrivatesPAdminRoutes>
       ),
       children: [
          { path: "", element: <MainAdmin /> },
