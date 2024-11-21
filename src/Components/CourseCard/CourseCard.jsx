@@ -36,9 +36,9 @@ export default function CourseCard({ name, creator, description, cover, courseAv
                               </div>
                               <div className=" flex ">
                                  {courseAverageScore &&
-                                    Array(5 - courseAverageScore)
-                                       .fill(0)
-                                       .map((item) => {
+                                    Array?.(5 - courseAverageScore)
+                                       ?.fill(0)
+                                       ?.map((item) => {
                                           return (
                                              <div className=" text-orange-500">
                                                 <MdOutlineGrade style={{ fontSize: 23 }} />
@@ -46,9 +46,9 @@ export default function CourseCard({ name, creator, description, cover, courseAv
                                           );
                                        })}
                                  {courseAverageScore &&
-                                    Array(courseAverageScore)
-                                       .fill(0)
-                                       .map((item) => {
+                                    Array?.(courseAverageScore)
+                                       ?.fill(0)
+                                       ?.map((item) => {
                                           return (
                                              <div className=" text-orange-500">
                                                 <GradeIcon style={{ fontSize: 23 }} />

@@ -73,7 +73,7 @@ export default function CourseCategory() {
    }, [post]);
    const filterCourses = () => {
       if (post.length > 0) {
-         let mainCourse = post.filter((category) => category.name.includes(categoryName));
+         let mainCourse = post?.filter((category) => category?.name?.includes(categoryName));
          setCourses(mainCourse);
       }
    };
@@ -94,7 +94,7 @@ export default function CourseCategory() {
    //
    useEffect(() => {
       if (filterSearchCourseParam) {
-         let mainSearch = orderCourses.filter((item) => item.name.toLowerCase().includes(searchInputCourse));
+         let mainSearch = orderCourses?.filter((item) => item?.name?.toLowerCase()?.includes(searchInputCourse));
          setOrderCourses(mainSearch);
       }
    }, [searchInputCourse, filterSearchCourseParam]);

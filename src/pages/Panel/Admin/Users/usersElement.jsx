@@ -265,7 +265,7 @@ export default function UsersElement({ isAddNewCmp, post, fetchData, titleHdr })
                            const isLast = index + 1 === post?.lastUsers?.length - 1;
                            const classes = isLast ? " " : "";
                            return (
-                              <tr key={item?.name} className={`${banItems.includes(item?._id) && "opacity-20"} text-gray-200 text-righ `} style={{ borderTop: "1px solid #424242" }}>
+                              <tr key={item?.name} className={`${banItems?.includes(item?._id) && "opacity-20"} text-gray-200 text-righ `} style={{ borderTop: "1px solid #424242" }}>
                                  <td className={classes}>
                                     <div className="flex items-center pe-44 ">
                                        <div className="flex flex-col">

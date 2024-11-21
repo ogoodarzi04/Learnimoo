@@ -63,7 +63,7 @@ export default function AllCourses() {
    //
    useEffect(() => {
       if (filterSearchCourseParam) {
-         let mainSearch = orderCourses.filter((item) => item.name.toLowerCase().includes(searchInputCourse));
+         let mainSearch = orderCourses?.filter((item) => item?.name?.toLowerCase()?.includes(searchInputCourse));
          setOrderCourses(mainSearch);
       }
    }, [searchInputCourse, filterSearchCourseParam]);

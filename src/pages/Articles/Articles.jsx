@@ -54,7 +54,7 @@ export default function Articles() {
    //
    useEffect(() => {
       if (filterSearchArticleParam) {
-         let mainSearch = orderArticles.filter((item) => item.title.toLowerCase().includes(searchInputArticle));
+         let mainSearch = orderArticles?.filter((item) => item?.title?.toLowerCase()?.includes(searchInputArticle));
          setOrderArticles(mainSearch);
       }
    }, [searchInputArticle, filterSearchArticleParam]);

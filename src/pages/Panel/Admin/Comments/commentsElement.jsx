@@ -134,7 +134,7 @@ export default function commentElement({ isAddNewCmp }) {
                            const isLast = index + 1 === post.length - 1;
                            const classes = isLast ? " " : "";
                            return (
-                              <tr key={item.title} className={`${banItems.includes(item?._id) && "opacity-20"} text-gray-200 text-right `} style={{ borderTop: "1px solid #424242" }}>
+                              <tr key={item.title} className={`${banItems?.includes(item?._id) && "opacity-20"} text-gray-200 text-right `} style={{ borderTop: "1px solid #424242" }}>
                                  <td className={classes}>
                                     <div className="flex items-center pe-20 ">
                                        <div className="flex flex-col">
@@ -152,18 +152,18 @@ export default function commentElement({ isAddNewCmp }) {
                                  </td>
                                  <td className=" py-14 relative ">
                                     <div className=" flex ">
-                                       {Array(5 - item.score)
-                                          .fill(0)
-                                          .map((item) => {
+                                       {Array?.(5 - item.score)
+                                          ?.fill(0)
+                                          ?.map((item) => {
                                              return (
                                                 <div className=" text-orange-500">
                                                    <MdOutlineGrade style={{ fontSize: 23 }} />
                                                 </div>
                                              );
                                           })}
-                                       {Array(item.score)
-                                          .fill(0)
-                                          .map((item) => {
+                                       {Array?.(item.score)
+                                          ?.fill(0)
+                                          ?.map((item) => {
                                              return (
                                                 <div className=" text-orange-500">
                                                    <GradeIcon style={{ fontSize: 23 }} />
