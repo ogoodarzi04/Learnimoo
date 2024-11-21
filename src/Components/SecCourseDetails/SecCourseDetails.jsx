@@ -74,7 +74,7 @@ export default function SecCourseDetails(props) {
                   {dataInfos?.userInfos?.courses?.find((item) => {
                      return item?._id === props?.courseDetails?._id;
                   }) ? (
-                     <Link to={`https://learnimoo.filedl.me/lesson/${props?.courseName}/${props?.sessions[0]?._id}`}>
+                     <Link to={`/lesson/${props?.courseName}/${props?.sessions[0]?._id}`}>
                         <button className=" h-[52px] bg-limon-color hover:opacity-75 px-20 w-full" style={{ borderRadius: " 30px" }}>
                            <div className="  font-danaBold flex gap-x-4 mx-auto w-max">
                               <span className="button-xl button-secondary text-[15px]  ">

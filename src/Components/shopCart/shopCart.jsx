@@ -34,7 +34,7 @@ export default function shopCart({ cartCourses }) {
                                           // onClick={(e) => DeleteCourse(item._id)}
                                           className=" text-white absolute text-3xl top-4 right-4 md:hidden block"
                                        />
-                                       <Link to={`https://learnimoo.filedl.me/course-info/${item?.shortName}`} className="shrink-0 flex text-white dark:!text-black">
+                                       <Link to={`/course-info/${item?.shortName}`} className="shrink-0 flex text-white dark:!text-black">
                                           <img className=" md:h-36 aspect-video rounded-[15px] md:rounded-[8px]" src={`http://learnimoo.filedl.me/courses/covers/${item?.cover}`} alt={item?.name} />
                                           <div className=" ms-8 my-auto hidden md:block">
                                              <p className="line-clamp-2 danaMedium text-2x !text-white dark:!text-black">{item?.name}</p>

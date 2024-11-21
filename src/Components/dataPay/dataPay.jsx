@@ -97,7 +97,7 @@ export default function dataPay({
                   />
                </div>
                <span className="text-sm xl:!text-[16px] md:text-gray-400 text-gray-500 select-none ">قوانین را مطالعه نموده ام.</span>
-               <Link to="https://learnimoo.filedl.me/conditions/" className="text-xs xl:text-xl text-blue-500 my-auto">
+               <Link to="/conditions/" className="text-xs xl:text-xl text-blue-500 my-auto">
                   <span className=" !mt-3">(مشاهده)</span>
                </Link>
             </div>

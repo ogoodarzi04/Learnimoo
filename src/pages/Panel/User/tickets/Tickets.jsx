@@ -11,7 +11,7 @@ export default function Tickets(props) {
          <div className=" flex justify-between">
             <UserPanelBoxDetails />{" "}
             <div className="  bg-[rgb(78,129,251)] flex   rounded-3xl md:px-8 items-center gap-x-2.5 md:gap-x-7 flex-grow md:flex-grow-0 w-max">
-               <Link to={`https://learnimoo.filedl.me/my-account/add_ticket`} className="flex  items-center gap-x-2.5 md:gap-x-7 flex-grow md:flex-grow-0 w-max ">
+               <Link to={`/add_ticket`} className="flex  items-center gap-x-2.5 md:gap-x-7 flex-grow md:flex-grow-0 w-max ">
                   <div>
                      <div className=" text-white m-auto">
                         <IoIosAddCircleOutline style={{ fontSize: 32 }} className=" m-auto " />
