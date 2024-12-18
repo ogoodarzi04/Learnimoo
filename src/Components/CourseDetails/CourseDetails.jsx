@@ -20,7 +20,7 @@ export default function CourseDetails({ courseDetails }) {
                      decoding="async"
                      loading="lazy"
                      className="alignnone wp-image-4534 rounded-2xl mb-[21px]"
-                     src={`http://learnimoo.filedl.me/courses/covers/${courseDetails.cover}`}
+                     src={`https://learnimo.liara.run/courses/covers/${courseDetails.cover}`}
                      alt=""
                      width="1143"
                      height="644"

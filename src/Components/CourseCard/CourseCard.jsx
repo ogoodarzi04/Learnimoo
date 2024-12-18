@@ -17,7 +17,7 @@ export default function CourseCard({ name, creator, description, cover, courseAv
                   <CardHeader floated={false} shadow={false} color="transparent" className="m-0 rounded-3xl cursor-pointer relative ">
                      {price === 0 ? "" : <div className=" bg-limon-color absolute rounded-full top-7 right-7 px-[12px] pt-1 pb-[1px] text-[14px]">{discount}%</div>}
 
-                     <img src={`http://learnimoo.filedl.me/courses/covers/${cover}`} className="  bg-cover size-full" alt="ui/ux review check" />
+                     <img src={`https://learnimo.liara.run/courses/covers/${cover}`} className="  bg-cover size-full" alt="ui/ux review check" />
                   </CardHeader>
                   <CardBody className=" text-right ">
                      <Typography color="white" className=" text-[16.5px] danaDemiBold line-clamp-2 mb-4 text-white dark:!text-black ">
@@ -73,7 +73,7 @@ export default function CourseCard({ name, creator, description, cover, courseAv
                               {price > 0 && <p className="  opacity-70 line-through text-sm text-white dark:!text-black ">{price.toLocaleString()}</p>}
                               <p className=" text-limon-color font-bold flex" style={{ fontSize: 16.5 }}>
                                  {price === 0 ? "رایگان" : (price - (price * discount) / 100).toLocaleString()}
-                                 {price > 0 && <img className=" !size-8 flex !text-white" src="http://learnimoo.filedl.me/courses/covers/Toman.png" alt="" />}
+                                 {price > 0 && <img className=" !size-8 flex !text-white" src="https://learnimo.liara.run/courses/covers/Toman.png" alt="" />}
                               </p>
                            </div>
                         </>

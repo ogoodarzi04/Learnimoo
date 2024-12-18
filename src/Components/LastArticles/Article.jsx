@@ -18,7 +18,7 @@ export default function Article({ title, description, cover, creator, updatedAt,
                   shadow={false}
                   color="transparent"
                   className={`absolute  inset-0 m-0  h-[55%]   rounded-none bg-cover bg-center  `}
-                  style={{ backgroundImage: `url(http://learnimoo.filedl.me/courses/covers/${cover})` }}
+                  style={{ backgroundImage: `url(https://learnimo.liara.run/courses/covers/${cover})` }}
                >
                   <div className="to-bg-black-10   absolute inset-0 h-full w-full bg-gradient-to-t from-header-color/100 dark:from-white via-header-color/50 " />
                </CardHeader>

@@ -272,7 +272,7 @@ export default function CoursesElement({ isAddNewCmp }) {
                                           {item?.cover ? (
                                              <div className=" size-max flex ">
                                                 {" "}
-                                                <Avatar className=" scale-[0.6] " src={`http://learnimoo.filedl.me/courses/covers/${item?.cover}`} alt={item.name} />
+                                                <Avatar className=" scale-[0.6] " src={`https://learnimo.liara.run/courses/covers/${item?.cover}`} alt={item.name} />
                                              </div>
                                           ) : (
                                              <FaUserCircle className=" me-3 scale-[1.1] mt-[1.5px] " />
